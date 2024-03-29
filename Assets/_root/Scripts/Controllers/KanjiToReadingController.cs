@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Random = System.Random;
 
 namespace TestSpace
@@ -14,17 +15,19 @@ namespace TestSpace
     public class KanjiToReadingController : IController
     {
         private KanjiToReadingPanelView _kanjiToReadingPanelView;
-        private KanjiSO[] _kanjiArr;
+        private KanjiSO[] _allKanjiArr;
+        private List<string> _knownKanjiList = new List<string>();
         private int _testLength;
         private int _currentTestQuestion;
         private List<int> _testedKanjiNumbers = new List<int>();
         private Random _random = new Random();
 
-        public KanjiToReadingController(KanjiToReadingPanelView kanjiToReadingPanelView, KanjiSO[] kanjiArr)
+        public KanjiToReadingController(KanjiToReadingPanelView kanjiToReadingPanelView, KanjiSO[] kanjiArr, List<string> knownKanjiList)
         {
             _kanjiToReadingPanelView = kanjiToReadingPanelView;
+            _knownKanjiList = knownKanjiList;
             _kanjiToReadingPanelView.OnNextKanji += NextKanji;
-            _kanjiArr = kanjiArr;
+            _allKanjiArr = kanjiArr;
         }
 
         public void Init()
@@ -36,29 +39,30 @@ namespace TestSpace
         }
 
         public void SetTestLength(int testLength) => _testLength = testLength;
+        public void SetKnownKanji(List<string> knownKanjiList) => _knownKanjiList = knownKanjiList;
 
         private KanjiToReadingStruct NextKanji()
         {
             int newKanjiNum;
+
             do
             {
-                newKanjiNum = _random.Next(_kanjiArr.Length);
+                newKanjiNum = _random.Next(_knownKanjiList.Count);
             } while (_testedKanjiNumbers.Contains(newKanjiNum));
 
-            if (_kanjiArr.Length >= _testLength)
-                _testedKanjiNumbers.Add(newKanjiNum);
-
+            _testedKanjiNumbers.Add(newKanjiNum);
             _currentTestQuestion++;
-            return GetNextKanji(newKanjiNum);
+            return GetNextKanji(_knownKanjiList[newKanjiNum]);
         }
 
-        private KanjiToReadingStruct GetNextKanji(int index)
+        private KanjiToReadingStruct GetNextKanji(string kanjiName)
         {
+            int index = _allKanjiArr.Select((kanji, index)=> new { kanji, index }).Where(k => k.kanji.Kanji == kanjiName).FirstOrDefault().index;
             KanjiToReadingStruct kanji = new KanjiToReadingStruct()
             {
-                KanjiText = _kanjiArr[index].Kanji,
-                UpperReadingText = _kanjiArr[index].UpperReading,
-                LowerReadingText = _kanjiArr[index].LowerReading,
+                KanjiText = _allKanjiArr[index].Kanji,
+                UpperReadingText = _allKanjiArr[index].UpperReading,
+                LowerReadingText = _allKanjiArr[index].LowerReading,
                 IsLast = _testLength == _currentTestQuestion
             };
             return kanji;

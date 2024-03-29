@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TestSpace
 {
@@ -9,21 +10,53 @@ namespace TestSpace
         private List<string> _knownKanjiList = new();
         private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
 
-        public List<string> KnownKanjiList { get => _knownKanjiList; private set => _knownKanjiList = value; }
-        public (int oralQuestionsNum, int writingQuestionsNum) QuestionsNum { get => _questionsNum; private set => _questionsNum = value; }
+        public List<string> KnownKanjiList
+        {
+            get => _knownKanjiList; 
+            private set
+            {
+                _knownKanjiList = value;
+                OnKnownKanjiChange?.Invoke(KnownKanjiList);
+            }
+        }
+        public (int oralQuestionsNum, int writingQuestionsNum) QuestionsNum
+        {
+            get => _questionsNum; 
+            private set
+            {
+                if (_questionsNum.oralQuestionsNum != value.oralQuestionsNum)
+                    OnOralQuestionsChange?.Invoke(value.oralQuestionsNum);
 
+                if (_questionsNum.writingQuestionsNum != value.writingQuestionsNum)
+                    OnWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
+
+                _questionsNum = value;
+            }
+        }
+
+        public event Action<List<string>> OnKnownKanjiChange;
+        public event Action<int> OnOralQuestionsChange;
+        public event Action<int> OnWritingQuestionsChange;
 
         public LoadSaveController()
         {
-            _knownKanjiList = _loadSaveModel.LoadKnownKanji();
-            _questionsNum = _loadSaveModel.LoadQuestionsNumber();
+            KnownKanjiList = _loadSaveModel.LoadKnownKanji();
+            QuestionsNum = _loadSaveModel.LoadQuestionsNumber();
         }
 
-        public void UpdateKnownKanji(List<string> kanjiList) => _knownKanjiList = kanjiList;
+        public void UpdateKnownKanji(List<string> kanjiList) => KnownKanjiList = kanjiList;
 
-        public void UpdateOralQuestionsNum(int oralQuestions) => _questionsNum.oralQuestionsNum = oralQuestions;
+        public void UpdateOralQuestionsNum(int oralQuestions)
+        {
+            _questionsNum.oralQuestionsNum = oralQuestions;
+            OnOralQuestionsChange?.Invoke(oralQuestions);
+        }
 
-        public void UpdateWritingQuestionsNum(int writingQuestions) => _questionsNum.writingQuestionsNum = writingQuestions;
+        public void UpdateWritingQuestionsNum(int writingQuestions)
+        {
+            _questionsNum.writingQuestionsNum = writingQuestions;
+            OnWritingQuestionsChange?.Invoke(writingQuestions);
+        }
 
         public void Destroy()
         {

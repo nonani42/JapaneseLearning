@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d2c03e186c3804d922e9e7c19a74fd, type: 3}
+  m_Name: "\u8033SO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: "\u8033"
+  <Strokes>k__BackingField: 6
+  <UpperReading>k__BackingField: "\u30B8"
+  <LowerReading>k__BackingField: "\u307F\u307F"
+  <MeaningEng>k__BackingField: ear
+  <MeaningRus>k__BackingField: "\u0443\u0445\u043E"
+  <StrokeOrder>k__BackingField: {fileID: 0}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - <Example>k__BackingField: "\u8033(\u307F\u307F)"
+    <TranslationEng>k__BackingField: an ear
+    <TranslationRus>k__BackingField: "\u0443\u0445\u043E"
+  - <Example>k__BackingField: "\u8033\u9F3B\u79D1(\u3058\u30FB\u3073\u30FB\u304B)"
+    <TranslationEng>k__BackingField: study of the nose and ears (otorhinology)
+    <TranslationRus>k__BackingField: "\u043E\u0442\u043E\u043B\u0430\u0440\u0438\u043D\u0433\u043E\u043B\u043E\u0433\u0438\u044F"

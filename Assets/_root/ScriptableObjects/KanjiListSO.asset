@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d304f325eeb94499ac771c7fafe3f0, type: 3}
+  m_Name: KanjiListSO
+  m_EditorClassIdentifier: 
+  <KanjiList>k__BackingField:
+  - {fileID: 11400000, guid: 5864920726fc16b49a5ce14f1ad339f8, type: 2}
+  - {fileID: 11400000, guid: 978821b0c2f0e3540b636224bede525b, type: 2}
+  - {fileID: 11400000, guid: d81f56629b808a04b9b6853638813635, type: 2}
+  - {fileID: 11400000, guid: 0d6e1b2077850014e9d9036339f24c5d, type: 2}
+  - {fileID: 11400000, guid: 52ff95a84acfe6248bbb5087d1ccec5f, type: 2}

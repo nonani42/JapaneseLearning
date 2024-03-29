@@ -12,11 +12,23 @@ namespace TestSpace
         [SerializeField] private KanjiToMeaningPanelView _kanjiToMeaningPanelView;
 
         private List<IController> _controllers = new List<IController>();
+        private LoadSaveController _loadSaveController;
         private KanjiListController _kanjiListController;
         private KanjiToReadingController _kanjiToReadingController;
-        private List<string> _knownKanjiList = new();
-        private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
-        private LoadSaveModel _loadSaveModel = new();
+
+        internal LoadSaveController LoadSaveController
+        {
+            get
+            {
+                if (_loadSaveController == null)
+                {
+                    _loadSaveController = new LoadSaveController();
+                    _controllers.Add(_loadSaveController);
+                }
+                return _loadSaveController;
+            }
+            set => _loadSaveController = value;
+        }
 
         internal KanjiListController KanjiListController 
         { 
@@ -24,14 +36,14 @@ namespace TestSpace
             {
                 if (_kanjiListController == null)
                 {
-                    _kanjiListController = new KanjiListController(_kanjiPanelView, _allKanjiList.KanjiList);
+                    _kanjiListController = new KanjiListController(_kanjiPanelView, _allKanjiList.KanjiList, LoadSaveController.KnownKanjiList);
                     _controllers.Add(_kanjiListController);
                 }
                 return _kanjiListController;
             } 
             set => _kanjiListController = value; }
 
-        public KanjiToReadingController KanjiToReadingController 
+        internal KanjiToReadingController KanjiToReadingController 
         { 
             get 
             {
@@ -48,10 +60,7 @@ namespace TestSpace
         private void Start()
         {
             Subscribe();
-            GetKnownKanji(_loadSaveModel.LoadKnownKanji());
-            _questionsNum = _loadSaveModel.LoadQuestionsNumber();
-            _choosingPanelView.Init(_knownKanjiList.Count, _questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
-
+            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum);
             SetStartingView();
         }
 
@@ -67,24 +76,8 @@ namespace TestSpace
             _kanjiToMeaningPanelView.Hide();
         }
 
-        private void GetKnownKanji(List<string> kanjiList)
-        {
-            _knownKanjiList = kanjiList;
-        }
-
-        private void GetOralQuestions(int oralQuestions)
-        {
-            _questionsNum.oralQuestionsNum = oralQuestions;
-        }
-
-        private void GetWritingQuestions(int writingQuestions)
-        {
-            _questionsNum.writingQuestionsNum = writingQuestions;
-        }
-
         private void OnDestroy()
         {
-            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
             Unsubscribe();
 
             for (int i = 0; i < _controllers.Count; i++)
@@ -102,10 +95,10 @@ namespace TestSpace
             _choosingPanelView.SubscribeToReadingButton(CreateReadingController);
             _choosingPanelView.SubscribeToMeaningButton(_kanjiToMeaningPanelView.Show);
             KanjiListController.OnKnownKanjiListUpdate += _choosingPanelView.OnKnownKanjiChange;
-            KanjiListController.OnKnownKanjiListUpdate += GetKnownKanji;
+            KanjiListController.OnKnownKanjiListUpdate += LoadSaveController.UpdateKnownKanji;
             _choosingPanelView.SubscribeOralQuestionsChange(KanjiToReadingController.SetTestLength);
-            _choosingPanelView.SubscribeOralQuestionsChange(GetOralQuestions);
-            _choosingPanelView.SubscribeWritingQuestionsChange(GetWritingQuestions);
+            _choosingPanelView.SubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
+            _choosingPanelView.SubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
         }
 
         private void Unsubscribe()
@@ -114,10 +107,10 @@ namespace TestSpace
             _kanjiToReadingPanelView.OnBack -= SetStartingView;
             _kanjiToMeaningPanelView.OnBack -= SetStartingView;
             KanjiListController.OnKnownKanjiListUpdate -= _choosingPanelView.OnKnownKanjiChange;
-            KanjiListController.OnKnownKanjiListUpdate -= GetKnownKanji;
+            KanjiListController.OnKnownKanjiListUpdate -= LoadSaveController.UpdateKnownKanji;
             _choosingPanelView.UnsubscribeOralQuestionsChange(KanjiToReadingController.SetTestLength);
-            _choosingPanelView.UnsubscribeOralQuestionsChange(GetOralQuestions);
-            _choosingPanelView.UnsubscribeWritingQuestionsChange(GetWritingQuestions);
+            _choosingPanelView.UnsubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
+            _choosingPanelView.UnsubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
         }
     }
 }

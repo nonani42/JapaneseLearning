@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace TestSpace
 {
@@ -10,14 +9,14 @@ namespace TestSpace
         private KanjiSO[] _kanjiArr;
         private List<string> _knownKanjiList = new List<string>();
         private Dictionary<string, bool> _kanjiDictionary = new Dictionary<string, bool>();
-        private LoadSaveModel _loadSaveModel = new LoadSaveModel();
 
         public event Action<List<string>> OnKnownKanjiListUpdate;
 
-        public KanjiListController(KanjiListPanelView kanjiListPanelView, KanjiSO[] kanjiArr)
+        public KanjiListController(KanjiListPanelView kanjiListPanelView, KanjiSO[] kanjiArr, List<string> knownKanjiList)
         {
             _kanjiListPanelView = kanjiListPanelView;
             _kanjiArr = kanjiArr;
+            _knownKanjiList = knownKanjiList;
             _kanjiListPanelView.OnSelectionChanged += ChangeKnownKanji;
             _kanjiListPanelView.OnBack += GoBackToMenu;
         }
@@ -31,7 +30,6 @@ namespace TestSpace
 
         private void FillKanjiList()
         {
-            _knownKanjiList = _loadSaveModel.LoadKnownKanji();
             _kanjiDictionary.Clear();
 
             for (int i = 0; i < _kanjiArr.Length; i++)
@@ -54,11 +52,7 @@ namespace TestSpace
                 _knownKanjiList.Add(kanji);
         }
 
-        private void GoBackToMenu()
-        {
-            _loadSaveModel.SaveKnownKanji(_knownKanjiList);
-            OnKnownKanjiListUpdate?.Invoke(_knownKanjiList);
-        }
+        private void GoBackToMenu() => OnKnownKanjiListUpdate?.Invoke(_knownKanjiList);
 
         public void Destroy()
         {

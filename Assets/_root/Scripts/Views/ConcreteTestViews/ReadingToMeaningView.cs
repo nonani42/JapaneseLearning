@@ -3,36 +3,41 @@ using UnityEngine;
 
 namespace TestSpace
 {
-    internal class KanjiToReadingView : TestView
+    internal class ReadingToMeaningView : TestView
     {
-        [SerializeField] private TextMeshProUGUI _kanjiText;
         [SerializeField] private TextMeshProUGUI _upperReadingText;
         [SerializeField] private TextMeshProUGUI _lowerReadingText;
 
+        [SerializeField] private TextMeshProUGUI _engMeaningText;
+        [SerializeField] private TextMeshProUGUI _rusMeaningText;
+
         public override void Init()
         {
-            header.text = "Kanji To Reading Test";
-            testName = "Kanji To Reading";
+            header.text = "Reading To Meaning Test";
+            testName = "Reading To Meaning";
         }
 
         public override void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index)
         {
-            _kanjiText.text = kanjiToReadingStruct.Kanji.Kanji;
             _upperReadingText.text = kanjiToReadingStruct.Kanji.UpperReading;
             _lowerReadingText.text = kanjiToReadingStruct.Kanji.LowerReading;
+
+            _engMeaningText.text = kanjiToReadingStruct.Kanji.MeaningEng;
+            _rusMeaningText.text = kanjiToReadingStruct.Kanji.MeaningRus;
+
             _questionNum.text = index.ToString();
         }
 
         public override void ShowAnswer(Color color)
         {
-            _upperReadingText.color = color;
-            _lowerReadingText.color = color;
+            _engMeaningText.color = color;
+            _rusMeaningText.color = color;
         }
 
         public override void HideAnswer(Color color)
         {
-            _upperReadingText.color = color;
-            _lowerReadingText.color = color;
+            _engMeaningText.color = color;
+            _rusMeaningText.color = color;
         }
     }
 }

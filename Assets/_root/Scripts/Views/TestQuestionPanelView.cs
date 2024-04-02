@@ -10,14 +10,15 @@ namespace TestSpace
         private int _index = 0;
         private bool _isLast;
 
+        public TestView View { get => _view; }
+
         public event Func<TestKanjiStruct> OnNextQuestion;
 
         public new void Init()
         {
             _index = 0;
             base.Init();
-            _view.Init();
-            _view.HideReading(hideAnswerColor);
+            _view.HideAnswer(hideAnswerColor);
             getNext = GetNextQuestion;
             showAnswer = ShowReading;
         }
@@ -32,13 +33,13 @@ namespace TestSpace
         public void GetNextQuestion()
         {
             SetNextKanji(OnNextQuestion.Invoke());
-            _view.HideReading(hideAnswerColor);
+            _view.HideAnswer(hideAnswerColor);
             GetNext();
         }
 
         private void ShowReading()
         {
-            _view.ShowReading(showAnswerColor);
+            _view.ShowAnswer(showAnswerColor);
             IsTestFinished = _isLast;
         }
     }

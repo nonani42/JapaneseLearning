@@ -19,8 +19,8 @@ namespace TestSpace
         private void Start()
         {
             _kanjiListBtn.onClick.AddListener(Hide);
-            _oralTypePanelView.SubscribeToReadingButton(Hide);
-            _oralTypePanelView.SubscribeToMeaningButton(Hide);
+            _oralTypePanelView.SubscribeButtons(Hide);
+            _writingTypePanelView.SubscribeButtons(Hide);
             _exitBtn.onClick.AddListener(Application.Quit);
 
             OnKnownKanjiNumberChange += _oralTypePanelView.ChangeQuestionsMaxNumber;
@@ -40,10 +40,10 @@ namespace TestSpace
         public void UnsubscribeWritingQuestionsChange(Action<int> callback) => _writingTypePanelView.OnQuestionsNumberChange -= (t) => callback(t);
 
         public void SubscribeToKanjiListButton(Action callback) => _kanjiListBtn.onClick.AddListener(() => callback());
+        public void UnsubscribeToKanjiListButton(Action callback) => _kanjiListBtn.onClick.RemoveListener(() => callback());
 
-        public void SubscribeToReadingButton(Action callback) => _oralTypePanelView.SubscribeToReadingButton(callback);
-
-        public void SubscribeToMeaningButton(Action callback) => _oralTypePanelView.SubscribeToMeaningButton(callback);
+        public void SubscribeToOralTestButton(Action[] callback, string buttonName) => _oralTypePanelView.SubscribeTestToTestButton(callback, buttonName);
+        public void SubscribeToWritingTestButton(Action[] callback, string buttonName) => _writingTypePanelView.SubscribeTestToTestButton(callback, buttonName);
 
         public void OnKnownKanjiChange(List<string> knownKanjiList) => OnKnownKanjiNumberChange?.Invoke(knownKanjiList.Count);
 

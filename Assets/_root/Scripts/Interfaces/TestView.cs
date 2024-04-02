@@ -5,14 +5,16 @@ namespace TestSpace
 {
     public abstract class TestView : MonoBehaviour
     {
+        [SerializeField] protected TextMeshProUGUI header;
+        [SerializeField] protected string testName;
         [SerializeField] protected TextMeshProUGUI _questionNum;
 
-        public void Init()
-        {
-            _questionNum.text = "0";
-        }
+        protected TextMeshProUGUI Header { get => header; private set => header = value; }
+        public string TestName { get => testName; private set => testName = value; }
+
+        public abstract void Init();
         public abstract void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index);
-        public abstract void ShowReading(Color color);
-        public abstract void HideReading(Color color);
+        public abstract void ShowAnswer(Color color);
+        public abstract void HideAnswer(Color color);
     }
 }

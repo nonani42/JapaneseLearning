@@ -45,9 +45,10 @@ namespace TestSpace
             _nextButtonText.text = "Show answer";
             _nextButton.onClick.RemoveAllListeners();
             _nextButton.onClick.AddListener(()=> showAnswer());
+            _nextButton.onClick.AddListener(ShowAnswer);
         }
 
-        public void ShowAnswer()
+        private void ShowAnswer()
         {
             _nextButtonText.text = "Next";
             _nextButton.onClick.RemoveAllListeners();

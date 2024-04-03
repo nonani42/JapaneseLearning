@@ -8,6 +8,8 @@ namespace TestSpace
 {
     public class ChoosingPanelView : PanelView
     {
+        [SerializeField] private Button _oralPanelBtn;
+        [SerializeField] private Button _writingPanelBtn;
         [SerializeField] private TestTypePanelView _oralTypePanelView;
         [SerializeField] private TestTypePanelView _writingTypePanelView;
         [SerializeField] private TextMeshProUGUI _headerText;
@@ -18,6 +20,11 @@ namespace TestSpace
 
         private void Start()
         {
+            _oralPanelBtn.onClick.AddListener(_oralTypePanelView.ChangeVisibility);
+            _writingPanelBtn.onClick.AddListener(_writingTypePanelView.ChangeVisibility);
+            _oralPanelBtn.onClick.AddListener(_writingTypePanelView.Hide);
+            _writingPanelBtn.onClick.AddListener(_oralTypePanelView.Hide);
+
             _kanjiListBtn.onClick.AddListener(Hide);
             _oralTypePanelView.OnTestButtonClicked += Hide;
             _writingTypePanelView.OnTestButtonClicked += Hide;
@@ -55,6 +62,11 @@ namespace TestSpace
             OnKnownKanjiNumberChange -= _writingTypePanelView.ChangeQuestionsMaxNumber;
             _oralTypePanelView.OnTestButtonClicked -= Hide;
             _writingTypePanelView.OnTestButtonClicked -= Hide;
+
+            _oralPanelBtn.onClick.RemoveListener(_oralTypePanelView.ChangeVisibility);
+            _writingPanelBtn.onClick.RemoveListener(_writingTypePanelView.ChangeVisibility);
+            _oralPanelBtn.onClick.RemoveListener(_writingTypePanelView.Hide);
+            _writingPanelBtn.onClick.RemoveListener(_oralTypePanelView.Hide);
         }
     }
 }

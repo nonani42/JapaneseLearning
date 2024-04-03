@@ -2,7 +2,8 @@
 <DataToRemember xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <KnownKanji>
     <string>雨</string>
-    <string>耳</string>
     <string>足</string>
+    <string>目</string>
+    <string>耳</string>
   </KnownKanji>
 </DataToRemember>

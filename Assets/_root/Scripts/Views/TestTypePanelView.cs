@@ -24,6 +24,7 @@ namespace TestSpace
             _questionsNumberSlider.onValueChanged.AddListener(ChangeQuestionsNumber);
             ChangeQuestionsMaxNumber(kanjiNum);
             _questionsNumberSlider.value = lastQuestionsNum;
+            Hide();
         }
 
         public void ChangeQuestionsMaxNumber(float value) => _questionsNumberSlider.maxValue = value;
@@ -51,6 +52,14 @@ namespace TestSpace
             tempButton.GetComponentInChildren<TextMeshProUGUI>().text = buttonName;
 
             _btnList.Add(tempButton);
+        }
+
+        public void ChangeVisibility()
+        {
+            if (this.gameObject.activeSelf)
+                Hide();
+            else
+                Show();
         }
 
         private void OnDestroy()

@@ -9,12 +9,6 @@ namespace TestSpace
         [SerializeField] private TextMeshProUGUI _upperReadingText;
         [SerializeField] private TextMeshProUGUI _lowerReadingText;
 
-        public override void Init()
-        {
-            header.text = "Kanji To Reading Test";
-            testName = "Kanji To Reading";
-        }
-
         public override void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index)
         {
             _kanjiText.text = kanjiToReadingStruct.Kanji.Kanji;

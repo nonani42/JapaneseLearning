@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace TestSpace
 {
@@ -12,33 +13,42 @@ namespace TestSpace
         private List<TestController> _controllersList = new();
         private List<TestQuestionPanelView> _panelViewsList = new();
 
+        private Transform _panelViewParent;
+        private Action _returnCallback;
 
-        public TestCreationModel(LoadSaveController loadSaveController, KanjiSO[] allKanjiList, ChoosingPanelView choosingPanelView) 
+        public TestCreationModel(LoadSaveController loadSaveController, KanjiSO[] allKanjiList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
         { 
             _loadSaveController = loadSaveController;
             _allKanjiList = allKanjiList;
             _choosingPanelView = choosingPanelView;
+            _panelViewParent = panelViewParent;
+            _returnCallback = returnCallback;
         }
 
-        public void InitTest(TestType type, TestQuestionPanelView panelView)
+        public void InitTest(Test test)
         {
-            panelView.View.Init();
-            var temp = new TestController(panelView, _allKanjiList, _loadSaveController.KnownKanjiList);
-            Subscribe(temp);
+            var tempView = GameObject.Instantiate(test.TestViewPrefab.gameObject, _panelViewParent).GetComponent<TestQuestionPanelView>();
+            tempView.View.Header.text = test.TestName;
+            tempView.OnBack += _returnCallback;
+            tempView.OnBack += tempView.Hide;
+            tempView.Hide();
+
+            var tempController = new TestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
+            Subscribe(tempController);
 
             Action[] call = new Action[]
             {
-                panelView.Show,
-                temp.Init,
+                tempView.Show,
+                tempController.Init,
             };
 
-            if(type == TestType.oral)
-                _choosingPanelView.SubscribeToOralTestButton(call, panelView.View.TestName);
-            if(type == TestType.writing)
-                _choosingPanelView.SubscribeToWritingTestButton(call, panelView.View.TestName);
+            if (test.TestType == TestType.oral)
+                _choosingPanelView.SubscribeToOralTestButton(call, test.TestButtonName);
+            if(test.TestType == TestType.writing)
+                _choosingPanelView.SubscribeToWritingTestButton(call, test.TestButtonName);
 
-            _controllersList.Add(temp);
-            _panelViewsList.Add(panelView);
+            _controllersList.Add(tempController);
+            _panelViewsList.Add(tempView);
         }
 
         private void Subscribe(TestController controller)
@@ -55,6 +65,12 @@ namespace TestSpace
 
         public void Destroy()
         {
+            for (int i = 0; i < _panelViewsList.Count; i++)
+            {
+                _panelViewsList[i].OnBack -= _returnCallback;
+                _panelViewsList[i].OnBack -= _panelViewsList[i].Hide;
+            }
+
             _panelViewsList.Clear();
 
             for (int i = 0; i < _controllersList.Count; i++)

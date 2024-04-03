@@ -5,14 +5,14 @@ namespace TestSpace
 {
     public class TestEntryPoint : MonoBehaviour
     {
+        [Header("Data from SO")]
         [SerializeField] private KanjiListSO _allKanjiList;
+        [SerializeField] private TestSO _allTestList;
+
+        [Header("Data from Scene")]
+        [SerializeField] private Transform _panelViewParent;
         [SerializeField] private ChoosingPanelView _choosingPanelView;
-
         [SerializeField] private KanjiListPanelView _kanjiPanelView;
-
-        [SerializeField] private TestQuestionPanelView _kanjiToReadingPanelView;
-        [SerializeField] private TestQuestionPanelView _kanjiToMeaningPanelView;
-        [SerializeField] private TestQuestionPanelView _readingToMeaningPanelView;
 
         private TestCreationModel _testCreationModel;
 
@@ -51,7 +51,6 @@ namespace TestSpace
 
         private void Start()
         {
-            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _choosingPanelView);
             CreateTests();
             Subscribe();
             _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum);
@@ -60,9 +59,9 @@ namespace TestSpace
 
         private void CreateTests()
         {
-            _testCreationModel.InitTest(TestType.oral, _kanjiToReadingPanelView);
-            _testCreationModel.InitTest(TestType.oral, _kanjiToMeaningPanelView);
-            _testCreationModel.InitTest(TestType.oral, _readingToMeaningPanelView);
+            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _choosingPanelView, _panelViewParent, SetStartingView);
+            for (int i = 0; i < _allTestList.TestsArray.Length; i++)
+                _testCreationModel.InitTest(_allTestList.TestsArray[i]);
         }
 
         private void InitKanjiListController() => KanjiListController.Init();
@@ -71,9 +70,6 @@ namespace TestSpace
         {
             _choosingPanelView.Show();
             _kanjiPanelView.Hide();
-            _kanjiToReadingPanelView.Hide();
-            _kanjiToMeaningPanelView.Hide();
-            _readingToMeaningPanelView.Hide();
         }
 
         private void OnDestroy()
@@ -87,9 +83,6 @@ namespace TestSpace
         private void Subscribe()
         {
             _kanjiPanelView.OnBack += SetStartingView;
-            _kanjiToReadingPanelView.OnBack += SetStartingView;
-            _kanjiToMeaningPanelView.OnBack += SetStartingView;
-            _readingToMeaningPanelView.OnBack += SetStartingView;
 
             _choosingPanelView.SubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.SubscribeToKanjiListButton(InitKanjiListController);
@@ -106,9 +99,6 @@ namespace TestSpace
         private void Unsubscribe()
         {
             _kanjiPanelView.OnBack -= SetStartingView;
-            _kanjiToReadingPanelView.OnBack -= SetStartingView;
-            _kanjiToMeaningPanelView.OnBack -= SetStartingView;
-            _readingToMeaningPanelView.OnBack -= SetStartingView;
 
             _choosingPanelView.UnsubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.UnsubscribeToKanjiListButton(InitKanjiListController);

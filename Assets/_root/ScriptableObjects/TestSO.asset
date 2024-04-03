@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d7b3cdb1d08d8469aff74685d68a44, type: 3}
+  m_Name: TestSO
+  m_EditorClassIdentifier: 
+  <TestsArray>k__BackingField:
+  - <TestName>k__BackingField: Kanji To Reading Test
+    <TestType>k__BackingField: 0
+    <TestButtonName>k__BackingField: Kanji To Reading
+    <TestViewPrefab>k__BackingField: {fileID: 1496547179146229017, guid: 926529f3ec0e557488b64d5b5044e2ff, type: 3}
+  - <TestName>k__BackingField: Kanji To Meaning Test
+    <TestType>k__BackingField: 0
+    <TestButtonName>k__BackingField: Kanji To Meaning
+    <TestViewPrefab>k__BackingField: {fileID: 8745998751666309515, guid: 55e12c4d740605143b733d2adb7de656, type: 3}
+  - <TestName>k__BackingField: Reading To Meaning Test
+    <TestType>k__BackingField: 0
+    <TestButtonName>k__BackingField: Reading To Meaning
+    <TestViewPrefab>k__BackingField: {fileID: 6247806552141768106, guid: bc9403d7862293d4d8089c898f60ebc8, type: 3}

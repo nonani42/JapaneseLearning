@@ -19,8 +19,8 @@ namespace TestSpace
         private void Start()
         {
             _kanjiListBtn.onClick.AddListener(Hide);
-            _oralTypePanelView.SubscribeButtons(Hide);
-            _writingTypePanelView.SubscribeButtons(Hide);
+            _oralTypePanelView.OnTestButtonClicked += Hide;
+            _writingTypePanelView.OnTestButtonClicked += Hide;
             _exitBtn.onClick.AddListener(Application.Quit);
 
             OnKnownKanjiNumberChange += _oralTypePanelView.ChangeQuestionsMaxNumber;
@@ -53,6 +53,8 @@ namespace TestSpace
             _exitBtn.onClick.RemoveAllListeners();
             OnKnownKanjiNumberChange -= _oralTypePanelView.ChangeQuestionsMaxNumber;
             OnKnownKanjiNumberChange -= _writingTypePanelView.ChangeQuestionsMaxNumber;
+            _oralTypePanelView.OnTestButtonClicked -= Hide;
+            _writingTypePanelView.OnTestButtonClicked -= Hide;
         }
     }
 }

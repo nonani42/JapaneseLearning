@@ -9,12 +9,6 @@ namespace TestSpace
         [SerializeField] private TextMeshProUGUI _engMeaningText;
         [SerializeField] private TextMeshProUGUI _rusMeaningText;
 
-        public override void Init()
-        {
-            header.text = "Kanji To Meaning Test";
-            testName = "Kanji To Meaning";
-        }
-
         public override void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index)
         {
             _kanjiText.text = kanjiToReadingStruct.Kanji.Kanji;

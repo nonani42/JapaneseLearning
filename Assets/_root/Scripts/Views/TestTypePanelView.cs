@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,28 +8,15 @@ namespace TestSpace
 {
     internal class TestTypePanelView : PanelView
     {
-        [SerializeField] private Button[] _btnList;
+        [SerializeField] private Button _btnPrefab;
+        [SerializeField] private Transform _btnHolderTransform;
         [SerializeField] private Slider _questionsNumberSlider;
         [SerializeField] private TextMeshProUGUI _questionsNumberText;
 
-        private Dictionary<Button, bool> _btnDic;
-
-        protected Dictionary<Button, bool> BtnDic { 
-            get 
-            {
-                if (_btnDic == null)
-                {
-                    _btnDic = new Dictionary<Button, bool>();
-
-                    for (int i = 0; i < _btnList.Length; i++)
-                        _btnDic.Add(_btnList[i], false);
-                }
-
-                return _btnDic; 
-            } 
-            private set => _btnDic = value; }
+        private List<Button> _btnList = new();
 
         public event Action<int> OnQuestionsNumberChange;
+        public event Action OnTestButtonClicked;
 
 
         public void Init(int kanjiNum, int lastQuestionsNum)
@@ -40,14 +26,11 @@ namespace TestSpace
             _questionsNumberSlider.value = lastQuestionsNum;
         }
 
-        public void ChangeQuestionsMaxNumber(float value)
-        {
-            _questionsNumberSlider.maxValue = value;
-        }
+        public void ChangeQuestionsMaxNumber(float value) => _questionsNumberSlider.maxValue = value;
 
         private void ChangeQuestionsNumber(float value)
         {
-            for (int i = 0; i < _btnList.Length; i++)
+            for (int i = 0; i < _btnList.Count; i++)
             {
                 _btnList[i].interactable = value > 0;
             }
@@ -57,30 +40,23 @@ namespace TestSpace
 
         public void SubscribeTestToTestButton(Action[] callback, string buttonName)
         {
-            var btn = BtnDic.Where(b => b.Value == false).FirstOrDefault();
+            var tempButton = Instantiate(_btnPrefab, _btnHolderTransform);
 
+            tempButton.onClick.AddListener(() => OnTestButtonClicked?.Invoke());
             for (int i = 0; i < callback.Length; i++)
             {
                 var temp = callback[i];
-                btn.Key.onClick.AddListener(() => temp());
+                tempButton.onClick.AddListener(() => temp());
             }
-            btn.Key.GetComponentInChildren<TextMeshProUGUI>().text = buttonName;
-            BtnDic[btn.Key] = true;
-        }
+            tempButton.GetComponentInChildren<TextMeshProUGUI>().text = buttonName;
 
-        public void SubscribeButtons(Action callback)
-        {
-            if (_btnList.Length == 0)
-                return;
-
-            for (int i = 0; i < _btnList.Length; i++)
-                _btnList[i].onClick.AddListener(() => callback());
+            _btnList.Add(tempButton);
         }
 
         private void OnDestroy()
         {
             _questionsNumberSlider.onValueChanged.RemoveListener(ChangeQuestionsNumber);
-            for(int i = 0; i < _btnList.Length; i++)
+            for(int i = 0; i < _btnList.Count; i++)
             {
                 _btnList[i].onClick.RemoveAllListeners();
             }

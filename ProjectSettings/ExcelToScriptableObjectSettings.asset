@@ -1,0 +1,22 @@
+﻿{
+    "configs": {
+        "field_row": 0,
+        "type_row": 1,
+        "data_from_row": 2
+    },
+    "excels": [
+        {
+            "excel_name": "Assets/_root/WordSO.xlsx",
+            "script_directory": "Assets",
+            "asset_directory": "Assets",
+            "name_space": "TSpace",
+            "use_hash_string": false,
+            "hide_asset_properties": true,
+            "use_public_items_getter": false,
+            "compress_color_into_int": true,
+            "treat_unknown_types_as_enum": false,
+            "generate_tostring_method": true,
+            "slaves": []
+        }
+    ]
+}

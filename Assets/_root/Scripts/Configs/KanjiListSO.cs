@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
-
-[CreateAssetMenu(fileName = nameof(KanjiListSO), menuName = "Configs/" + nameof(KanjiListSO))]
-public class KanjiListSO : ScriptableObject
+namespace TestSpace
 {
-    [field: SerializeField] public KanjiCardSO[] KanjiList { get; private set; }
+    [CreateAssetMenu(fileName = nameof(KanjiListSO), menuName = "Configs/" + nameof(KanjiListSO))]
+    public class KanjiListSO : ScriptableObject
+    {
+        [field: SerializeField] public KanjiCardSO[] KanjiList { get; private set; }
+    }
 }

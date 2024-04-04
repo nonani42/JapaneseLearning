@@ -6,20 +6,20 @@ namespace TestSpace
 {
     public struct TestKanjiStruct
     {
-        public KanjiSO Kanji;
+        public KanjiCardSO Kanji;
         public bool IsLast;
     }
 
     internal class TestModel
     {
-        private KanjiSO[] _allKanjiArr;
-        private List<string> _knownKanjiList = new List<string>();
+        private KanjiCardSO[] _allKanjiArr;
+        private List<char> _knownKanjiList = new();
         private int _testLength;
         private int _currentTestQuestion;
         private List<int> _testedKanjiNumbers = new List<int>();
         private Random _random = new Random();
 
-        public TestModel(KanjiSO[] allKanjiArr, List<string> knownKanjiList)
+        public TestModel(KanjiCardSO[] allKanjiArr, List<char> knownKanjiList)
         {
             _allKanjiArr = allKanjiArr;
             _knownKanjiList = knownKanjiList;
@@ -32,7 +32,7 @@ namespace TestSpace
         }
 
         public void SetTestLength(int testLength) => _testLength = testLength;
-        public void SetKnownKanji(List<string> knownKanjiList) => _knownKanjiList = knownKanjiList;
+        public void SetKnownKanji(List<char> knownKanjiList) => _knownKanjiList = knownKanjiList;
 
         private int GetRandomIndex()
         {
@@ -50,7 +50,7 @@ namespace TestSpace
 
         public TestKanjiStruct NextKanji() => GetNextKanji(_knownKanjiList[GetRandomIndex()]);
 
-        private TestKanjiStruct GetNextKanji(string kanjiName)
+        private TestKanjiStruct GetNextKanji(char kanjiName)
         {
             int index = _allKanjiArr.Select((kanji, index) => new { kanji, index }).Where(k => k.kanji.Kanji == kanjiName).FirstOrDefault().index;
             TestKanjiStruct kanjiStruct = new TestKanjiStruct()

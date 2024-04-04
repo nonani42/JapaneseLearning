@@ -8,7 +8,7 @@ namespace TestSpace
     [Serializable]
     public class DataToRemember
     {
-        public List<string> KnownKanji;
+        public List<char> KnownKanji;
     }
 
     [Serializable]
@@ -25,11 +25,11 @@ namespace TestSpace
         private string _kanjiPath = Path.Combine(Application.streamingAssetsPath, "KanjiGameSave.xml");
         private string _paramsPath = Path.Combine(Application.streamingAssetsPath, "ParamsSave.xml");
 
-        public List<string> LoadKnownKanji()
+        public List<char> LoadKnownKanji()
         {
             DataToRemember _savedData = _serializableXMLKanji.Load(_kanjiPath);
 
-            List<string> knownKanjiList = new();
+            List<char> knownKanjiList = new();
 
             if (_savedData != null)
             {
@@ -40,7 +40,7 @@ namespace TestSpace
             return knownKanjiList;
         }
 
-        public void SaveKnownKanji(List<string> knownKanjiList)
+        public void SaveKnownKanji(List<char> knownKanjiList)
         {
             DataToRemember data = new DataToRemember()
             {

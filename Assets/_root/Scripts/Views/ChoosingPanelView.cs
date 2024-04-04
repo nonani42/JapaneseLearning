@@ -52,7 +52,7 @@ namespace TestSpace
         public void SubscribeToOralTestButton(Action[] callback, string buttonName) => _oralTypePanelView.SubscribeTestToTestButton(callback, buttonName);
         public void SubscribeToWritingTestButton(Action[] callback, string buttonName) => _writingTypePanelView.SubscribeTestToTestButton(callback, buttonName);
 
-        public void OnKnownKanjiChange(List<string> knownKanjiList) => OnKnownKanjiNumberChange?.Invoke(knownKanjiList.Count);
+        public void OnKnownKanjiChange(List<char> knownKanjiList) => OnKnownKanjiNumberChange?.Invoke(knownKanjiList.Count);
 
         private void OnDestroy()
         {

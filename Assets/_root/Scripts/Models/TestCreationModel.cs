@@ -7,7 +7,7 @@ namespace TestSpace
     internal class TestCreationModel
     {
         private LoadSaveController _loadSaveController; 
-        private KanjiSO[] _allKanjiList;
+        private KanjiCardSO[] _allKanjiList;
         private ChoosingPanelView _choosingPanelView;
 
         private List<TestController> _controllersList = new();
@@ -16,7 +16,7 @@ namespace TestSpace
         private Transform _panelViewParent;
         private Action _returnCallback;
 
-        public TestCreationModel(LoadSaveController loadSaveController, KanjiSO[] allKanjiList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
+        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
         { 
             _loadSaveController = loadSaveController;
             _allKanjiList = allKanjiList;

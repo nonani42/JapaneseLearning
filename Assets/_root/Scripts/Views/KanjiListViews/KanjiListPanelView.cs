@@ -16,11 +16,11 @@ namespace TestSpace
         private List<KanjiButtonView> _inactiveKanjiButtonViews = new List<KanjiButtonView>();
 
         public event Action OnBack;
-        public event Action<string, bool> OnSelectionChanged;
+        public event Action<char, bool> OnSelectionChanged;
 
         private void Start() => _backButton.onClick.AddListener(() => OnBack?.Invoke());
 
-        public void Init(Dictionary<string, bool> kanjiDictionary)
+        public void Init(Dictionary<char, bool> kanjiDictionary)
         {
             ClearScreen();
 
@@ -40,7 +40,7 @@ namespace TestSpace
             }
         }
 
-        public void ChangeSelection(string kanji, bool isKnown) => OnSelectionChanged?.Invoke(kanji, isKnown);
+        public void ChangeSelection(char kanji, bool isKnown) => OnSelectionChanged?.Invoke(kanji, isKnown);
 
         private void ClearScreen()
         {

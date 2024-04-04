@@ -11,7 +11,7 @@ namespace TestSpace
 
         public override void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index)
         {
-            _answerText.text = kanjiToReadingStruct.Kanji.Kanji;
+            _answerText.text = kanjiToReadingStruct.Kanji.Kanji.ToString();
             _firstQuestionText.text = kanjiToReadingStruct.Kanji.MeaningEng;
             _secondQuestionText.text = kanjiToReadingStruct.Kanji.MeaningRus;
             _questionNum.text = index.ToString();

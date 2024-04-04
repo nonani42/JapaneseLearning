@@ -7,7 +7,7 @@ namespace TestSpace
         private TestQuestionPanelView _testQuestionPanelView;
         private TestModel _testModel;
 
-        public TestController(TestQuestionPanelView kanjiToReadingPanelView, KanjiSO[] kanjiArr, List<string> knownKanjiList)
+        public TestController(TestQuestionPanelView kanjiToReadingPanelView, KanjiCardSO[] kanjiArr, List<char> knownKanjiList)
         {
             _testModel = new(kanjiArr, knownKanjiList);
             _testQuestionPanelView = kanjiToReadingPanelView;
@@ -22,7 +22,7 @@ namespace TestSpace
         }
 
         public void SetTestLength(int testLength) => _testModel.SetTestLength(testLength);
-        public void SetKnownKanji(List<string> knownKanjiList) => _testModel.SetKnownKanji(knownKanjiList);
+        public void SetKnownKanji(List<char> knownKanjiList) => _testModel.SetKnownKanji(knownKanjiList);
 
         public void Destroy()
         {

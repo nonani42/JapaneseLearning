@@ -7,10 +7,10 @@ namespace TestSpace
     {
         private LoadSaveModel _loadSaveModel = new();
 
-        private List<string> _knownKanjiList = new();
+        private List<char> _knownKanjiList = new();
         private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
 
-        public List<string> KnownKanjiList
+        public List<char> KnownKanjiList
         {
             get => _knownKanjiList; 
             private set
@@ -34,7 +34,7 @@ namespace TestSpace
             }
         }
 
-        public event Action<List<string>> OnKnownKanjiChange;
+        public event Action<List<char>> OnKnownKanjiChange;
         public event Action<int> OnOralQuestionsChange;
         public event Action<int> OnWritingQuestionsChange;
 
@@ -44,7 +44,7 @@ namespace TestSpace
             QuestionsNum = _loadSaveModel.LoadQuestionsNumber();
         }
 
-        public void UpdateKnownKanji(List<string> kanjiList) => KnownKanjiList = kanjiList;
+        public void UpdateKnownKanji(List<char> kanjiList) => KnownKanjiList = kanjiList;
 
         public void UpdateOralQuestionsNum(int oralQuestions)
         {

@@ -6,13 +6,13 @@ namespace TestSpace
     internal class KanjiListController : IController
     {
         private KanjiListPanelView _kanjiListPanelView;
-        private KanjiSO[] _kanjiArr;
-        private List<string> _knownKanjiList = new List<string>();
-        private Dictionary<string, bool> _kanjiDictionary = new Dictionary<string, bool>();
+        private KanjiCardSO[] _kanjiArr;
+        private List<char> _knownKanjiList = new();
+        private Dictionary<char, bool> _kanjiDictionary = new();
 
-        public event Action<List<string>> OnKnownKanjiListUpdate;
+        public event Action<List<char>> OnKnownKanjiListUpdate;
 
-        public KanjiListController(KanjiListPanelView kanjiListPanelView, KanjiSO[] kanjiArr, List<string> knownKanjiList)
+        public KanjiListController(KanjiListPanelView kanjiListPanelView, KanjiCardSO[] kanjiArr, List<char> knownKanjiList)
         {
             _kanjiListPanelView = kanjiListPanelView;
             _kanjiArr = kanjiArr;
@@ -43,7 +43,7 @@ namespace TestSpace
             }
         }
 
-        private void ChangeKnownKanji(string kanji, bool isKnown)
+        private void ChangeKnownKanji(char kanji, bool isKnown)
         {
             if (_knownKanjiList.Contains(kanji) && !isKnown)
                 _knownKanjiList.Remove(kanji);

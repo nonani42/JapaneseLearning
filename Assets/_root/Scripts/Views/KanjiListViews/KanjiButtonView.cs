@@ -20,17 +20,17 @@ namespace TestSpace
             private set
             {
                 _isKnown = value;
-                OnSelectionChanged?.Invoke(_kanjiButtonText.text, _isKnown);
+                OnSelectionChanged?.Invoke(_kanjiButtonText.text.ToCharArray()[0], _isKnown);
             }
         }
 
-        public event Action<string, bool> OnSelectionChanged;
+        public event Action<char, bool> OnSelectionChanged;
 
         private void Start() => _kanjiButton.onClick.AddListener(ChangeColor);
 
-        public void SetButton(string kanjiName, bool isKnown)
+        public void SetButton(char kanjiName, bool isKnown)
         {
-            _kanjiButtonText.text = kanjiName;
+            _kanjiButtonText.text = kanjiName.ToString();
             _isKnown = isKnown;
             _kanjiButton.image.color = _isKnown ? _knownKanjiColor : _unknownKanjiColor;
         }

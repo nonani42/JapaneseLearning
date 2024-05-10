@@ -45,7 +45,10 @@ public class CSVParserWindow : EditorWindow
         _saveKanjiPath = EditorGUILayout.TextField("SaveWordsPath", _saveKanjiPath);
 
         if (GUILayout.Button("Parse Kanji"))
-            CsvParser.ParseKanjiCSV(_readKanjiPath, _kanjiCSVFileName, _saveKanjiPath);
+        {
+            if (!CheckForEmptyString(_readKanjiPath, _saveKanjiPath, _kanjiCSVFileName))
+                CsvParser.ParseKanjiCSV(_readKanjiPath, _kanjiCSVFileName, _saveKanjiPath);
+        }
 
         SetLabel("Words");
 
@@ -54,7 +57,10 @@ public class CSVParserWindow : EditorWindow
         _saveWordsPath = EditorGUILayout.TextField("SaveWordsPath", _saveWordsPath);
 
         if (GUILayout.Button("Parse Words"))
-            CsvParser.ParseWordCSV(_readWordsPath, _wordsCSVFileName, _saveWordsPath);
+        {
+            if(!CheckForEmptyString(_readWordsPath, _saveWordsPath, _wordsCSVFileName))
+                CsvParser.ParseWordCSV(_readWordsPath, _wordsCSVFileName, _saveWordsPath);
+        }
     }
 
     private static void SetLabel(string text)
@@ -66,16 +72,16 @@ public class CSVParserWindow : EditorWindow
         GUILayout.EndHorizontal();
     }
 
-    private bool CheckForNull(string loadPath, string savePath, string file)
+    private bool CheckForEmptyString(string read, string savePath, string file)
     {
         bool res = false;
-        if (loadPath == null || savePath == null)
+        if (read == string.Empty || savePath == string.Empty)
         {
             Debug.Log("Path is null");
             res = true;
         }
 
-        if (file == null)
+        if (file == string.Empty)
         {
             Debug.Log("File name is null");
             res = true;
@@ -84,7 +90,3 @@ public class CSVParserWindow : EditorWindow
         return res;
     }
 }
-
-
-
-

@@ -14,7 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <KanjiList>k__BackingField:
   - {fileID: 11400000, guid: 5864920726fc16b49a5ce14f1ad339f8, type: 2}
-  - {fileID: 11400000, guid: 978821b0c2f0e3540b636224bede525b, type: 2}
-  - {fileID: 11400000, guid: d81f56629b808a04b9b6853638813635, type: 2}
-  - {fileID: 11400000, guid: 0d6e1b2077850014e9d9036339f24c5d, type: 2}
-  - {fileID: 11400000, guid: 52ff95a84acfe6248bbb5087d1ccec5f, type: 2}

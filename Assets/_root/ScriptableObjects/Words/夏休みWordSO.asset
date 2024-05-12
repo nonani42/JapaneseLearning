@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af22dc1c9f8b234c86ee44ba30059d6, type: 3}
+  m_Name: "\u590F\u4F11\u307FWordSO"
+  m_EditorClassIdentifier: 
+  <JpReading>k__BackingField: "\u590F\u4F11\u307F"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 1
+  <KanaReading>k__BackingField: "\u306A\u3064\u30FB\u3084\u3059\u30FB\u307F"
+  <TranslationEng>k__BackingField: summer holidays
+  <TranslationRus>k__BackingField: "\u043B\u0435\u0442\u043D\u0438\u0435 \u043A\u0430\u043D\u0438\u043A\u0443\u043B\u044B"

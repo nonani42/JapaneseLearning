@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u523AKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 21050
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 8
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30B7"
+  <LowerReading>k__BackingField: "\u3055(\u3059), \u3055\u3057, \u3068\u3052"
+  <MeaningEng>k__BackingField: thorn, pierce, stab, prick, sting
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: b257c15b49aa5e54fbd562a44b5f4a11, type: 2}
+  - {fileID: 11400000, guid: 8a91a73668def7948a7a5a541ffc657b, type: 2}
+  - {fileID: 11400000, guid: e4d2a502ff3d4c44fb372b02a1f03cab, type: 2}
+  - {fileID: 11400000, guid: d3638a80e811b5d4cb45bbde6706769a, type: 2}
+  - {fileID: 11400000, guid: a07cc28648c74644d90c2487a9be92b9, type: 2}

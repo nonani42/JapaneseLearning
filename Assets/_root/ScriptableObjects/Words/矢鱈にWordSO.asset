@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af22dc1c9f8b234c86ee44ba30059d6, type: 3}
+  m_Name: "\u77E2\u9C48\u306BWordSO"
+  m_EditorClassIdentifier: 
+  <JpReading>k__BackingField: "\u77E2\u9C48\u306B"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 4
+  <KanaReading>k__BackingField: "\u3084\u305F\u3089\u306B"
+  <TranslationEng>k__BackingField: 
+  <TranslationRus>k__BackingField: "\u043A\u0430\u043A \u043F\u043E\u043F\u0430\u043B\u043E,
+    \u043D\u0435\u043E\u0431\u0434\u0443\u043C\u0430\u043D\u043D\u043E, \u043D\u0435\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435\u043B\u044C\u043D\u043E,
+    \u043E\u043F\u0440\u043E\u043C\u0435\u0442\u0447\u0438\u0432\u043E"

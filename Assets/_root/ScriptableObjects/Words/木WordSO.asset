@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af22dc1c9f8b234c86ee44ba30059d6, type: 3}
   m_Name: "\u6728WordSO"
   m_EditorClassIdentifier: 
-  <Level>k__BackingField: 0
   <JpReading>k__BackingField: "\u6728"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 1
   <KanaReading>k__BackingField: "\u304D"
   <TranslationEng>k__BackingField: a tree
-  <TranslationRus>k__BackingField: 
+  <TranslationRus>k__BackingField: "\u0434\u0435\u0440\u0435\u0432\u043E"

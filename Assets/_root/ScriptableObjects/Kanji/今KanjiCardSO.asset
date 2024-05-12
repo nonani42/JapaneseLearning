@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u4ECAKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 20170
+  <Level>k__BackingField: 1
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 4
+  <UpperReading>k__BackingField: "\u30B3\u30F3"
+  <LowerReading>k__BackingField: "\u3044\u307E"
+  <MeaningEng>k__BackingField: now, present
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 29c138151eb11dc479cb294a2664969c, type: 2}
+  - {fileID: 11400000, guid: 35aae92b612280744a2889ee6a401911, type: 2}
+  - {fileID: 11400000, guid: c51b7e4fdf3d4ac48b3935b290f83e1d, type: 2}
+  - {fileID: 11400000, guid: 0990ef336cb9f3242b71b12e1d9a5403, type: 2}
+  - {fileID: 11400000, guid: 8e8ce97b70ed24f42938682d69dd6bc0, type: 2}
+  - {fileID: 11400000, guid: 3c8c5c24f4a35e04f8446e504c15d526, type: 2}
+  - {fileID: 11400000, guid: 0cc9711a00ab9884aad7b04ce2c1904e, type: 2}
+  - {fileID: 11400000, guid: dd0498a53cbf09d479408280a9f94b25, type: 2}
+  - {fileID: 11400000, guid: 6220441307997834991bbe9c32fa6b0b, type: 2}
+  - {fileID: 11400000, guid: 379211c60fd188c4cb900add67ac0585, type: 2}
+  - {fileID: 11400000, guid: 250e0a9a972bd154091441a724011ebd, type: 2}
+  - {fileID: 11400000, guid: 1ac7620c1cc34ec4888e1c81bd3fb406, type: 2}
+  - {fileID: 11400000, guid: 487f43d8cd43c5b40a80f56e20d64213, type: 2}
+  - {fileID: 11400000, guid: 6ccce93dc658490438aa0b66f0f1bc7b, type: 2}
+  - {fileID: 11400000, guid: a9276aa2b67ccae40a8b310e03575d97, type: 2}
+  - {fileID: 11400000, guid: 106a00dbcbd34fe40aab9da87dd2c187, type: 2}

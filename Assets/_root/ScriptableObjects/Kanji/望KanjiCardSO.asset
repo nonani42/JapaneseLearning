@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u671BKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 26395
+  <Level>k__BackingField: 3
+  <Grade>k__BackingField: 4
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30DC\u30A6"
+  <LowerReading>k__BackingField: "\u306E\u305E(\u3080), \u3082\u3061"
+  <MeaningEng>k__BackingField: ambition, full moon, hope, desire, aspire to, expect
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: a8f1dccf41b4fc64bb552e85d91cc54d, type: 2}
+  - {fileID: 11400000, guid: 007f1499e0598724c87b4a84e61425be, type: 2}
+  - {fileID: 11400000, guid: 4be1e58cb2e383445a92a61b348a82c9, type: 2}
+  - {fileID: 11400000, guid: c8fc6660d06006943a21fefcc053a6d3, type: 2}
+  - {fileID: 11400000, guid: 9801d2a4005ee714287c6cb3f9f3a4a0, type: 2}

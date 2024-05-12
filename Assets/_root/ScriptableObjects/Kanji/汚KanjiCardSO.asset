@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u6C5AKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 27738
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 8
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30AA"
+  <LowerReading>k__BackingField: "\u3088\u3054(\u3059), \u304D\u305F\u306A(\u3044),
+    \u3051\u304C(\u3059)"
+  <MeaningEng>k__BackingField: '"dirty'
+  <MeaningRus>k__BackingField: ' pollute'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 160b8a3760357d24d8930560a24e5fc8, type: 2}
+  - {fileID: 11400000, guid: 088051c9117eb9f49a1c97c1ede8797b, type: 2}
+  - {fileID: 11400000, guid: cafa1d062cee84546b3fa05a0ab56aa9, type: 2}
+  - {fileID: 11400000, guid: c66cc71569cce034d9c06dcd2dd3a66e, type: 2}

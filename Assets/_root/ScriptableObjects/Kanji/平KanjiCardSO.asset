@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u5E73KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 24179
+  <Level>k__BackingField: 3
+  <Grade>k__BackingField: 3
+  <Strokes>k__BackingField: 5
+  <UpperReading>k__BackingField: "\u30D8\u30A4, \u30D3\u30E7\u30A6"
+  <LowerReading>k__BackingField: "\u305F\u3044-\u3089"
+  <MeaningEng>k__BackingField: plain, flat, even
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 317a1ddb20ed9be49b6b22c117df7ab5, type: 2}
+  - {fileID: 11400000, guid: 191b15bcaa94e514ca170773b7eb0107, type: 2}
+  - {fileID: 11400000, guid: 369c31a7fdb82674a845743a3fe5013b, type: 2}
+  - {fileID: 11400000, guid: 477d2303faa0cd44da405a030bc20a8d, type: 2}
+  - {fileID: 11400000, guid: 628c98722bfc8c944817b8b583b6fca5, type: 2}
+  - {fileID: 11400000, guid: fc8d51f58fba8104a9db01ab3b8f204f, type: 2}
+  - {fileID: 11400000, guid: 9fc7770a1c67ec54aa152e18c6a13391, type: 2}
+  - {fileID: 11400000, guid: ba273fa4522761b40a7501e08cfe1cea, type: 2}
+  - {fileID: 11400000, guid: 135cc7f12d0f4a849b5365d093a017d5, type: 2}
+  - {fileID: 11400000, guid: c0d1148e22e97d548b7f1aaabba7fc6c, type: 2}
+  - {fileID: 11400000, guid: d3baed75a0c8e614fa633cb5b37090e8, type: 2}
+  - {fileID: 11400000, guid: e79c2346be195394ea60ac56c96102e8, type: 2}
+  - {fileID: 11400000, guid: aad08aad6f0ee36419b12de679ccfe49, type: 2}
+  - {fileID: 11400000, guid: d2c01e98d2d57474ba4033b7d3924261, type: 2}
+  - {fileID: 11400000, guid: 9b19003c019b6354aa813704b9f99e15, type: 2}
+  - {fileID: 11400000, guid: 27ff721a81f43de4787f872051b52007, type: 2}

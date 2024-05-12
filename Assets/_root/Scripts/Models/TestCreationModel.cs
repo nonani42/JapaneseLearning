@@ -34,7 +34,7 @@ namespace TestSpace
             tempView.Hide();
 
             var tempController = new TestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
-            Subscribe(tempController);
+            Subscribe(tempController, test.TestType);
 
             Action[] call = new Action[]
             {
@@ -51,10 +51,13 @@ namespace TestSpace
             _panelViewsList.Add(tempView);
         }
 
-        private void Subscribe(TestController controller)
+        private void Subscribe(TestController controller, TestType testType)
         {
             _loadSaveController.OnKnownKanjiChange += controller.SetKnownKanji;
-            _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
+            if (testType == TestType.oral)
+                _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
+            if (testType == TestType.writing)
+                _loadSaveController.OnWritingQuestionsChange += controller.SetTestLength;
         }
 
         private void Unsubscribe(TestController controller)

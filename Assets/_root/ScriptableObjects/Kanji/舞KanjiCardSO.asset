@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u821EKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 33310
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 8
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30D6"
+  <LowerReading>k__BackingField: "\u307E(\u3046), \u307E\u3044"
+  <MeaningEng>k__BackingField: dance, circle
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: fb6f7d9cc19acf64f9cea76371a512ef, type: 2}
+  - {fileID: 11400000, guid: f2b0a6f7fb71ab74ca6ffa2a45ed0635, type: 2}
+  - {fileID: 11400000, guid: 7735e3c437127a045b797b6b286b2218, type: 2}
+  - {fileID: 11400000, guid: a915a755b7ce2b1438ec01a154dda731, type: 2}
+  - {fileID: 11400000, guid: 3a2c56b5fdaa299489ac0d953bdb5c16, type: 2}
+  - {fileID: 11400000, guid: 5b3a1ee422ad1c44d821a756a92fd59f, type: 2}
+  - {fileID: 11400000, guid: 443cd5fa2ec511d4b849788646e59783, type: 2}

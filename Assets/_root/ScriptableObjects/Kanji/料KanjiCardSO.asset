@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u6599KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 26009
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 4
+  <Strokes>k__BackingField: 10
+  <UpperReading>k__BackingField: "\u30EA\u30E7\u30A6"
+  <LowerReading>k__BackingField: '-'
+  <MeaningEng>k__BackingField: ingredients, fee, fare
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: cb3985a43251fb948a060f6a4da8f2d8, type: 2}
+  - {fileID: 11400000, guid: 38b1da6ced81f9e418386b3b6a34f052, type: 2}
+  - {fileID: 11400000, guid: 6ea0da501ff538f4f888478aab02bbed, type: 2}
+  - {fileID: 11400000, guid: 580fcb8749ffd484d832bc9b1fad9581, type: 2}
+  - {fileID: 11400000, guid: fe2461f6967143d4d968f6914613eb85, type: 2}
+  - {fileID: 11400000, guid: 62a554aa59edffa4b9f2fb48e4d84a97, type: 2}
+  - {fileID: 11400000, guid: 5344cd9a50ac47e4e86b1760e53a91a8, type: 2}
+  - {fileID: 11400000, guid: 31b9cdae39ad85e4e9b956044cf9d42b, type: 2}
+  - {fileID: 11400000, guid: 3a80877535eff724fb5fc8ed35167043, type: 2}
+  - {fileID: 11400000, guid: b9ebc052957c89c40ba0e3c859509a9a, type: 2}
+  - {fileID: 11400000, guid: fbbceb03613016a4dae9cc34aa25f933, type: 2}
+  - {fileID: 11400000, guid: 686142156be7d21448bc1d28f3d030e6, type: 2}
+  - {fileID: 11400000, guid: ede9d33629fa90e4aa516744bd7dabac, type: 2}
+  - {fileID: 11400000, guid: aa093f1e83e89204cb28573b1fd9b0d9, type: 2}

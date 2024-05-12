@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u8A71KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 35441
+  <Level>k__BackingField: 1
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 13
+  <UpperReading>k__BackingField: "\u30EF"
+  <LowerReading>k__BackingField: "\u306F\u306A-\u3059, \u306F\u306A\u3057"
+  <MeaningEng>k__BackingField: talk
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: aa7cb4473a5c199429f2d22f5414c708, type: 2}
+  - {fileID: 11400000, guid: 12dc4424d75008f48b752980c95743c0, type: 2}
+  - {fileID: 11400000, guid: 26dee2572b9743a47a7d639e679d3ba9, type: 2}
+  - {fileID: 11400000, guid: ec5a7e677693f4542859ca95a7e7587c, type: 2}
+  - {fileID: 11400000, guid: 442888b718fbcb8469c6ce6089097b4c, type: 2}
+  - {fileID: 11400000, guid: af7e7fc61974c7641a97883ca318ac18, type: 2}
+  - {fileID: 11400000, guid: e959314a9a671ec4ba6e8d5ca5470e16, type: 2}
+  - {fileID: 11400000, guid: d6e313ce6b3ac2e43a5aee7a8f013751, type: 2}
+  - {fileID: 11400000, guid: 40bbfe11ff1964c498596eb50e31f183, type: 2}
+  - {fileID: 11400000, guid: 0a81ceb08d817454ea1d6b78fbc892fc, type: 2}
+  - {fileID: 11400000, guid: 57a8e9a4868e8bc47a8df0e056d4190a, type: 2}
+  - {fileID: 11400000, guid: f42d6aff3e158e14891f39bb5dacd5cf, type: 2}
+  - {fileID: 11400000, guid: 925ec324373a3514782135d8c53908a8, type: 2}
+  - {fileID: 11400000, guid: e8e35913dc72d9b4a9114b82334550d3, type: 2}
+  - {fileID: 11400000, guid: 800998620c93b924e8bc4832aeb4f03b, type: 2}
+  - {fileID: 11400000, guid: 6bb3185bfd095014a9af698597c75023, type: 2}

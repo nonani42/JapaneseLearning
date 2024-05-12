@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u6B7BKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 27515
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 3
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30B7"
+  <LowerReading>k__BackingField: "\u3057(\u306C)"
+  <MeaningEng>k__BackingField: death, die
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: b228fda0f61299f46b81c6cb7e570113, type: 2}
+  - {fileID: 11400000, guid: 93072bdaec388ff43802f728a5e6c709, type: 2}
+  - {fileID: 11400000, guid: 95c5b269f0576bb428a08fa09ea328fb, type: 2}
+  - {fileID: 11400000, guid: 243dddc720a3adf4ea1a2940f9b2db29, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u65ADKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 26029
+  <Level>k__BackingField: 3
+  <Grade>k__BackingField: 5
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30C0\u30F3"
+  <LowerReading>k__BackingField: "\u305F(\u3064), \u3053\u3068\u308F(\u308B)"
+  <MeaningEng>k__BackingField: severance, decline, refuse, apologize
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: f586f2353e0119a459b191139db8cf79, type: 2}
+  - {fileID: 11400000, guid: 944ac113b23cc994c8d779ffa900bbb2, type: 2}
+  - {fileID: 11400000, guid: e4d4ffc057c3bf346819d54a6ae678ae, type: 2}
+  - {fileID: 11400000, guid: 036ace145695b3247abbc1da1ef0e4c8, type: 2}
+  - {fileID: 11400000, guid: 90b9a7e50ecf39b449da389ebe974516, type: 2}
+  - {fileID: 11400000, guid: d5d6e58d08a8dc4408ccc96cda87cef8, type: 2}
+  - {fileID: 11400000, guid: 0e1c0522c0d3f0e43b2213d235e17463, type: 2}

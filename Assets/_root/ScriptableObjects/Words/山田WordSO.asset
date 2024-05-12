@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: "\u5C71\u7530WordSO"
   m_EditorClassIdentifier: 
   <JpReading>k__BackingField: "\u5C71\u7530"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
   <Level>k__BackingField: 0
   <KanaReading>k__BackingField: "\u3084\u307E\u30FB\u3060"
   <TranslationEng>k__BackingField: Japanese name
-  <TranslationRus>k__BackingField: "\u044F\u043F\u043E\u043D\u0441\u043A\u043E\u0435
-    \u0438\u043C\u044F"
+  <TranslationRus>k__BackingField: 

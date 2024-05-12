@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u51CDKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 20941
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 8
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30C8\u30A6"
+  <LowerReading>k__BackingField: "\u3053\u304A(\u308B), \u3053\u3054(\u3048\u308B)"
+  <MeaningEng>k__BackingField: '"frozen'
+  <MeaningRus>k__BackingField: ' refrigerate"'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 08606ad9fb7fbfd4ca9b509a694a535c, type: 2}
+  - {fileID: 11400000, guid: 1f35f0ad79a839b469b9639b5b170529, type: 2}
+  - {fileID: 11400000, guid: 374550932ad866240826ab3e99565d3c, type: 2}

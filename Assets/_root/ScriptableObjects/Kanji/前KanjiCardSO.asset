@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u524DKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 21069
+  <Level>k__BackingField: 1
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 9
+  <UpperReading>k__BackingField: "\u30BC\u30F3"
+  <LowerReading>k__BackingField: "\u307E\u3048"
+  <MeaningEng>k__BackingField: front, before, previous
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 94f522e64b7cc64459dfb9df47469b66, type: 2}
+  - {fileID: 11400000, guid: 09c1dae0716cceb4187cf91b868ddc83, type: 2}
+  - {fileID: 11400000, guid: 8213bbf5014042746abad600b1dab590, type: 2}
+  - {fileID: 11400000, guid: d7780aba8575824449827f144d7dbf2f, type: 2}
+  - {fileID: 11400000, guid: 5e521dc65fd94f7419110f3cda0bf535, type: 2}
+  - {fileID: 11400000, guid: de2a7e60efe5f1c42915c7059bdeed80, type: 2}
+  - {fileID: 11400000, guid: b8d9a1b06319e2c42b64fadb4c20c370, type: 2}
+  - {fileID: 11400000, guid: b93a905d02da1b0468efb79f30f9cae8, type: 2}
+  - {fileID: 11400000, guid: 808bf88a8e776944bbba50e2ebe5d038, type: 2}
+  - {fileID: 11400000, guid: b9b95ad46c76b1343b84adc335a78cc6, type: 2}
+  - {fileID: 11400000, guid: 5182b2143ed48314fae4b34a538feb80, type: 2}
+  - {fileID: 11400000, guid: 483c05206c0ce9a4699b82fcad441b93, type: 2}
+  - {fileID: 11400000, guid: 9c038b74bed2b884892c610ab830c378, type: 2}
+  - {fileID: 11400000, guid: 6ea1afbf348b19d4ba3f8530a430aebb, type: 2}
+  - {fileID: 11400000, guid: 4147d69f4e914bb45b99b83c3db80a45, type: 2}
+  - {fileID: 11400000, guid: 9490efc7f39ae9f49a5128e8b02d7f02, type: 2}

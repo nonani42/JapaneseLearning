@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u7070KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 28784
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 6
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30AB\u30A4"
+  <LowerReading>k__BackingField: "\u306F\u3044"
+  <MeaningEng>k__BackingField: '"ashes'
+  <MeaningRus>k__BackingField: ' cremate"'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 3248b3febf53b0345b8bf9cee8bb4684, type: 2}
+  - {fileID: 11400000, guid: 2ce08db9a6247aa45bc4a8d84cdb0565, type: 2}
+  - {fileID: 11400000, guid: a929023954fae4c4ebe4c8a856594d7d, type: 2}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u6975KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 26997
+  <Level>k__BackingField: 3
+  <Grade>k__BackingField: 4
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30AD\u30E7\u30AF, \u30B4\u30AF"
+  <LowerReading>k__BackingField: "\u304D\u308F(\u3081\u308B)"
+  <MeaningEng>k__BackingField: '"poles'
+  <MeaningRus>k__BackingField: ' settlement'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 972e1423ee11470428a8d8b537c4d5d1, type: 2}
+  - {fileID: 11400000, guid: 79af8cdb478e4cb4f941db983965bf6d, type: 2}
+  - {fileID: 11400000, guid: b960f30c0f2b8f34a8cb4e8165d05a7b, type: 2}
+  - {fileID: 11400000, guid: 9a21cf521b0c451468e917374927fbbe, type: 2}
+  - {fileID: 11400000, guid: 38761734d854d6f4a9f931dee83ab55e, type: 2}

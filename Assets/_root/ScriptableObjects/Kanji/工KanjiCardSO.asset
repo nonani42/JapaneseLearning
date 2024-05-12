@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u5DE5KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 24037
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 3
+  <UpperReading>k__BackingField: "\u30B3\u30A6"
+  <LowerReading>k__BackingField: '-'
+  <MeaningEng>k__BackingField: craft, skill, construction
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 3fd0143ec1f1e1e479417bb530878919, type: 2}
+  - {fileID: 11400000, guid: 3dd9a777f43cbb845b8e742751391c00, type: 2}
+  - {fileID: 11400000, guid: de1c3615effecdf4bab7432c3d51cb07, type: 2}
+  - {fileID: 11400000, guid: 712f6638c79851c40abf5eaee58e8b64, type: 2}
+  - {fileID: 11400000, guid: 8eb2c1c8133753640a50a9d3940ce5fe, type: 2}
+  - {fileID: 11400000, guid: 5dcbd9c801566de4c8217795ee4a1ea0, type: 2}
+  - {fileID: 11400000, guid: c702234fa2768504c824492809c8f7cd, type: 2}
+  - {fileID: 11400000, guid: 493e7217242c28045824058640c9ac2e, type: 2}
+  - {fileID: 11400000, guid: 330912b5c1fb9bf4392afb216d57a2a6, type: 2}
+  - {fileID: 11400000, guid: 808f53578944a69498143249246fcf53, type: 2}

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u5F37KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 24375
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 11
+  <UpperReading>k__BackingField: "\u30AD\u30E7\u30A6"
+  <LowerReading>k__BackingField: "\u3064\u3088-\u3044"
+  <MeaningEng>k__BackingField: force, strong
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: d65de7529123e144ca8885f9751186f9, type: 2}
+  - {fileID: 11400000, guid: c84f83237be6b944382e61df40b06992, type: 2}
+  - {fileID: 11400000, guid: fd1f82327f6476141b02d263eca0da25, type: 2}
+  - {fileID: 11400000, guid: 5a6e858ff8812a54e9f6aae79337d76e, type: 2}
+  - {fileID: 11400000, guid: 93d6e6ab4e9f04e47a5a01bbe52eb9b0, type: 2}
+  - {fileID: 11400000, guid: 2e425ccdb243d0546812df568fc582ae, type: 2}
+  - {fileID: 11400000, guid: e44b27daca8cf0a48a050d754d11c64a, type: 2}
+  - {fileID: 11400000, guid: 075795c37d5e7344b931d67af1b83ef6, type: 2}
+  - {fileID: 11400000, guid: c345ccff8c3ae034bbd66012f93b5596, type: 2}
+  - {fileID: 11400000, guid: 1eebda010a808bf4ca78f5eb863eabcb, type: 2}
+  - {fileID: 11400000, guid: 8a1f9f6913360e24983e92335165100a, type: 2}

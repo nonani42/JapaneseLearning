@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u697DKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 27005
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 2
+  <Strokes>k__BackingField: 13
+  <UpperReading>k__BackingField: "\u30AC\u30AF, \u30E9\u30AF"
+  <LowerReading>k__BackingField: "\u305F\u306E-\u3057\u3044, \u305F\u306E-\u3057\u3080"
+  <MeaningEng>k__BackingField: amuse, pleasant, music
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 90d6a517312f3ae4fb4e874ad6ebe0f1, type: 2}
+  - {fileID: 11400000, guid: f7fc9bbe8192cf94ba7943ae86da291d, type: 2}
+  - {fileID: 11400000, guid: 1bd14b59539383347b325c17a1d253f7, type: 2}
+  - {fileID: 11400000, guid: 2c28cdd08f39e224ab973eb75a053a84, type: 2}
+  - {fileID: 11400000, guid: f323ee3a57e6d144bb3c5a172718cdef, type: 2}
+  - {fileID: 11400000, guid: d0003269d10b17c43b0162efb600e04a, type: 2}
+  - {fileID: 11400000, guid: 305211949e0665444a080c29a64b7796, type: 2}
+  - {fileID: 11400000, guid: 83d161630aa61604e9f1c0db68d37df9, type: 2}
+  - {fileID: 11400000, guid: 47b9cc53992e26e4bafc25a34cbfad0f, type: 2}

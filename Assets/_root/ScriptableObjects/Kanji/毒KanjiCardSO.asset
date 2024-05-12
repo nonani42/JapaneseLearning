@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u6BD2KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 27602
+  <Level>k__BackingField: 4
+  <Grade>k__BackingField: 4
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30C9\u30AF"
+  <LowerReading>k__BackingField: 
+  <MeaningEng>k__BackingField: '"poison'
+  <MeaningRus>k__BackingField: ' germ'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 6adf1fecf5494b54ea807310b6484987, type: 2}
+  - {fileID: 11400000, guid: 79ed9d1ccd9f6d64c964de704cd2fead, type: 2}
+  - {fileID: 11400000, guid: 4f28a024b3c3f07468f307823a01803b, type: 2}
+  - {fileID: 11400000, guid: 5a6db8be6dc716141aea8e0c322bbcd7, type: 2}

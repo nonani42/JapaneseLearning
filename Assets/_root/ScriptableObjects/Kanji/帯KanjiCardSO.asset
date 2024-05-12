@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u5E2FKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 24111
+  <Level>k__BackingField: 3
+  <Grade>k__BackingField: 4
+  <Strokes>k__BackingField: 0
+  <UpperReading>k__BackingField: "\u30BF\u30A4"
+  <LowerReading>k__BackingField: "\u304A(\u3073\u308B)"
+  <MeaningEng>k__BackingField: '"sash'
+  <MeaningRus>k__BackingField: ' belt'
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 91789cc3455cf50438bf8efcac7b9382, type: 2}
+  - {fileID: 11400000, guid: 86428f24fcdc96c45819a6de43210523, type: 2}
+  - {fileID: 11400000, guid: d8cceabb59dfdfb4190801803b033210, type: 2}
+  - {fileID: 11400000, guid: 2405eb883d630634688bf5b9943d1c40, type: 2}
+  - {fileID: 11400000, guid: a7dc30f4815862043b8128985db221b6, type: 2}
+  - {fileID: 11400000, guid: 93fca4d8240f7124fa2c4893cd6ae5ae, type: 2}

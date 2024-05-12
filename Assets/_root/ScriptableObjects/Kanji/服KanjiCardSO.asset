@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u670DKanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 26381
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 3
+  <Strokes>k__BackingField: 8
+  <UpperReading>k__BackingField: "\u30D5\u30AF"
+  <LowerReading>k__BackingField: '-'
+  <MeaningEng>k__BackingField: clothes, dress, obey
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 61f4782badb1cdf458e3074bd1ba3c35, type: 2}
+  - {fileID: 11400000, guid: 1e3b856778d494e40bc473a3f8e90582, type: 2}
+  - {fileID: 11400000, guid: a9de1bfd3268fd84ea8e22ba63863dbc, type: 2}
+  - {fileID: 11400000, guid: e57d91a465f777342bb8c7d3f5211648, type: 2}
+  - {fileID: 11400000, guid: 80f98a9854345704ba92c35136f4c802, type: 2}
+  - {fileID: 11400000, guid: ebef49e5db091674d9e029c6c5febcb7, type: 2}
+  - {fileID: 11400000, guid: fc244b0396191264da03813c76b2d86e, type: 2}
+  - {fileID: 11400000, guid: 5daae7f543b914e43a40c310c00e77b0, type: 2}
+  - {fileID: 11400000, guid: 761c5bdc0c1e5ef4e9e806e0c81f82d1, type: 2}

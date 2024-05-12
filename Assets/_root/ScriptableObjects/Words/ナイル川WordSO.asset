@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af22dc1c9f8b234c86ee44ba30059d6, type: 3}
   m_Name: "\u30CA\u30A4\u30EB\u5DDDWordSO"
   m_EditorClassIdentifier: 
-  <Level>k__BackingField: 0
   <JpReading>k__BackingField: "\u30CA\u30A4\u30EB\u5DDD"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 0
   <KanaReading>k__BackingField: "\u306A\u3044\u308B\u30FB\u304C\u308F"
   <TranslationEng>k__BackingField: the Nile River
   <TranslationRus>k__BackingField: 

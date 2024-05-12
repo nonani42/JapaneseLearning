@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af22dc1c9f8b234c86ee44ba30059d6, type: 3}
+  m_Name: "\u7121\u4E8BWordSO"
+  m_EditorClassIdentifier: 
+  <JpReading>k__BackingField: "\u7121\u4E8B"
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 3
+  <KanaReading>k__BackingField: "\u3076\u30FB\u3058"
+  <TranslationEng>k__BackingField: secure, safety
+  <TranslationRus>k__BackingField: "\u0431\u043B\u0430\u0433\u043E\u043F\u043E\u043B\u0443\u0447\u043D\u043E,
+    \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u043E"

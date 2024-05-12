@@ -11,7 +11,7 @@ namespace TestSpace
         [SerializeField] private Button _btnPrefab;
         [SerializeField] private Transform _btnHolderTransform;
         [SerializeField] private Slider _questionsNumberSlider;
-        [SerializeField] private TextMeshProUGUI _questionsNumberText;
+        [SerializeField] private TMP_InputField _questionsNumberText;
 
         private List<Button> _btnList = new();
 
@@ -25,6 +25,7 @@ namespace TestSpace
             ChangeQuestionsMaxNumber(kanjiNum);
             _questionsNumberSlider.value = lastQuestionsNum;
             Hide();
+            _questionsNumberText.onValueChanged.AddListener(v => _questionsNumberSlider.value = float.Parse(v));
         }
 
         public void ChangeQuestionsMaxNumber(float value) => _questionsNumberSlider.maxValue = value;
@@ -65,7 +66,9 @@ namespace TestSpace
         private void OnDestroy()
         {
             _questionsNumberSlider.onValueChanged.RemoveListener(ChangeQuestionsNumber);
-            for(int i = 0; i < _btnList.Count; i++)
+            _questionsNumberText.onValueChanged.RemoveListener(v => ChangeQuestionsNumber(float.Parse(v)));
+
+            for (int i = 0; i < _btnList.Count; i++)
             {
                 _btnList[i].onClick.RemoveAllListeners();
             }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: "\u4EBAWordSO"
   m_EditorClassIdentifier: 
   <JpReading>k__BackingField: "\u4EBA"
-  <Level>k__BackingField: 0
+  <SpecialReading>k__BackingField: 0
+  <KanaOnly>k__BackingField: 0
+  <Level>k__BackingField: 1
   <KanaReading>k__BackingField: "\u3072\u3068"
   <TranslationEng>k__BackingField: man, a person
   <TranslationRus>k__BackingField: "\u0447\u0435\u043B\u043E\u0432\u0435\u043A"

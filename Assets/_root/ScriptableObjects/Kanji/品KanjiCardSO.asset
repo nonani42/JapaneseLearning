@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d6ef7aec3cb24b94b8b21d8e401c3, type: 3}
+  m_Name: "\u54C1KanjiCardSO"
+  m_EditorClassIdentifier: 
+  <Kanji>k__BackingField: 21697
+  <Level>k__BackingField: 2
+  <Grade>k__BackingField: 3
+  <Strokes>k__BackingField: 9
+  <UpperReading>k__BackingField: "\u30D2\u30F3"
+  <LowerReading>k__BackingField: "\u3057\u306A"
+  <MeaningEng>k__BackingField: article, goods (human quality)
+  <MeaningRus>k__BackingField: 
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <Key>k__BackingField: {fileID: 0}
+  <Examples>k__BackingField:
+  - {fileID: 11400000, guid: 04ba21bb9173a734d9a556d605fb2416, type: 2}
+  - {fileID: 11400000, guid: 2c32ccdc62c64c744b17af7f31f8241f, type: 2}
+  - {fileID: 11400000, guid: 5c3a09ea4178c2d488167e7e71df665e, type: 2}
+  - {fileID: 11400000, guid: aa12468b4f8ac8144ab3a23593fea544, type: 2}
+  - {fileID: 11400000, guid: 58a0477b171f91149bed926a938adcd4, type: 2}
+  - {fileID: 11400000, guid: d29ea9a2a3f55354cbefc60b7d2877e2, type: 2}
+  - {fileID: 11400000, guid: ec244fdf195516346bf5e0a49cd5ccf6, type: 2}
+  - {fileID: 11400000, guid: bcfb050def1020b4299ffb651156ec38, type: 2}
+  - {fileID: 11400000, guid: c712b7321b6e35b4388269a0c4e49d45, type: 2}
+  - {fileID: 11400000, guid: ef5ada91b84166e4fa15fa7e54285e98, type: 2}
+  - {fileID: 11400000, guid: 0f53dc3eae195fc4e8893d44c3ae0f24, type: 2}
+  - {fileID: 11400000, guid: 8f54c8c57604cd64fbe4e1f958191471, type: 2}
+  - {fileID: 11400000, guid: ea56e779d50ad244c826b5bb200f5f8f, type: 2}
+  - {fileID: 11400000, guid: 8f496d46ff341df4581937d83befa48b, type: 2}
+  - {fileID: 11400000, guid: 686142156be7d21448bc1d28f3d030e6, type: 2}
+  - {fileID: 11400000, guid: aa093f1e83e89204cb28573b1fd9b0d9, type: 2}

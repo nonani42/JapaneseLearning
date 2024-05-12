@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using TestSpace;
 
-namespace TestSpace
+#if UNITY_EDITOR
+namespace MyEditor
 {
     public class CSVParser
     {
@@ -33,17 +35,18 @@ namespace TestSpace
                 AssetDatabase.DeleteAsset(kanji);
         }
 
-        public void LoadKanjiStrokeOrder() 
+        public void LoadKanjiStrokeOrder(string strokeOrderFolder) 
         {
             List<string> kanjiPathList = AssetDatabase.FindAssets($"t:{typeof(KanjiCardSO)}")
                                                     .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
                                                     .ToList();
 
-            foreach (var path in kanjiPathList)
+            foreach (var kanjiPath in kanjiPathList)
             {
-                KanjiCardSO currentKanji = AssetDatabase.LoadAssetAtPath<KanjiCardSO>(path);
+                KanjiCardSO currentKanji = AssetDatabase.LoadAssetAtPath<KanjiCardSO>(kanjiPath);
                 char currentName = currentKanji.Kanji;
-                string strokeOrderPath = AssetDatabase.FindAssets($"{currentName}{STROKE_ORDER_FILE_END}")
+                string[] foldersToSearch = new[] { strokeOrderFolder };
+                string strokeOrderPath = AssetDatabase.FindAssets($"{currentName}{STROKE_ORDER_FILE_END}", foldersToSearch)
                                                         .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
                                                         .FirstOrDefault();
                 Sprite temp;
@@ -171,3 +174,4 @@ namespace TestSpace
         }
     }
 }
+#endif

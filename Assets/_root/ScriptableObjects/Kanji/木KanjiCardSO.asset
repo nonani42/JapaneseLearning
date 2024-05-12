@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: "\u304D"
   <MeaningEng>k__BackingField: tree, wood
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 2283e2432dc478c4ba863f3e86c3aea8, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 0845b4235ca3469419b1416e53060f10, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: 80484c7f89b0f344d873f8b69c49bd3c, type: 2}

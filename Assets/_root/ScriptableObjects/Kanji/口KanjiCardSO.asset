@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: "\u304F\u3061, -\u3050\u3061"
   <MeaningEng>k__BackingField: mouth
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 14951c688466b5840973a5191d06c671, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: f2776de6e1b533647bd8811030d118e4, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: da3e12b225aba5b4a9597c6743536f9b, type: 2}

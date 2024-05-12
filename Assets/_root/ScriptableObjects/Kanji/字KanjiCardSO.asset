@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: '-'
   <MeaningEng>k__BackingField: letter, character
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: e73992ae32080dd4d834b2bee468f74c, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: a9ef3cd0d05b12d43bc342627aa08cff, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: c6399f02a6c72804487f908609dbde11, type: 2}

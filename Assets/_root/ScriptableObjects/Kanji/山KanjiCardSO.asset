@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: "\u3084\u307E"
   <MeaningEng>k__BackingField: mountain
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: dea612853f99dd84f8b5891c1cb74d57, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 64d268ed86316d145a2d05e1be8c50d1, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: ff517a4d2ffc99c4593ea15d7a75d021, type: 2}

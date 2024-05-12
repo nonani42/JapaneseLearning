@@ -8,12 +8,10 @@ namespace TestSpace
     {
         [SerializeField] private TextMeshProUGUI _firstQuestionText;
         [SerializeField] private TextMeshProUGUI _secondQuestionText;
-        [SerializeField] private TextMeshProUGUI _answerText;
         [SerializeField] private Image _strokeOrder;
 
         public override void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index)
         {
-            _answerText.text = kanjiToReadingStruct.Kanji.Kanji.ToString();
             _firstQuestionText.text = kanjiToReadingStruct.Kanji.MeaningEng;
             _secondQuestionText.text = kanjiToReadingStruct.Kanji.MeaningRus;
             _questionNum.text = index.ToString();
@@ -23,13 +21,11 @@ namespace TestSpace
 
         public override void ShowAnswer(Color color)
         {
-            _answerText.color = color;
             _strokeOrder.enabled = true;
         }
 
         public override void HideAnswer(Color color)
         {
-            _answerText.color = color;
             _strokeOrder.enabled = false;
         }
     }

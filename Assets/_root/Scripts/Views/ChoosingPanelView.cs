@@ -8,6 +8,7 @@ namespace TestSpace
 {
     public class ChoosingPanelView : PanelView
     {
+        [SerializeField] private TextMeshProUGUI _login;
         [SerializeField] private Button _oralPanelBtn;
         [SerializeField] private Button _writingPanelBtn;
         [SerializeField] private TestTypePanelView _oralTypePanelView;
@@ -34,10 +35,11 @@ namespace TestSpace
             OnKnownKanjiNumberChange += _writingTypePanelView.ChangeQuestionsMaxNumber;
         }
 
-        public void Init(int knownKanjiNum, int lastOralQuestionsNum, int lastWritingQuestionsNum)
+        public void Init(int knownKanjiNum, int lastOralQuestionsNum, int lastWritingQuestionsNum, string login)
         {
             _oralTypePanelView.Init(knownKanjiNum, lastOralQuestionsNum);
             _writingTypePanelView.Init(knownKanjiNum, lastWritingQuestionsNum);
+            _login.text = login;
         }
 
         public void SubscribeOralQuestionsChange(Action<int> callback) => _oralTypePanelView.OnQuestionsNumberChange += (t) => callback(t);

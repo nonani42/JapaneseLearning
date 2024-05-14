@@ -5,7 +5,7 @@ namespace TestSpace
 {
     internal class LoadSaveController : IController
     {
-        private LoadSaveModel _loadSaveModel = new();
+        private ILoadSaveModel _loadSaveModel = new CloudLocalSaveModel();
 
         private List<char> _knownKanjiList = new();
         private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
@@ -16,6 +16,7 @@ namespace TestSpace
             private set
             {
                 _knownKanjiList = value;
+                _loadSaveModel.SaveKnownKanji(_knownKanjiList);
                 OnKnownKanjiChange?.Invoke(KnownKanjiList);
             }
         }
@@ -30,6 +31,7 @@ namespace TestSpace
                 if (_questionsNum.writingQuestionsNum != value.writingQuestionsNum)
                     OnWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
 
+                _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
                 _questionsNum = value;
             }
         }
@@ -38,8 +40,9 @@ namespace TestSpace
         public event Action<int> OnOralQuestionsChange;
         public event Action<int> OnWritingQuestionsChange;
 
-        public LoadSaveController()
+        public LoadSaveController(LoginController loginController)
         {
+            _loadSaveModel.Init(loginController);
             KnownKanjiList = _loadSaveModel.LoadKnownKanji();
             QuestionsNum = _loadSaveModel.LoadQuestionsNumber();
         }

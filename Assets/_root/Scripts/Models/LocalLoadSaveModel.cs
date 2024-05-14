@@ -18,12 +18,25 @@ namespace TestSpace
         public int WritingQuestions;
     }
 
-    internal class LoadSaveModel
+    internal class LocalLoadSaveModel : ILoadSaveModel
     {
         private SerializableXMLData<DataToRemember> _serializableXMLKanji = new SerializableXMLData<DataToRemember>();
         private SerializableXMLData<QuestionsToRemember> _serializableXMLParams = new SerializableXMLData<QuestionsToRemember>();
-        private string _kanjiPath = Path.Combine(Application.streamingAssetsPath, "KanjiGameSave.xml");
-        private string _paramsPath = Path.Combine(Application.streamingAssetsPath, "ParamsSave.xml");
+        private string _kanjiPath;
+        private string _paramsPath;
+
+        private LoginController _loginController;
+
+        public void Init(LoginController loginController)
+        {
+            _loginController = loginController;
+
+            string kanjiFileName = $"KanjiGameSave{_loginController.Username}.xml";
+            string paramsFileName = $"ParamsSave{_loginController.Username}.xml";
+
+            _kanjiPath = Path.Combine(Application.streamingAssetsPath, kanjiFileName);
+            _paramsPath = Path.Combine(Application.streamingAssetsPath, paramsFileName);
+        }
 
         public List<char> LoadKnownKanji()
         {

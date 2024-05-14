@@ -11,9 +11,11 @@ namespace TestSpace
 
         [Header("Data from Scene")]
         [SerializeField] private Transform _panelViewParent;
+        [SerializeField] private LoginPanelView _loginPanelView;
         [SerializeField] private ChoosingPanelView _choosingPanelView;
         [SerializeField] private KanjiListPanelView _kanjiPanelView;
 
+        private LoginController _loginController;
         private TestCreationModel _testCreationModel;
 
         private List<IController> _controllers = new List<IController>();
@@ -26,7 +28,7 @@ namespace TestSpace
             {
                 if (_loadSaveController == null)
                 {
-                    _loadSaveController = new LoadSaveController();
+                    _loadSaveController = new LoadSaveController(_loginController);
                     _controllers.Add(_loadSaveController);
                 }
                 return _loadSaveController;
@@ -51,9 +53,22 @@ namespace TestSpace
 
         private void Start()
         {
+            HideAllPanels();
+            StartAuth();
+        }
+
+        private void StartAuth()
+        {
+            _loginController = new LoginController(_loginPanelView);
+            _loginController.OnSuccessfulAuth += log => LoadStartingPanels(log);
+            _loginController.InitAuth();
+        }
+
+        private void LoadStartingPanels(string login)
+        {
             CreateTests();
             Subscribe();
-            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum);
+            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum, login);
             SetStartingView();
         }
 
@@ -68,7 +83,14 @@ namespace TestSpace
 
         private void SetStartingView()
         {
+            HideAllPanels();
             _choosingPanelView.Show();
+        }
+
+        private void HideAllPanels()
+        {
+            _loginPanelView.Hide();
+            _choosingPanelView.Hide();
             _kanjiPanelView.Hide();
         }
 
@@ -98,6 +120,8 @@ namespace TestSpace
 
         private void Unsubscribe()
         {
+            _loginController.OnSuccessfulAuth -= log => LoadStartingPanels(log);
+
             _kanjiPanelView.OnBack -= SetStartingView;
 
             _choosingPanelView.UnsubscribeToKanjiListButton(_kanjiPanelView.Show);

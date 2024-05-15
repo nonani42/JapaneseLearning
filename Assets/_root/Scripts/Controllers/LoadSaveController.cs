@@ -31,7 +31,7 @@ namespace TestSpace
                 if (_questionsNum.writingQuestionsNum != value.writingQuestionsNum)
                     OnWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
 
-                _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
+                _loadSaveModel.SaveQuestionsNumber(value.oralQuestionsNum, value.writingQuestionsNum);
                 _questionsNum = value;
             }
         }
@@ -41,6 +41,11 @@ namespace TestSpace
         public event Action<int> OnWritingQuestionsChange;
 
         public LoadSaveController(LoginController loginController)
+        {
+            LoadInitialData(loginController);
+        }
+
+        private void LoadInitialData(LoginController loginController)
         {
             _loadSaveModel.Init(loginController);
             KnownKanjiList = _loadSaveModel.LoadKnownKanji();
@@ -63,8 +68,8 @@ namespace TestSpace
 
         public void Destroy()
         {
-            _loadSaveModel.SaveKnownKanji(_knownKanjiList);
-            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
+            //_loadSaveModel.SaveKnownKanji(_knownKanjiList);
+            //_loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
         }
     }
 }

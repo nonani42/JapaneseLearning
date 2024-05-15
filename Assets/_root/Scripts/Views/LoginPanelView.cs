@@ -1,57 +1,70 @@
+using System;
+using TestSpace;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
-namespace TestSpace
+public class LoginPanelView : PanelView
 {
-    public class LoginPanelView : PanelView
+    [SerializeField] private TMP_InputField _loginField;
+    [SerializeField] private TMP_InputField _passField;
+    [SerializeField] private Button _loginBtn;
+    [SerializeField] private TextMeshProUGUI _loginResult;
+
+    public event Action<string, string> OnNewUser;
+
+    private void Start()
     {
-        [SerializeField] private TMP_InputField _loginField;
-        [SerializeField] private Button _loginBtn;
-        [SerializeField] private TextMeshProUGUI _loginResult;
+        _loginBtn.onClick.AddListener(Login);
+        _loginResult.enabled = false;
+    }
 
-        public event Action<string> OnNewLogin;
+    private void Login()
+    {
+        if (!StringIsCorrect(_loginField.text)|| !StringIsCorrect(_passField.text))
+            return;
+        else
+            OnNewUser?.Invoke(_loginField.text, _passField.text);
+    }
 
-        public void Start()
+    private bool StringIsCorrect(string str)
+    {
+        bool res;
+        if (string.IsNullOrEmpty(str))
         {
-            _loginBtn.onClick.AddListener(Login);
-            _loginResult.enabled = false;
+            _loginResult.text = "Incorrect data";
+            res = false;
         }
-
-        private void Login()
+        else
         {
-            if (!LoginIsCorrect(_loginField.text))
-                return;
-            else
-                OnNewLogin?.Invoke(_loginField.text);
+            _loginResult.text = string.Empty;
+            res = true;
         }
+        return res;
+    }
 
-        private bool LoginIsCorrect(string login)
-        {
-            bool res;
-            if (string.IsNullOrEmpty(login))
-            {
-                _loginResult.text = "Enter login";
-                res = false;
-            }
-            else
-            {
-                _loginResult.text = string.Empty;
-                res = true;
-            }
-            return res;
-        }
+    public void FillInSavedCredentials(string login, string pass)
+    {
+        _loginField.text = login;
+        _passField.text = pass;
+        _loginBtn.interactable = false;
+    }
 
-        public void ShowSuccessResult() => ShowResult(Color.green, "Success");
+    public void GetNewUser()
+    {
+        _loginField.text = string.Empty;
+        _passField.text = string.Empty;
+        _loginBtn.interactable = true;
+    }
 
-        public void ShowFailureResult(string error) => ShowResult(Color.red, error);
+    public void ShowSuccessResult() => ShowResult(Color.green, "Success");
 
-        private void ShowResult(Color color, string text)
-        {
-            _loginResult.enabled = true;
-            _loginResult.color = color;
-            _loginResult.text = text;
-        }
+    public void ShowFailureResult(string error) => ShowResult(Color.red, error);
+
+    private void ShowResult(Color color, string text)
+    {
+        _loginResult.enabled = true;
+        _loginResult.color = color;
+        _loginResult.text = text;
     }
 }

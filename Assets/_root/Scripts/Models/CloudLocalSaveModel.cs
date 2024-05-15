@@ -20,23 +20,8 @@ namespace TestSpace
         public void Init(LoginController loginController)
         {
             _loginController = loginController;
-
-            if (!PlayFabClientAPI.IsClientLoggedIn())
-            {
-                Debug.Log("Not logged in!");
-                _loginController.InitAuth();
-            }
-            var request = new GetUserDataRequest { PlayFabId = _loginController.UserID };
-            PlayFabClientAPI.GetUserData(request, OnGetDataSuccess, OnGetDataFailure);
+            _result = _loginController.Result;
         }
-
-        private void OnGetDataSuccess(GetUserDataResult result)
-        {
-            Debug.Log($"OnGetDataSuccess{result != null}");
-            _result = result;
-        }
-
-        private void OnGetDataFailure(PlayFabError error) => Debug.Log($"{error.GenerateErrorReport()}");
 
         public List<char> LoadKnownKanji()
         {
@@ -48,11 +33,13 @@ namespace TestSpace
             if (_result.Data.ContainsKey(KNOWN_KANJI))
             {
                 string[] arr = _result.Data[KNOWN_KANJI].Value.Split(SEPARATOR);
-
                 for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == string.Empty)
+                        continue;
                     res.Add(arr[i].ToCharArray()[0]);
+                }
             }
-
             return res;
         }
 
@@ -68,7 +55,7 @@ namespace TestSpace
                 oral = int.Parse(_result.Data[ORAL_QUESTIONS].Value);
 
             if (_result.Data.ContainsKey(WRITTEN_QUESTIONS))
-                oral = int.Parse(_result.Data[WRITTEN_QUESTIONS].Value);
+                written = int.Parse(_result.Data[WRITTEN_QUESTIONS].Value);
 
             return (oral, written);
         }

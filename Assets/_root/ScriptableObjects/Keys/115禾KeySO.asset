@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "115\u79BEKeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 115
+  <KeyName>k__BackingField: "\u79BE"
+  <KeyVersions>k__BackingField: ' '
+  <Strokes>k__BackingField: 5
+  <Reading>k__BackingField: "\u306E\u304E"
+  <TranslationEng>k__BackingField: grain, ear
+  <TranslationRus>k__BackingField: "\u0434\u0435\u0440\u0435\u0432\u043E \u0441 \u0434\u0432\u0443\u043C\u044F
+    \u0432\u0435\u0442\u043A\u0430\u043C\u0438"
+  <ExampleKanji>k__BackingField: "\u79C1\u79CB\u79FB\u79D1\u7A2E\u7A0E\u7A4D\u7A0B\u79D2\u7A62"
+  <IsImportant>k__BackingField: 1

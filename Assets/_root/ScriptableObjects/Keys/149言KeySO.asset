@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "149\u8A00KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 149
+  <KeyName>k__BackingField: "\u8A00"
+  <KeyVersions>k__BackingField: "\u8A01"
+  <Strokes>k__BackingField: 7
+  <Reading>k__BackingField: "\u3053\u3068\u3070"
+  <TranslationEng>k__BackingField: speaking, speech
+  <TranslationRus>k__BackingField: "\u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C"
+  <ExampleKanji>k__BackingField: "\u8A9E\u8AAD\u8A71\u8A08\u8A00\u8A66\u8AB2\u8A18\u8B70\u8A70\u8A31\u8A13\u8B66\u8AA4\u8B1B\u8A5E"
+  <IsImportant>k__BackingField: 1

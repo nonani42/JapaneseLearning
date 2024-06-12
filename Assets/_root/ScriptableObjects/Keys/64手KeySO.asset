@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "64\u624BKeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 64
+  <KeyName>k__BackingField: "\u624B"
+  <KeyVersions>k__BackingField: "\u624C, \u9FB5"
+  <Strokes>k__BackingField: 4
+  <Reading>k__BackingField: "\u3066"
+  <TranslationEng>k__BackingField: hand, actions
+  <TranslationRus>k__BackingField: "\u0440\u0443\u043A\u0430"
+  <ExampleKanji>k__BackingField: "\u6253\u624B\u6301\u62BC\u639B\u63DB\u6280\u631F\u6398\u624D\u63A1\u6307\u6368\u62FE\u62DB\u627F"
+  <IsImportant>k__BackingField: 1

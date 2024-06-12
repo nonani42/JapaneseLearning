@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "12\u516BKeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 12
+  <KeyName>k__BackingField: "\u516B"
+  <KeyVersions>k__BackingField: "\u30CF"
+  <Strokes>k__BackingField: 2
+  <Reading>k__BackingField: "\u306F\u3061\u304C\u3057\u3089"
+  <TranslationEng>k__BackingField: eight, to part, to divide
+  <TranslationRus>k__BackingField: "\u0432\u043E\u0441\u0435\u043C\u044C"
+  <ExampleKanji>k__BackingField: "\u516D\u516B\u5171\u5177\u5175\u516C"
+  <IsImportant>k__BackingField: 1

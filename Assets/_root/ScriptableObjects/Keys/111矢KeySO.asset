@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "111\u77E2KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 111
+  <KeyName>k__BackingField: "\u77E2"
+  <KeyVersions>k__BackingField: ' '
+  <Strokes>k__BackingField: 5
+  <Reading>k__BackingField: "\u3084"
+  <TranslationEng>k__BackingField: arrow
+  <TranslationRus>k__BackingField: "\u0441\u0442\u0440\u0435\u043B\u0430"
+  <ExampleKanji>k__BackingField: "\u77E5\u77ED"
+  <IsImportant>k__BackingField: 0

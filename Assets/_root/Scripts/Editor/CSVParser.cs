@@ -14,7 +14,18 @@ namespace MyEditor
         private const string WORD_FILE_END = "WordSO";
         private const string KANJI_FILE_END = "KanjiCardSO";
         private const string KANA_FILE_END = "KanaSO";
+        private const string KEY_FILE_END = "KeySO";
         private const string STROKE_ORDER_FILE_END = "StrokeOrder";
+
+        public void ClearKeySO()
+        {
+            List<string> keyList = AssetDatabase.FindAssets($"t:{typeof(KeySO)}")
+                                                    .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
+                                                    .ToList();
+
+            foreach (var key in keyList)
+                AssetDatabase.DeleteAsset(key);
+        }
 
         public void ClearKanaSO()
         {
@@ -195,6 +206,38 @@ namespace MyEditor
                     tempSO.HiraganaKeyName = fields[1];
                     tempSO.Reading = fields[2];
                     tempSO.IsTested = Int32.Parse(fields[3]) != 0;
+
+                    Save(savePath, tempSO);
+                }
+            }
+        }
+
+        public void ParseKeyCSV(string readPath, string fileName, string savePath)
+        {
+            string fileCSV = Path.Combine(readPath, fileName);
+            bool isHeader = true;
+            using (StreamReader streamReader = new StreamReader(fileCSV))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    string[] fields = streamReader.ReadLine().Split(";");
+                    if (isHeader)
+                    {
+                        isHeader = false;
+                        continue;
+                    }
+                    //Processing row
+                    var tempSO = ScriptableObject.CreateInstance<KeySO>();
+                    tempSO.name = fields[0] + fields[1] + KEY_FILE_END + ".asset";
+                    tempSO.Num = Int32.Parse(fields[0]);
+                    tempSO.KeyName = fields[1];
+                    tempSO.KeyVersions = fields[2];
+                    tempSO.Strokes = Int32.Parse(fields[3]);
+                    tempSO.Reading = fields[4];
+                    tempSO.TranslationEng = fields[5];
+                    tempSO.TranslationRus = fields[6];
+                    tempSO.ExampleKanji = fields[7];
+                    tempSO.IsImportant = Int32.Parse(fields[8]) != 0;
 
                     Save(savePath, tempSO);
                 }

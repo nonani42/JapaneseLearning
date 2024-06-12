@@ -8,6 +8,7 @@ namespace TestSpace
         [Header("Data from SO")]
         [SerializeField] private KanjiListSO _allKanjiList;
         [SerializeField] private KanaListSO _allKanaList;
+        [SerializeField] private KeysListSO _allKeysList;
         [SerializeField] private TestSO _allTestList;
 
         [Header("Data from Scene")]

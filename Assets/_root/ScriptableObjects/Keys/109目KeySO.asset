@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "109\u76EEKeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 109
+  <KeyName>k__BackingField: "\u76EE"
+  <KeyVersions>k__BackingField: ' '
+  <Strokes>k__BackingField: 5
+  <Reading>k__BackingField: "\u3081"
+  <TranslationEng>k__BackingField: eye
+  <TranslationRus>k__BackingField: "\u0433\u043B\u0430\u0437"
+  <ExampleKanji>k__BackingField: "\u771F\u76EE\u770C\u7701\u76F8\u76F4\u7720\u770B"
+  <IsImportant>k__BackingField: 1

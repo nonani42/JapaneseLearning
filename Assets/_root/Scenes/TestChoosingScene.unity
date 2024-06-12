@@ -4129,6 +4129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allKanjiList: {fileID: 11400000, guid: b5ce29e8c027e51419a1c41c52e169bc, type: 2}
   _allKanaList: {fileID: 11400000, guid: af68cf0ebdb9251478740cc6b6f15ae4, type: 2}
+  _allKeysList: {fileID: 11400000, guid: 9885032542e38054d9d5685440d2cf74, type: 2}
   _allTestList: {fileID: 11400000, guid: e96b068bb36ae5f40a2d8b662fe8373c, type: 2}
   _panelViewParent: {fileID: 7409224705557366047}
   _loginPanelView: {fileID: 1918331297}

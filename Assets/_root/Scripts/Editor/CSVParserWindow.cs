@@ -18,6 +18,10 @@ namespace MyEditor
         private string _kanaCSVFileName = "KanaCSV.csv";
         private string _saveKanaPath = "Assets/_root/ScriptableObjects/Kana";
 
+        private string _readKeyPath = "Assets/_root/CSVs";
+        private string _keyCSVFileName = "RadicalsCSV.csv";
+        private string _saveKeyPath = "Assets/_root/ScriptableObjects/Keys";
+
         private string _strokeOrderPath = "Assets/_root/Sprites/StrokeOrder/single";
 
         private CSVParser _csvParser;
@@ -57,6 +61,10 @@ namespace MyEditor
             SetLabel("Kana");
 
             ComposeKana();
+
+            SetLabel("Keys");
+
+            ComposeKeys();
         }
 
         private void ComposeKanji()
@@ -116,6 +124,22 @@ namespace MyEditor
             {
                 if (!CheckForEmptyString(_readKanaPath, _saveKanaPath, _kanaCSVFileName))
                     CsvParser.ParseKanaCSV(_readKanaPath, _kanaCSVFileName, _saveKanaPath);
+            }
+        }
+
+        private void ComposeKeys()
+        {
+            if (GUILayout.Button("Clear Keys SO"))
+                CsvParser.ClearKeySO();
+
+            _readKeyPath = EditorGUILayout.TextField("KeyCSVPath", _readKeyPath);
+            _keyCSVFileName = EditorGUILayout.TextField("KeyCSVFileName", _keyCSVFileName);
+            _saveKeyPath = EditorGUILayout.TextField("SaveKeyPath", _saveKeyPath);
+
+            if (GUILayout.Button("Parse Keys"))
+            {
+                if (!CheckForEmptyString(_readKeyPath, _saveKeyPath, _keyCSVFileName))
+                    CsvParser.ParseKeyCSV(_readKeyPath, _keyCSVFileName, _saveKeyPath);
             }
         }
 

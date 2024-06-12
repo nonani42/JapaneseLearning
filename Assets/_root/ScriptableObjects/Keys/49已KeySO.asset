@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "49\u5DF2KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 49
+  <KeyName>k__BackingField: "\u5DF2"
+  <KeyVersions>k__BackingField: "\u5DF1, \u5DF3"
+  <Strokes>k__BackingField: 3
+  <Reading>k__BackingField: "\u304A\u306E\u308C"
+  <TranslationEng>k__BackingField: self, own, the sixth of celestial stems
+  <TranslationRus>k__BackingField: "\u0437\u043C\u0435\u044F"
+  <ExampleKanji>k__BackingField: "\u5DF1"
+  <IsImportant>k__BackingField: 0

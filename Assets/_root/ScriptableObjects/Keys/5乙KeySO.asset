@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "5\u4E59KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 5
+  <KeyName>k__BackingField: "\u4E59"
+  <KeyVersions>k__BackingField: "\u4E5A, \u2E84, \u4E5B"
+  <Strokes>k__BackingField: 1
+  <Reading>k__BackingField: "\u304A\u3064"
+  <TranslationEng>k__BackingField: a bend stroke, the second of celestial stems
+  <TranslationRus>k__BackingField: "\u0440\u044B\u0431\u043D\u044B\u0439 \u043A\u0440\u044E\u0447\u043E\u043A"
+  <ExampleKanji>k__BackingField: "\u4E5D\u4E7E\u4E73\u4E71\u4E80"
+  <IsImportant>k__BackingField: 0

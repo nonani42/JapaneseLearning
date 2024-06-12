@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "191\u9B25KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 191
+  <KeyName>k__BackingField: "\u9B25"
+  <KeyVersions>k__BackingField: ' '
+  <Strokes>k__BackingField: 10
+  <Reading>k__BackingField: "\u3068\u3046\u304C\u307E\u3048"
+  <TranslationEng>k__BackingField: fight, battle
+  <TranslationRus>k__BackingField: "\u0441\u043B\u043E\u043C\u0430\u043D\u043D\u044B\u0435
+    \u0432\u043E\u0440\u043E\u0442\u0430"
+  <ExampleKanji>k__BackingField: "\u9B2E"
+  <IsImportant>k__BackingField: 0

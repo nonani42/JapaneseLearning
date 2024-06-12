@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339c7b87a9f99b94f991315730718f50, type: 3}
+  m_Name: "172\u96B9KeySO"
+  m_EditorClassIdentifier: 
+  <Num>k__BackingField: 172
+  <KeyName>k__BackingField: "\u96B9"
+  <KeyVersions>k__BackingField: ' '
+  <Strokes>k__BackingField: 8
+  <Reading>k__BackingField: "\u3075\u308B\u3068\u308A"
+  <TranslationEng>k__BackingField: small bird
+  <TranslationRus>k__BackingField: "\u0441\u0442\u0430\u0440\u0430\u044F \u043F\u0442\u0438\u0446\u0430"
+  <ExampleKanji>k__BackingField: "\u96C6\u96C7\u96D1\u96BB\u96E3"
+  <IsImportant>k__BackingField: 1

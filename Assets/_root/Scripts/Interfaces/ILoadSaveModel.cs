@@ -9,5 +9,9 @@ namespace TestSpace
         void SaveKnownKanji(List<char> knownKanjiList);
         (int oralQuestionsNum, int writingQuestionsNum) LoadQuestionsNumber();
         void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum);
+        int LoadKanaQuestions();
+        void SaveKanaQuestions(int kanaQuestionsNum);
+        int LoadKeyQuestions();
+        void SaveKeyQuestions(int kanaQuestionsNum);
     }
 }

@@ -9,6 +9,8 @@ namespace TestSpace
 
         private List<char> _knownKanjiList = new();
         private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
+        private int _kanaQuestionsNum;
+        private int _keyQuestionsNum;
 
         public List<char> KnownKanjiList
         {
@@ -36,9 +38,32 @@ namespace TestSpace
             }
         }
 
+        public int KanaQuestionsNum
+        {
+            get => _kanaQuestionsNum;
+            private set
+            {
+                _kanaQuestionsNum = value;
+                _loadSaveModel.SaveKanaQuestions(value);
+                OnKanaQuestionsChange?.Invoke(value);
+            }
+        }
+        public int KeyQuestionsNum
+        {
+            get => _keyQuestionsNum;
+            private set
+            {
+                _keyQuestionsNum = value;
+                _loadSaveModel.SaveKeyQuestions(value);
+                OnKeyQuestionsChange?.Invoke(value);
+            }
+        }
+
         public event Action<List<char>> OnKnownKanjiChange;
         public event Action<int> OnOralQuestionsChange;
         public event Action<int> OnWritingQuestionsChange;
+        public event Action<int> OnKanaQuestionsChange;
+        public event Action<int> OnKeyQuestionsChange;
 
         public LoadSaveController(LoginController loginController)
         {
@@ -50,9 +75,15 @@ namespace TestSpace
             _loadSaveModel.Init(loginController);
             KnownKanjiList = _loadSaveModel.LoadKnownKanji();
             QuestionsNum = _loadSaveModel.LoadQuestionsNumber();
+            KanaQuestionsNum = _loadSaveModel.LoadKanaQuestions();
+            KeyQuestionsNum = _loadSaveModel.LoadKeyQuestions();
         }
 
         public void UpdateKnownKanji(List<char> kanjiList) => KnownKanjiList = kanjiList;
+
+        public void UpdateKanaQuestions(int kanaQuestions) => KanaQuestionsNum = kanaQuestions;
+
+        public void UpdateKeyQuestions(int keyQuestions) => KeyQuestionsNum = keyQuestions;
 
         public void UpdateOralQuestionsNum(int oralQuestions)
         {
@@ -70,8 +101,10 @@ namespace TestSpace
 
         public void Destroy()
         {
-            //_loadSaveModel.SaveKnownKanji(_knownKanjiList);
-            //_loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
+            _loadSaveModel.SaveKnownKanji(_knownKanjiList);
+            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
+            _loadSaveModel.SaveKanaQuestions(KanaQuestionsNum);
+            _loadSaveModel.SaveKeyQuestions(KeyQuestionsNum);
         }
     }
 }

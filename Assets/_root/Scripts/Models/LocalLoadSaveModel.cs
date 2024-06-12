@@ -83,5 +83,25 @@ namespace TestSpace
 
             _serializableXMLParams.Save(data, _paramsPath);
         }
+
+        public int LoadKanaQuestions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveKanaQuestions(int kanaQuestionsNum)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int LoadKeyQuestions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveKeyQuestions(int kanaQuestionsNum)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

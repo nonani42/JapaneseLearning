@@ -63,10 +63,26 @@ namespace TestSpace
                 tempController.Init,
             };
 
-            if (test.TestType == TestType.oral)
-                _choosingPanelView.SubscribeToOralTestButton(call, test.TestButtonName);
-            else if (test.TestType == TestType.writing)
-                _choosingPanelView.SubscribeToWritingTestButton(call, test.TestButtonName);
+            if(test.TestObjectType == TestObjectEnum.Kanji)
+            {
+                if (test.TestType == TestType.oral)
+                    _choosingPanelView.SubscribeToOralTestButton(call, test.TestButtonName);
+                else if (test.TestType == TestType.writing)
+                    _choosingPanelView.SubscribeToWritingTestButton(call, test.TestButtonName);
+            }
+            else if(test.TestObjectType == TestObjectEnum.Kana)
+            {
+                _choosingPanelView.SubscribeToKanaTestButton(call, test.TestButtonName);
+            }
+            else if(test.TestObjectType == TestObjectEnum.Key)
+            {
+                _choosingPanelView.SubscribeToKeyTestButton(call, test.TestButtonName);
+            }
+            else
+            {
+                Debug.Log("No sutable test type!");
+            }
+
 
             _controllersList.Add(tempController);
             _panelViewsList.Add(tempView);

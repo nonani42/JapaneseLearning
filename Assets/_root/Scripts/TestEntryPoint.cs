@@ -14,6 +14,7 @@ namespace TestSpace
         [Header("Data from Scene")]
         [SerializeField] private Transform _panelViewParent;
         [SerializeField] private LoginPanelView _loginPanelView;
+        [SerializeField] private PanelView _leftPanelView;
         [SerializeField] private ChoosingPanelView _choosingPanelView;
         [SerializeField] private KanjiListPanelView _kanjiPanelView;
 
@@ -70,7 +71,10 @@ namespace TestSpace
         {
             CreateTests();
             Subscribe();
-            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum, login);
+            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum,
+                                    _allKanaList.KanaList.Length, LoadSaveController.KanaQuestionsNum,
+                                    _allKeysList.KeyList.Length, LoadSaveController.KeyQuestionsNum,
+                                    login);
             SetStartingView();
         }
 
@@ -87,12 +91,14 @@ namespace TestSpace
         {
             HideAllPanels();
             _choosingPanelView.Show();
+            _leftPanelView.Show();
         }
 
         private void HideAllPanels()
         {
             _loginPanelView.Hide();
             _choosingPanelView.Hide();
+            _leftPanelView.Hide();
             _kanjiPanelView.Hide();
         }
 
@@ -118,6 +124,10 @@ namespace TestSpace
             _choosingPanelView.SubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
 
             _choosingPanelView.SubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
+
+            _choosingPanelView.SubscribeKanaQuestionsChange(LoadSaveController.UpdateKanaQuestions);
+
+            _choosingPanelView.SubscribeKeyQuestionsChange(LoadSaveController.UpdateKeyQuestions);
         }
 
         private void Unsubscribe()
@@ -136,6 +146,10 @@ namespace TestSpace
             _choosingPanelView.UnsubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
 
             _choosingPanelView.UnsubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
+
+            _choosingPanelView.UnsubscribeKanaQuestionsChange(LoadSaveController.UpdateKanaQuestions);
+
+            _choosingPanelView.UnsubscribeKeyQuestionsChange(LoadSaveController.UpdateKeyQuestions);
         }
     }
 }

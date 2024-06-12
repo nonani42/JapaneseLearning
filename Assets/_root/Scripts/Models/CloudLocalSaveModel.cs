@@ -12,6 +12,8 @@ namespace TestSpace
         private const string KNOWN_KANJI = "knownKanjiList";
         private const string ORAL_QUESTIONS = "oralQuestionsNum";
         private const string WRITTEN_QUESTIONS = "writtenQuestionsNum";
+        private const string KANA_QUESTIONS = "kanaQuestionsNum";
+        private const string KEY_QUESTIONS = "keyQuestionsNum";
 
         private LoginController _loginController;
 
@@ -60,6 +62,22 @@ namespace TestSpace
             return (oral, written);
         }
 
+        public int LoadKanaQuestions() => LoadQuestions(KANA_QUESTIONS);
+        public int LoadKeyQuestions() => LoadQuestions(KEY_QUESTIONS);
+
+        private int LoadQuestions(string key)
+        {
+            int questions = 0;
+
+            if (_result == null)
+                return questions;
+
+            if (_result.Data.ContainsKey(key))
+                questions = int.Parse(_result.Data[key].Value);
+
+            return questions;
+        }
+
         public void SaveKnownKanji(List<char> knownKanjiList)
         {
             StringBuilder sb = new StringBuilder();
@@ -73,7 +91,9 @@ namespace TestSpace
             SaveKanji(sb.ToString());
         }
 
-        public void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
+        public void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveKanjiQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
+        public void SaveKanaQuestions(int kanaQuestionsNum) => SaveQuestions(kanaQuestionsNum.ToString(), KANA_QUESTIONS);
+        public void SaveKeyQuestions(int keyQuestionsNum) => SaveQuestions(keyQuestionsNum.ToString(), KEY_QUESTIONS);
 
         private void SaveKanji(string knownKanji)
         {
@@ -88,7 +108,7 @@ namespace TestSpace
             PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
         }
 
-        private void SaveQuestions(string oral, string written)
+        private void SaveKanjiQuestions(string oral, string written)
         {
             var request = new UpdateUserDataRequest
             {
@@ -96,6 +116,19 @@ namespace TestSpace
                 {
                     { ORAL_QUESTIONS, oral },
                     { WRITTEN_QUESTIONS, written },
+                }
+            };
+
+            PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
+        }
+
+        private void SaveQuestions(string questionsNum, string key)
+        {
+            var request = new UpdateUserDataRequest
+            {
+                Data = new Dictionary<string, string>
+                {
+                    { key, questionsNum },
                 }
             };
 

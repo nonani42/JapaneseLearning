@@ -76,7 +76,7 @@ namespace TestSpace
 
         private void CreateTests()
         {
-            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _allKanaList.KanaList, _choosingPanelView, _panelViewParent, SetStartingView);
+            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _allKanaList.KanaList, _allKeysList.KeyList, _choosingPanelView, _panelViewParent, SetStartingView);
             for (int i = 0; i < _allTestList.TestsArray.Length; i++)
                 _testCreationModel.InitTest(_allTestList.TestsArray[i]);
         }

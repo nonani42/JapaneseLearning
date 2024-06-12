@@ -9,6 +9,7 @@ namespace TestSpace
         private LoadSaveController _loadSaveController; 
         private KanjiCardSO[] _allKanjiList;
         private KanaSO[] _allKanaList;
+        private KeySO[] _allKeyList;
         private ChoosingPanelView _choosingPanelView;
 
         private List<ITestController> _controllersList = new();
@@ -17,11 +18,12 @@ namespace TestSpace
         private Transform _panelViewParent;
         private Action _returnCallback;
 
-        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, KanaSO[] allKanaList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
+        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, KanaSO[] allKanaList, KeySO[] allKeyList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
         { 
             _loadSaveController = loadSaveController;
             _allKanjiList = allKanjiList;
             _allKanaList = allKanaList;
+            _allKeyList = allKeyList;
             _choosingPanelView = choosingPanelView;
             _panelViewParent = panelViewParent;
             _returnCallback = returnCallback;
@@ -37,14 +39,22 @@ namespace TestSpace
             tempView.Hide();
 
             ITestController tempController;
-            if (test.TestObjectType == TestObjectEnum.Kanji)
+            switch (test.TestObjectType)
             {
-                tempController = new KanjiTestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
-                SubscribeKanji(tempController as KanjiTestController, test.TestType);
-            }
-            else
-            {
-                tempController = new KanaTestController(tempView, _allKanaList);
+                case TestObjectEnum.Kanji:
+                    tempController = new KanjiTestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
+                    SubscribeKanji(tempController as KanjiTestController, test.TestType);
+                    break;
+                case TestObjectEnum.Kana:
+                    tempController = new KanaTestController(tempView, _allKanaList);
+                    break;
+                case TestObjectEnum.Key:
+                    tempController = new KeyTestController(tempView, _allKeyList);
+                    break;
+                default:
+                    Debug.Log("No sutable test controller!");
+                    tempController = new StubTestController();
+                    break;
             }
 
             Action[] call = new Action[]

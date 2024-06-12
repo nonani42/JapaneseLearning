@@ -12,6 +12,7 @@ namespace TestSpace
 
         public virtual void NextQuestion(TestKanjiStruct kanjiStruct, int index) { }
         public virtual void NextQuestion(TestKanaStruct kanaStruct, int index) { }
+        public virtual void NextQuestion(TestKeyStruct keyStruct, int index) { }
         public abstract void ShowAnswer(Color color);
         public abstract void HideAnswer(Color color);
     }

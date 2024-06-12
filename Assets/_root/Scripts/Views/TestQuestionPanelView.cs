@@ -16,6 +16,7 @@ namespace TestSpace
 
         public event Func<TestKanjiStruct> OnNextKanji;
         public event Func<TestKanaStruct> OnNextKana;
+        public event Func<TestKeyStruct> OnNextKey;
 
         public new void Init()
         {
@@ -33,11 +34,18 @@ namespace TestSpace
             _isLast = kanjiStruct.IsLast;
         }
 
-        private void SetNextKana(TestKanaStruct kanjiStruct)
+        private void SetNextKana(TestKanaStruct kanaStruct)
         {
             _index++;
-            _view.NextQuestion(kanjiStruct, _index);
-            _isLast = kanjiStruct.IsLast;
+            _view.NextQuestion(kanaStruct, _index);
+            _isLast = kanaStruct.IsLast;
+        }
+
+        private void SetNextKey(TestKeyStruct keyStruct)
+        {
+            _index++;
+            _view.NextQuestion(keyStruct, _index);
+            _isLast = keyStruct.IsLast;
         }
 
         public void GetNextQuestion()
@@ -46,6 +54,8 @@ namespace TestSpace
                 SetNextKanji(OnNextKanji.Invoke());
             else if (_testObject == TestObjectEnum.Kana)
                 SetNextKana(OnNextKana.Invoke());
+            else if (_testObject == TestObjectEnum.Key)
+                SetNextKey(OnNextKey.Invoke());
 
             _view.HideAnswer(hideAnswerColor);
             GetNext();

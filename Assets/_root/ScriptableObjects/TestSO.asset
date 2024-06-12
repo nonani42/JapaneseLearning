@@ -38,13 +38,18 @@ MonoBehaviour:
     <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Meaning To Kanji
     <TestViewPrefab>k__BackingField: {fileID: 6891317168071051188, guid: 0c97601061a8a2047ba1dc2da31054bc, type: 3}
-  - <TestName>k__BackingField: Reading To Kana Test
-    <TestType>k__BackingField: 1
-    <TestObjectType>k__BackingField: 1
-    <TestButtonName>k__BackingField: Reading To Kana
-    <TestViewPrefab>k__BackingField: {fileID: 9168919991102521806, guid: 313d31753f647d74ab778e708c2fb074, type: 3}
   - <TestName>k__BackingField: Reading To Kanji Test
     <TestType>k__BackingField: 1
     <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Reading To Kanji
     <TestViewPrefab>k__BackingField: {fileID: 8962403439200431004, guid: 122cf6f0e7a8a2941980f2a837284ce5, type: 3}
+  - <TestName>k__BackingField: Reading To Kana Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 1
+    <TestButtonName>k__BackingField: Reading To Kana
+    <TestViewPrefab>k__BackingField: {fileID: 9168919991102521806, guid: 313d31753f647d74ab778e708c2fb074, type: 3}
+  - <TestName>k__BackingField: Key To Everything Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 2
+    <TestButtonName>k__BackingField: Key To Everything
+    <TestViewPrefab>k__BackingField: {fileID: 1825434076790562406, guid: c5fa1b2126bb91044833aa836d2b85a8, type: 3}

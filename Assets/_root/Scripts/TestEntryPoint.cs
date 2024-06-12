@@ -7,6 +7,7 @@ namespace TestSpace
     {
         [Header("Data from SO")]
         [SerializeField] private KanjiListSO _allKanjiList;
+        [SerializeField] private KanaListSO _allKanaList;
         [SerializeField] private TestSO _allTestList;
 
         [Header("Data from Scene")]
@@ -74,7 +75,7 @@ namespace TestSpace
 
         private void CreateTests()
         {
-            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _choosingPanelView, _panelViewParent, SetStartingView);
+            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _allKanaList.KanaList, _choosingPanelView, _panelViewParent, SetStartingView);
             for (int i = 0; i < _allTestList.TestsArray.Length; i++)
                 _testCreationModel.InitTest(_allTestList.TestsArray[i]);
         }

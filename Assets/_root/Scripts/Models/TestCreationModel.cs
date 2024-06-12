@@ -8,18 +8,20 @@ namespace TestSpace
     {
         private LoadSaveController _loadSaveController; 
         private KanjiCardSO[] _allKanjiList;
+        private KanaSO[] _allKanaList;
         private ChoosingPanelView _choosingPanelView;
 
-        private List<TestController> _controllersList = new();
+        private List<ITestController> _controllersList = new();
         private List<TestQuestionPanelView> _panelViewsList = new();
 
         private Transform _panelViewParent;
         private Action _returnCallback;
 
-        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
+        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, KanaSO[] allKanaList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
         { 
             _loadSaveController = loadSaveController;
             _allKanjiList = allKanjiList;
+            _allKanaList = allKanaList;
             _choosingPanelView = choosingPanelView;
             _panelViewParent = panelViewParent;
             _returnCallback = returnCallback;
@@ -27,14 +29,23 @@ namespace TestSpace
 
         public void InitTest(Test test)
         {
-            var tempView = GameObject.Instantiate(test.TestViewPrefab.gameObject, _panelViewParent).GetComponent<TestQuestionPanelView>();
+            TestQuestionPanelView tempView = GameObject.Instantiate(test.TestViewPrefab.gameObject, _panelViewParent).GetComponent<TestQuestionPanelView>();
             tempView.View.Header.text = test.TestName;
+            tempView.TestObject = test.TestObjectType;
             tempView.OnBack += _returnCallback;
             tempView.OnBack += tempView.Hide;
             tempView.Hide();
 
-            var tempController = new TestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
-            Subscribe(tempController, test.TestType);
+            ITestController tempController;
+            if (test.TestObjectType == TestObjectEnum.Kanji)
+            {
+                tempController = new KanjiTestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
+                SubscribeKanji(tempController as KanjiTestController, test.TestType);
+            }
+            else
+            {
+                tempController = new KanaTestController(tempView, _allKanaList);
+            }
 
             Action[] call = new Action[]
             {
@@ -44,25 +55,35 @@ namespace TestSpace
 
             if (test.TestType == TestType.oral)
                 _choosingPanelView.SubscribeToOralTestButton(call, test.TestButtonName);
-            if(test.TestType == TestType.writing)
+            else if (test.TestType == TestType.writing)
                 _choosingPanelView.SubscribeToWritingTestButton(call, test.TestButtonName);
 
             _controllersList.Add(tempController);
             _panelViewsList.Add(tempView);
+
+            SubscribeQuestionsNum(tempController, test.TestType);
         }
 
-        private void Subscribe(TestController controller, TestType testType)
+        private void SubscribeKanji(KanjiTestController controller, TestType testType)
         {
             _loadSaveController.OnKnownKanjiChange += controller.SetKnownKanji;
+        }
+
+        private void SubscribeQuestionsNum(ITestController controller, TestType testType)
+        {
             if (testType == TestType.oral)
                 _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
             if (testType == TestType.writing)
                 _loadSaveController.OnWritingQuestionsChange += controller.SetTestLength;
         }
 
-        private void Unsubscribe(TestController controller)
+        private void UnsubscribeKanji(KanjiTestController controller)
         {
             _loadSaveController.OnKnownKanjiChange -= controller.SetKnownKanji;
+        }
+
+        private void UnsubscribeQuestionsNum(ITestController controller)
+        {
             _loadSaveController.OnOralQuestionsChange -= controller.SetTestLength;
         }
 
@@ -78,7 +99,9 @@ namespace TestSpace
 
             for (int i = 0; i < _controllersList.Count; i++)
             {
-                Unsubscribe(_controllersList[i]);
+                UnsubscribeQuestionsNum(_controllersList[i]);
+                if(_controllersList[i] is KanjiTestController)
+                    UnsubscribeKanji(_controllersList[i] as KanjiTestController);
                 _controllersList[i].Destroy();
             }
             _controllersList.Clear();

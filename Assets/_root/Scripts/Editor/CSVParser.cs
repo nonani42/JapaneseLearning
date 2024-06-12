@@ -13,7 +13,18 @@ namespace MyEditor
     {
         private const string WORD_FILE_END = "WordSO";
         private const string KANJI_FILE_END = "KanjiCardSO";
+        private const string KANA_FILE_END = "KanaSO";
         private const string STROKE_ORDER_FILE_END = "StrokeOrder";
+
+        public void ClearKanaSO()
+        {
+            List<string> kanaList = AssetDatabase.FindAssets($"t:{typeof(KanaSO)}")
+                                                    .Select(guid => AssetDatabase.GUIDToAssetPath(guid))
+                                                    .ToList();
+
+            foreach (var kana in kanaList)
+                AssetDatabase.DeleteAsset(kana);
+        }
 
         public void ClearWordSO()
         {
@@ -157,6 +168,33 @@ namespace MyEditor
                     tempSO.LowerReading = fields[5];
                     tempSO.MeaningEng = fields[6];
                     tempSO.MeaningRus = fields[7];
+
+                    Save(savePath, tempSO);
+                }
+            }
+        }
+
+        public void ParseKanaCSV(string readPath, string fileName, string savePath)
+        {
+            string fileCSV = Path.Combine(readPath, fileName);
+            bool isHeader = true;
+            using (StreamReader streamReader = new StreamReader(fileCSV))
+            {
+                while (!streamReader.EndOfStream)
+                {
+                    string[] fields = streamReader.ReadLine().Split(";");
+                    if (isHeader)
+                    {
+                        isHeader = false;
+                        continue;
+                    }
+                    //Processing row
+                    var tempSO = ScriptableObject.CreateInstance<KanaSO>();
+                    tempSO.name = fields[0] + fields[1] + KANA_FILE_END + ".asset";
+                    tempSO.KatakanaKeyName = fields[0];
+                    tempSO.HiraganaKeyName = fields[1];
+                    tempSO.Reading = fields[2];
+                    tempSO.IsTested = Int32.Parse(fields[3]) != 0;
 
                     Save(savePath, tempSO);
                 }

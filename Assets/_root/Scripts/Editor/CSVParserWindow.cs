@@ -14,6 +14,10 @@ namespace MyEditor
         private string _wordsCSVFileName = "WordsCSV.csv";
         private string _saveWordsPath = "Assets/_root/ScriptableObjects/Words";
 
+        private string _readKanaPath = "Assets/_root/CSVs";
+        private string _kanaCSVFileName = "KanaCSV.csv";
+        private string _saveKanaPath = "Assets/_root/ScriptableObjects/Kana";
+
         private string _strokeOrderPath = "Assets/_root/Sprites/StrokeOrder/single";
 
         private CSVParser _csvParser;
@@ -44,6 +48,19 @@ namespace MyEditor
 
             SetLabel("Kanji");
 
+            ComposeKanji();
+
+            SetLabel("Words");
+
+            ComposeWords();
+
+            SetLabel("Kana");
+
+            ComposeKana();
+        }
+
+        private void ComposeKanji()
+        {
             if (GUILayout.Button("Clear Kanji SO"))
                 CsvParser.ClearKanjiSO();
 
@@ -68,9 +85,10 @@ namespace MyEditor
             {
                 CsvParser.LoadKanjiWords();
             }
+        }
 
-            SetLabel("Words");
-
+        private void ComposeWords()
+        {
             if (GUILayout.Button("Clear Words SO"))
                 CsvParser.ClearWordSO();
 
@@ -82,6 +100,22 @@ namespace MyEditor
             {
                 if (!CheckForEmptyString(_readWordsPath, _saveWordsPath, _wordsCSVFileName))
                     CsvParser.ParseWordCSV(_readWordsPath, _wordsCSVFileName, _saveWordsPath);
+            }
+        }
+
+        private void ComposeKana()
+        {
+            if (GUILayout.Button("Clear Kana SO"))
+                CsvParser.ClearKanaSO();
+
+            _readKanaPath = EditorGUILayout.TextField("KanaCSVPath", _readKanaPath);
+            _kanaCSVFileName = EditorGUILayout.TextField("KanaCSVFileName", _kanaCSVFileName);
+            _saveKanaPath = EditorGUILayout.TextField("SaveKanaPath", _saveKanaPath);
+
+            if (GUILayout.Button("Parse Kana"))
+            {
+                if (!CheckForEmptyString(_readKanaPath, _saveKanaPath, _kanaCSVFileName))
+                    CsvParser.ParseKanaCSV(_readKanaPath, _kanaCSVFileName, _saveKanaPath);
             }
         }
 

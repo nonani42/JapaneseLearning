@@ -15,25 +15,36 @@ MonoBehaviour:
   <TestsArray>k__BackingField:
   - <TestName>k__BackingField: Kanji To Reading Test
     <TestType>k__BackingField: 0
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Kanji To Reading
     <TestViewPrefab>k__BackingField: {fileID: 5068513385642157816, guid: bb32ac7a47bd4f34b9f05c80c43ead84, type: 3}
   - <TestName>k__BackingField: Kanji To Meaning Test
     <TestType>k__BackingField: 0
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Kanji To Meaning
     <TestViewPrefab>k__BackingField: {fileID: 6067723525609915784, guid: 7b05b6521e57f11479c87583bb1a0003, type: 3}
   - <TestName>k__BackingField: Reading To Meaning Test
     <TestType>k__BackingField: 0
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Reading To Meaning
     <TestViewPrefab>k__BackingField: {fileID: 4096102032684929479, guid: b16fee4eefb866e48b5a5ea25ab448ec, type: 3}
   - <TestName>k__BackingField: Meaning To Reading Test
     <TestType>k__BackingField: 0
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Meaning To Reading
     <TestViewPrefab>k__BackingField: {fileID: 1174646141652737505, guid: cd98a11c0bae9654eb782f74390635ef, type: 3}
   - <TestName>k__BackingField: Meaning To Kanji Test
     <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Meaning To Kanji
     <TestViewPrefab>k__BackingField: {fileID: 6891317168071051188, guid: 0c97601061a8a2047ba1dc2da31054bc, type: 3}
+  - <TestName>k__BackingField: Reading To Kana Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 1
+    <TestButtonName>k__BackingField: Reading To Kana
+    <TestViewPrefab>k__BackingField: {fileID: 9168919991102521806, guid: 313d31753f647d74ab778e708c2fb074, type: 3}
   - <TestName>k__BackingField: Reading To Kanji Test
     <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Reading To Kanji
     <TestViewPrefab>k__BackingField: {fileID: 8962403439200431004, guid: 122cf6f0e7a8a2941980f2a837284ce5, type: 3}

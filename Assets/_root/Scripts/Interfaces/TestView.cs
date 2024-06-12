@@ -10,7 +10,8 @@ namespace TestSpace
 
         public TextMeshProUGUI Header { get => header; set => header = value; }
 
-        public abstract void NextQuestion(TestKanjiStruct kanjiToReadingStruct, int index);
+        public virtual void NextQuestion(TestKanjiStruct kanjiStruct, int index) { }
+        public virtual void NextQuestion(TestKanaStruct kanaStruct, int index) { }
         public abstract void ShowAnswer(Color color);
         public abstract void HideAnswer(Color color);
     }

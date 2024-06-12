@@ -57,12 +57,14 @@ namespace TestSpace
         public void UpdateOralQuestionsNum(int oralQuestions)
         {
             _questionsNum.oralQuestionsNum = oralQuestions;
+            _loadSaveModel.SaveQuestionsNumber(oralQuestions, _questionsNum.writingQuestionsNum);
             OnOralQuestionsChange?.Invoke(oralQuestions);
         }
 
         public void UpdateWritingQuestionsNum(int writingQuestions)
         {
             _questionsNum.writingQuestionsNum = writingQuestions;
+            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, writingQuestions);
             OnWritingQuestionsChange?.Invoke(writingQuestions);
         }
 

@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: "\u3044\u307E"
   <MeaningEng>k__BackingField: now, present
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 2b3921c509aca96489c52c9b81b4c137, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: 29c138151eb11dc479cb294a2664969c, type: 2}

@@ -87,7 +87,7 @@ namespace TestSpace
             _controllersList.Add(tempController);
             _panelViewsList.Add(tempView);
 
-            SubscribeQuestionsNum(tempController, test.TestType);
+            SubscribeQuestionsNum(tempController, test.TestType, test.TestObjectType);
         }
 
         private void SubscribeKanji(KanjiTestController controller, TestType testType)
@@ -95,12 +95,27 @@ namespace TestSpace
             _loadSaveController.OnKnownKanjiChange += controller.SetKnownKanji;
         }
 
-        private void SubscribeQuestionsNum(ITestController controller, TestType testType)
+        private void SubscribeQuestionsNum(ITestController controller, TestType testType, TestObjectEnum testObject)
         {
-            if (testType == TestType.oral)
-                _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
-            if (testType == TestType.writing)
-                _loadSaveController.OnWritingQuestionsChange += controller.SetTestLength;
+            if (testObject == TestObjectEnum.Kanji)
+            {
+                if (testType == TestType.oral)
+                    _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
+                if (testType == TestType.writing)
+                    _loadSaveController.OnWritingQuestionsChange += controller.SetTestLength;
+            }
+            else if (testObject == TestObjectEnum.Kana)
+            {
+                _loadSaveController.OnKanaQuestionsChange += controller.SetTestLength;
+            }
+            else if (testObject == TestObjectEnum.Key)
+            {
+                _loadSaveController.OnKeyQuestionsChange += controller.SetTestLength;
+            }
+            else
+            {
+                Debug.Log("No sutable test type!");
+            }
         }
 
         private void UnsubscribeKanji(KanjiTestController controller)
@@ -111,6 +126,9 @@ namespace TestSpace
         private void UnsubscribeQuestionsNum(ITestController controller)
         {
             _loadSaveController.OnOralQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnWritingQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnKanaQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnKeyQuestionsChange -= controller.SetTestLength;
         }
 
         public void Destroy()

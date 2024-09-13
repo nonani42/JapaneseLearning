@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: '-'
   <MeaningEng>k__BackingField: superb, (for England)
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: f1477ffc63fa0a2479b67c5cc647a68e, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: 941c96f56d694374ba7a04b90184d685, type: 2}

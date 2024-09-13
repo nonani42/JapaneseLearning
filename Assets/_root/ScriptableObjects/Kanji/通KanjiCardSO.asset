@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: "\u3068\u304A-\u308B, \u304B\u3088-\u3046, \u3068\u304A-\u3059"
   <MeaningEng>k__BackingField: pass, commute
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 3e51eaf943619a54fa46ee87a1bfb80b, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: 39e3aeaddc87db945b1e896d495dec58, type: 2}

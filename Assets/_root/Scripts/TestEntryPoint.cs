@@ -71,7 +71,8 @@ namespace TestSpace
         {
             CreateTests();
             Subscribe();
-            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum,
+            _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, 
+                                    LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum,
                                     _allKanaList.KanaList.Length, LoadSaveController.KanaQuestionsNum,
                                     _allKeysList.KeyList.Length, LoadSaveController.KeyQuestionsNum,
                                     login);

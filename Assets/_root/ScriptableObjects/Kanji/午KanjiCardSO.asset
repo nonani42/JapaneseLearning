@@ -20,7 +20,7 @@ MonoBehaviour:
   <LowerReading>k__BackingField: '-'
   <MeaningEng>k__BackingField: noon
   <MeaningRus>k__BackingField: 
-  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: 74bc8e7e697bace449d2b218919e8083, type: 3}
+  <StrokeOrder>k__BackingField: {fileID: 21300000, guid: a611e04261e5c704082742e75428cfb8, type: 3}
   <Key>k__BackingField: {fileID: 0}
   <Examples>k__BackingField:
   - {fileID: 11400000, guid: 5182b2143ed48314fae4b34a538feb80, type: 2}

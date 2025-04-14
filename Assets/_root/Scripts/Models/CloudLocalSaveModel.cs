@@ -10,8 +10,11 @@ namespace TestSpace
     {
         private const char SEPARATOR = '|'; 
         private const string KNOWN_KANJI = "knownKanjiList";
-        private const string ORAL_QUESTIONS = "oralQuestionsNum";
-        private const string WRITTEN_QUESTIONS = "writtenQuestionsNum";
+        private const string KNOWN_WORDS = "knownWordsList";
+        private const string ORAL_kANJI_QUESTIONS = "oralQuestionsNum";
+        private const string ORAL_WORD_QUESTIONS = "oralWordQuestionsNum";
+        private const string WRITTEN_KANJI_QUESTIONS = "writtenQuestionsNum";
+        private const string WRITTEN_WORD_QUESTIONS = "writtenWordQuestionsNum";
         private const string KANA_QUESTIONS = "kanaQuestionsNum";
         private const string KEY_QUESTIONS = "keyQuestionsNum";
 
@@ -45,7 +48,27 @@ namespace TestSpace
             return res;
         }
 
-        public (int oralQuestionsNum, int writingQuestionsNum) LoadQuestionsNumber()
+        public List<string> LoadKnownWords()
+        {
+            List<string> res = new List<string>();
+
+            if (_result == null)
+                return res;
+
+            if (_result.Data.ContainsKey(KNOWN_WORDS))
+            {
+                string[] arr = _result.Data[KNOWN_WORDS].Value.Split(SEPARATOR);
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == string.Empty)
+                        continue;
+                    res.Add(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        public (int oralQuestionsNum, int writingQuestionsNum) LoadKanjiQuestionsNumber()
         {
             int oral = 0;
             int written = 0;
@@ -53,11 +76,28 @@ namespace TestSpace
             if (_result == null)
                 return (oral, written);
 
-            if (_result.Data.ContainsKey(ORAL_QUESTIONS))
-                oral = int.Parse(_result.Data[ORAL_QUESTIONS].Value);
+            if (_result.Data.ContainsKey(ORAL_kANJI_QUESTIONS))
+                oral = int.Parse(_result.Data[ORAL_kANJI_QUESTIONS].Value);
 
-            if (_result.Data.ContainsKey(WRITTEN_QUESTIONS))
-                written = int.Parse(_result.Data[WRITTEN_QUESTIONS].Value);
+            if (_result.Data.ContainsKey(WRITTEN_KANJI_QUESTIONS))
+                written = int.Parse(_result.Data[WRITTEN_KANJI_QUESTIONS].Value);
+
+            return (oral, written);
+        }
+
+        public (int oralQuestionsNum, int writingQuestionsNum) LoadWordQuestionsNumber()
+        {
+            int oral = 0;
+            int written = 0;
+
+            if (_result == null)
+                return (oral, written);
+
+            if (_result.Data.ContainsKey(ORAL_WORD_QUESTIONS))
+                oral = int.Parse(_result.Data[ORAL_WORD_QUESTIONS].Value);
+
+            if (_result.Data.ContainsKey(WRITTEN_WORD_QUESTIONS))
+                written = int.Parse(_result.Data[WRITTEN_WORD_QUESTIONS].Value);
 
             return (oral, written);
         }
@@ -91,7 +131,21 @@ namespace TestSpace
             SaveKanji(sb.ToString());
         }
 
-        public void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveKanjiQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
+        public void SaveKnownWords(List<string> knownWordsList)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < knownWordsList.Count; i++)
+            {
+                sb.Append(knownWordsList[i]);
+                sb.Append(SEPARATOR);
+            }
+
+            SaveWords(sb.ToString());
+        }
+
+        public void SaveKanjiQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveKanjiQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
+        public void SaveWordQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveWordQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
         public void SaveKanaQuestions(int kanaQuestionsNum) => SaveQuestions(kanaQuestionsNum.ToString(), KANA_QUESTIONS);
         public void SaveKeyQuestions(int keyQuestionsNum) => SaveQuestions(keyQuestionsNum.ToString(), KEY_QUESTIONS);
 
@@ -108,14 +162,41 @@ namespace TestSpace
             PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
         }
 
+        private void SaveWords(string knownWords)
+        {
+            var request = new UpdateUserDataRequest
+            {
+                Data = new Dictionary<string, string>
+                {
+                    { KNOWN_WORDS, knownWords },
+                }
+            };
+
+            PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
+        }
+
         private void SaveKanjiQuestions(string oral, string written)
         {
             var request = new UpdateUserDataRequest
             {
                 Data = new Dictionary<string, string>
                 {
-                    { ORAL_QUESTIONS, oral },
-                    { WRITTEN_QUESTIONS, written },
+                    { ORAL_kANJI_QUESTIONS, oral },
+                    { WRITTEN_KANJI_QUESTIONS, written },
+                }
+            };
+
+            PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
+        }
+
+        private void SaveWordQuestions(string oral, string written)
+        {
+            var request = new UpdateUserDataRequest
+            {
+                Data = new Dictionary<string, string>
+                {
+                    { ORAL_WORD_QUESTIONS, oral },
+                    { WRITTEN_WORD_QUESTIONS, written },
                 }
             };
 

@@ -15,6 +15,7 @@ namespace TestSpace
         public TestObjectEnum TestObject { get => _testObject; set => _testObject = value; }
 
         public event Func<TestKanjiStruct> OnNextKanji;
+        public event Func<TestWordStruct> OnNextWord;
         public event Func<TestKanaStruct> OnNextKana;
         public event Func<TestKeyStruct> OnNextKey;
 
@@ -32,6 +33,13 @@ namespace TestSpace
             _index++;
             _view.NextQuestion(kanjiStruct, _index);
             _isLast = kanjiStruct.IsLast;
+        }
+
+        private void SetNextWord(TestWordStruct wordStruct)
+        {
+            _index++;
+            _view.NextQuestion(wordStruct, _index);
+            _isLast = wordStruct.IsLast;
         }
 
         private void SetNextKana(TestKanaStruct kanaStruct)
@@ -52,6 +60,8 @@ namespace TestSpace
         {
             if(_testObject == TestObjectEnum.Kanji)
                 SetNextKanji(OnNextKanji.Invoke());
+            else if (_testObject == TestObjectEnum.Word)
+                SetNextWord(OnNextWord.Invoke());
             else if (_testObject == TestObjectEnum.Kana)
                 SetNextKana(OnNextKana.Invoke());
             else if (_testObject == TestObjectEnum.Key)

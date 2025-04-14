@@ -9,6 +9,7 @@ namespace TestSpace
         [SerializeField] private KanjiListSO _allKanjiList;
         [SerializeField] private KanaListSO _allKanaList;
         [SerializeField] private KeysListSO _allKeysList;
+        [SerializeField] private WordListSO _allWordsList;
         [SerializeField] private TestSO _allTestList;
 
         [Header("Data from Scene")]
@@ -24,6 +25,7 @@ namespace TestSpace
         private List<IController> _controllers = new List<IController>();
         private LoadSaveController _loadSaveController;
         private KanjiListController _kanjiListController;
+        private WordsListController _wordsListController;
 
         internal LoadSaveController LoadSaveController
         {
@@ -53,6 +55,20 @@ namespace TestSpace
             set => _kanjiListController = value;
         }
 
+        internal WordsListController WordsListController
+        {
+            get
+            {
+                if (_wordsListController == null)
+                {
+                    _wordsListController = new WordsListController(_allWordsList.WordList, LoadSaveController.KnownWordsList, LoadSaveController.KnownKanjiList, _allKanaList.KanaList);
+                    _controllers.Add(_wordsListController);
+                }
+                return _wordsListController;
+            }
+            set => _wordsListController = value;
+        }
+
 
         private void Start()
         {
@@ -72,21 +88,24 @@ namespace TestSpace
             CreateTests();
             Subscribe();
             _choosingPanelView.Init(LoadSaveController.KnownKanjiList.Count, 
-                                    LoadSaveController.QuestionsNum.oralQuestionsNum, LoadSaveController.QuestionsNum.writingQuestionsNum,
+                                    LoadSaveController.KanjiQuestionsNum.oralQuestionsNum, LoadSaveController.KanjiQuestionsNum.writingQuestionsNum,
                                     _allKanaList.KanaList.Length, LoadSaveController.KanaQuestionsNum,
                                     _allKeysList.KeyList.Length, LoadSaveController.KeyQuestionsNum,
+                                    LoadSaveController.KnownWordsList.Count, LoadSaveController.WordQuestionsNum.oralQuestionsNum, LoadSaveController.WordQuestionsNum.writingQuestionsNum,
                                     login);
             SetStartingView();
         }
 
         private void CreateTests()
         {
-            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _allKanaList.KanaList, _allKeysList.KeyList, _choosingPanelView, _panelViewParent, SetStartingView);
+            _testCreationModel = new(LoadSaveController, _allKanjiList.KanjiList, _allKanaList.KanaList, _allKeysList.KeyList, _allWordsList.WordList, _choosingPanelView, _panelViewParent, SetStartingView);
             for (int i = 0; i < _allTestList.TestsArray.Length; i++)
                 _testCreationModel.InitTest(_allTestList.TestsArray[i]);
         }
 
         private void InitKanjiListController() => KanjiListController.Init();
+
+        private void InitWordsListController() => WordsListController.Init();
 
         private void SetStartingView()
         {
@@ -118,13 +137,23 @@ namespace TestSpace
             _choosingPanelView.SubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.SubscribeToKanjiListButton(InitKanjiListController);
 
+            KanjiListController.OnKnownKanjiListChange += WordsListController.ChangeKnownWords;
+
             KanjiListController.OnKnownKanjiListUpdate += LoadSaveController.UpdateKnownKanji;
+            WordsListController.OnKnownWordsListUpdate += LoadSaveController.UpdateKnownWords;
 
             LoadSaveController.OnKnownKanjiChange += _choosingPanelView.OnKnownKanjiChange;
+            LoadSaveController.OnKnownKanjiChange += WordsListController.KnownKanjiListChange;
 
-            _choosingPanelView.SubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
+            LoadSaveController.OnKnownWordsChange += _choosingPanelView.OnKnownWordsChange;
 
-            _choosingPanelView.SubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
+            _choosingPanelView.SubscribeKanjiOralQuestionsChange(LoadSaveController.UpdateKanjiOralQuestionsNum);
+
+            _choosingPanelView.SubscribeKanjiWritingQuestionsChange(LoadSaveController.UpdateKanjiWritingQuestionsNum);
+
+            _choosingPanelView.SubscribeWordOralQuestionsChange(LoadSaveController.UpdateWordOralQuestionsNum);
+
+            _choosingPanelView.SubscribeWordWritingQuestionsChange(LoadSaveController.UpdateWordWritingQuestionsNum);
 
             _choosingPanelView.SubscribeKanaQuestionsChange(LoadSaveController.UpdateKanaQuestions);
 
@@ -140,13 +169,23 @@ namespace TestSpace
             _choosingPanelView.UnsubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.UnsubscribeToKanjiListButton(InitKanjiListController);
 
+            KanjiListController.OnKnownKanjiListChange += WordsListController.ChangeKnownWords;
+
             KanjiListController.OnKnownKanjiListUpdate -= LoadSaveController.UpdateKnownKanji;
+            WordsListController.OnKnownWordsListUpdate -= LoadSaveController.UpdateKnownWords;
 
             LoadSaveController.OnKnownKanjiChange -= _choosingPanelView.OnKnownKanjiChange;
+            LoadSaveController.OnKnownKanjiChange -= WordsListController.KnownKanjiListChange;
 
-            _choosingPanelView.UnsubscribeOralQuestionsChange(LoadSaveController.UpdateOralQuestionsNum);
+            LoadSaveController.OnKnownWordsChange -= _choosingPanelView.OnKnownWordsChange;
 
-            _choosingPanelView.UnsubscribeWritingQuestionsChange(LoadSaveController.UpdateWritingQuestionsNum);
+            _choosingPanelView.UnsubscribeKanjiOralQuestionsChange(LoadSaveController.UpdateKanjiOralQuestionsNum);
+
+            _choosingPanelView.UnsubscribeKanjiWritingQuestionsChange(LoadSaveController.UpdateKanjiWritingQuestionsNum);
+
+            _choosingPanelView.UnsubscribeWordOralQuestionsChange(LoadSaveController.UpdateWordOralQuestionsNum);
+
+            _choosingPanelView.UnsubscribeWordWritingQuestionsChange(LoadSaveController.UpdateWordWritingQuestionsNum);
 
             _choosingPanelView.UnsubscribeKanaQuestionsChange(LoadSaveController.UpdateKanaQuestions);
 

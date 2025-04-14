@@ -33,16 +33,16 @@ MonoBehaviour:
     <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Meaning To Reading
     <TestViewPrefab>k__BackingField: {fileID: 1174646141652737505, guid: cd98a11c0bae9654eb782f74390635ef, type: 3}
-  - <TestName>k__BackingField: Meaning To Kanji Test
-    <TestType>k__BackingField: 1
-    <TestObjectType>k__BackingField: 0
-    <TestButtonName>k__BackingField: Meaning To Kanji
-    <TestViewPrefab>k__BackingField: {fileID: 6891317168071051188, guid: 0c97601061a8a2047ba1dc2da31054bc, type: 3}
   - <TestName>k__BackingField: Reading To Kanji Test
     <TestType>k__BackingField: 1
     <TestObjectType>k__BackingField: 0
     <TestButtonName>k__BackingField: Reading To Kanji
     <TestViewPrefab>k__BackingField: {fileID: 8962403439200431004, guid: 122cf6f0e7a8a2941980f2a837284ce5, type: 3}
+  - <TestName>k__BackingField: Meaning To Kanji Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 0
+    <TestButtonName>k__BackingField: Meaning To Kanji
+    <TestViewPrefab>k__BackingField: {fileID: 6891317168071051188, guid: 0c97601061a8a2047ba1dc2da31054bc, type: 3}
   - <TestName>k__BackingField: Reading To Kana Test
     <TestType>k__BackingField: 1
     <TestObjectType>k__BackingField: 1
@@ -53,3 +53,18 @@ MonoBehaviour:
     <TestObjectType>k__BackingField: 2
     <TestButtonName>k__BackingField: Key To Everything
     <TestViewPrefab>k__BackingField: {fileID: 1825434076790562406, guid: c5fa1b2126bb91044833aa836d2b85a8, type: 3}
+  - <TestName>k__BackingField: Meaning To Word Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 3
+    <TestButtonName>k__BackingField: Meaning To Word
+    <TestViewPrefab>k__BackingField: {fileID: 5215116133148901078, guid: a8f6ef943fe763d428d3a772809cba6f, type: 3}
+  - <TestName>k__BackingField: Reading To Word Test
+    <TestType>k__BackingField: 1
+    <TestObjectType>k__BackingField: 3
+    <TestButtonName>k__BackingField: Reading To Word
+    <TestViewPrefab>k__BackingField: {fileID: 5215116133148901078, guid: ccddd6c182cb6a946b598124d0970fcc, type: 3}
+  - <TestName>k__BackingField: Word To Everything Test
+    <TestType>k__BackingField: 0
+    <TestObjectType>k__BackingField: 3
+    <TestButtonName>k__BackingField: Word To Everything
+    <TestViewPrefab>k__BackingField: {fileID: 5215116133148901078, guid: 68255c259fd535142aaefc9b7228eedc, type: 3}

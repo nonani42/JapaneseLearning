@@ -8,6 +8,7 @@ namespace TestSpace
     {
         private LoadSaveController _loadSaveController; 
         private KanjiCardSO[] _allKanjiList;
+        private WordSO[] _allWordList;
         private KanaSO[] _allKanaList;
         private KeySO[] _allKeyList;
         private ChoosingPanelView _choosingPanelView;
@@ -18,10 +19,15 @@ namespace TestSpace
         private Transform _panelViewParent;
         private Action _returnCallback;
 
-        public TestCreationModel(LoadSaveController loadSaveController, KanjiCardSO[] allKanjiList, KanaSO[] allKanaList, KeySO[] allKeyList, ChoosingPanelView choosingPanelView, Transform panelViewParent, Action returnCallback) 
+        public TestCreationModel(LoadSaveController loadSaveController, 
+            KanjiCardSO[] allKanjiList, KanaSO[] allKanaList, 
+            KeySO[] allKeyList, WordSO[] allWordSO,
+            ChoosingPanelView choosingPanelView, Transform panelViewParent, 
+            Action returnCallback) 
         { 
             _loadSaveController = loadSaveController;
             _allKanjiList = allKanjiList;
+            _allWordList = allWordSO;
             _allKanaList = allKanaList;
             _allKeyList = allKeyList;
             _choosingPanelView = choosingPanelView;
@@ -51,6 +57,9 @@ namespace TestSpace
                 case TestObjectEnum.Key:
                     tempController = new KeyTestController(tempView, _allKeyList);
                     break;
+                case TestObjectEnum.Word:
+                    tempController = new WordTestController(tempView, _allWordList, _loadSaveController.KnownWordsList);
+                    break;
                 default:
                     Debug.Log("No sutable test controller!");
                     tempController = new StubTestController();
@@ -66,9 +75,16 @@ namespace TestSpace
             if(test.TestObjectType == TestObjectEnum.Kanji)
             {
                 if (test.TestType == TestType.oral)
-                    _choosingPanelView.SubscribeToOralTestButton(call, test.TestButtonName);
+                    _choosingPanelView.SubscribeToKanjiOralTestButton(call, test.TestButtonName);
                 else if (test.TestType == TestType.writing)
-                    _choosingPanelView.SubscribeToWritingTestButton(call, test.TestButtonName);
+                    _choosingPanelView.SubscribeToKanjiWritingTestButton(call, test.TestButtonName);
+            }
+            else if(test.TestObjectType == TestObjectEnum.Word)
+            {
+                if (test.TestType == TestType.oral)
+                    _choosingPanelView.SubscribeToWordOralTestButton(call, test.TestButtonName);
+                else if (test.TestType == TestType.writing)
+                    _choosingPanelView.SubscribeToWordWritingTestButton(call, test.TestButtonName);
             }
             else if(test.TestObjectType == TestObjectEnum.Kana)
             {
@@ -100,9 +116,16 @@ namespace TestSpace
             if (testObject == TestObjectEnum.Kanji)
             {
                 if (testType == TestType.oral)
-                    _loadSaveController.OnOralQuestionsChange += controller.SetTestLength;
+                    _loadSaveController.OnKanjiOralQuestionsChange += controller.SetTestLength;
                 if (testType == TestType.writing)
-                    _loadSaveController.OnWritingQuestionsChange += controller.SetTestLength;
+                    _loadSaveController.OnKanjiWritingQuestionsChange += controller.SetTestLength;
+            }
+            else if (testObject == TestObjectEnum.Word)
+            {
+                if (testType == TestType.oral)
+                    _loadSaveController.OnWordOralQuestionsChange += controller.SetTestLength;
+                if (testType == TestType.writing)
+                    _loadSaveController.OnWordWritingQuestionsChange += controller.SetTestLength;
             }
             else if (testObject == TestObjectEnum.Kana)
             {
@@ -125,8 +148,10 @@ namespace TestSpace
 
         private void UnsubscribeQuestionsNum(ITestController controller)
         {
-            _loadSaveController.OnOralQuestionsChange -= controller.SetTestLength;
-            _loadSaveController.OnWritingQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnKanjiOralQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnKanjiWritingQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnWordOralQuestionsChange -= controller.SetTestLength;
+            _loadSaveController.OnWordWritingQuestionsChange -= controller.SetTestLength;
             _loadSaveController.OnKanaQuestionsChange -= controller.SetTestLength;
             _loadSaveController.OnKeyQuestionsChange -= controller.SetTestLength;
         }

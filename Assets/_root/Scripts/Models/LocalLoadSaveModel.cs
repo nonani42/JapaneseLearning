@@ -63,7 +63,7 @@ namespace TestSpace
             _serializableXMLKanji.Save(data, _kanjiPath);
         }
 
-        public (int oralQuestionsNum, int writingQuestionsNum) LoadQuestionsNumber()
+        public (int oralQuestionsNum, int writingQuestionsNum) LoadKanjiQuestionsNumber()
         {
             QuestionsToRemember _savedData = _serializableXMLParams.Load(_paramsPath);
             
@@ -73,7 +73,7 @@ namespace TestSpace
                 return (0, 0);
         }
 
-        public void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum)
+        public void SaveKanjiQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum)
         {
             QuestionsToRemember data = new QuestionsToRemember()
             {
@@ -100,6 +100,26 @@ namespace TestSpace
         }
 
         public void SaveKeyQuestions(int kanaQuestionsNum)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int oralQuestionsNum, int writingQuestionsNum) LoadWordQuestionsNumber()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveWordQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> LoadKnownWords()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveKnownWords(List<string> knownWordsList)
         {
             throw new NotImplementedException();
         }

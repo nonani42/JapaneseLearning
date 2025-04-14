@@ -11,6 +11,7 @@ namespace TestSpace
         private Dictionary<char, bool> _kanjiDictionary = new();
 
         public event Action<List<char>> OnKnownKanjiListUpdate;
+        public event Action<char, bool> OnKnownKanjiListChange;
 
         public KanjiListController(KanjiListPanelView kanjiListPanelView, KanjiCardSO[] kanjiArr, List<char> knownKanjiList)
         {
@@ -50,6 +51,8 @@ namespace TestSpace
 
             if (!_knownKanjiList.Contains(kanji) && isKnown)
                 _knownKanjiList.Add(kanji);
+
+            OnKnownKanjiListChange?.Invoke(kanji, isKnown);
         }
 
         private void GoBackToMenu() => OnKnownKanjiListUpdate?.Invoke(_knownKanjiList);

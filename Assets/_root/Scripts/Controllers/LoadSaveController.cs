@@ -8,7 +8,9 @@ namespace TestSpace
         private ILoadSaveModel _loadSaveModel = new CloudLocalSaveModel();
 
         private List<char> _knownKanjiList = new();
-        private (int oralQuestionsNum, int writingQuestionsNum) _questionsNum;
+        private List<string> _knownWordsList = new();
+        private (int oralQuestionsNum, int writingQuestionsNum) _kanjiQuestionsNum;
+        private (int oralQuestionsNum, int writingQuestionsNum) _wordQuestionsNum;
         private int _kanaQuestionsNum;
         private int _keyQuestionsNum;
 
@@ -22,19 +24,47 @@ namespace TestSpace
                 OnKnownKanjiChange?.Invoke(KnownKanjiList);
             }
         }
-        public (int oralQuestionsNum, int writingQuestionsNum) QuestionsNum
+
+        public List<string> KnownWordsList
         {
-            get => _questionsNum; 
+            get => _knownWordsList; 
             private set
             {
-                if (_questionsNum.oralQuestionsNum != value.oralQuestionsNum)
-                    OnOralQuestionsChange?.Invoke(value.oralQuestionsNum);
+                _knownWordsList = value;
+                _loadSaveModel.SaveKnownWords(_knownWordsList);
+                OnKnownWordsChange?.Invoke(KnownWordsList);
+            }
+        }
 
-                if (_questionsNum.writingQuestionsNum != value.writingQuestionsNum)
-                    OnWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
+        public (int oralQuestionsNum, int writingQuestionsNum) KanjiQuestionsNum
+        {
+            get => _kanjiQuestionsNum; 
+            private set
+            {
+                if (_kanjiQuestionsNum.oralQuestionsNum != value.oralQuestionsNum)
+                    OnKanjiOralQuestionsChange?.Invoke(value.oralQuestionsNum);
 
-                _loadSaveModel.SaveQuestionsNumber(value.oralQuestionsNum, value.writingQuestionsNum);
-                _questionsNum = value;
+                if (_kanjiQuestionsNum.writingQuestionsNum != value.writingQuestionsNum)
+                    OnKanjiWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
+
+                _loadSaveModel.SaveKanjiQuestionsNumber(value.oralQuestionsNum, value.writingQuestionsNum);
+                _kanjiQuestionsNum = value;
+            }
+        }
+
+        public (int oralQuestionsNum, int writingQuestionsNum) WordQuestionsNum
+        {
+            get => _wordQuestionsNum; 
+            private set
+            {
+                if (_wordQuestionsNum.oralQuestionsNum != value.oralQuestionsNum)
+                    OnKanjiOralQuestionsChange?.Invoke(value.oralQuestionsNum);
+
+                if (_wordQuestionsNum.writingQuestionsNum != value.writingQuestionsNum)
+                    OnKanjiWritingQuestionsChange?.Invoke(value.writingQuestionsNum);
+
+                _loadSaveModel.SaveWordQuestionsNumber(value.oralQuestionsNum, value.writingQuestionsNum);
+                _wordQuestionsNum = value;
             }
         }
 
@@ -60,8 +90,11 @@ namespace TestSpace
         }
 
         public event Action<List<char>> OnKnownKanjiChange;
-        public event Action<int> OnOralQuestionsChange;
-        public event Action<int> OnWritingQuestionsChange;
+        public event Action<List<string>> OnKnownWordsChange;
+        public event Action<int> OnKanjiOralQuestionsChange;
+        public event Action<int> OnKanjiWritingQuestionsChange;
+        public event Action<int> OnWordOralQuestionsChange;
+        public event Action<int> OnWordWritingQuestionsChange;
         public event Action<int> OnKanaQuestionsChange;
         public event Action<int> OnKeyQuestionsChange;
 
@@ -74,35 +107,54 @@ namespace TestSpace
         {
             _loadSaveModel.Init(loginController);
             KnownKanjiList = _loadSaveModel.LoadKnownKanji();
-            QuestionsNum = _loadSaveModel.LoadQuestionsNumber();
+            KnownWordsList = _loadSaveModel.LoadKnownWords();
+            KanjiQuestionsNum = _loadSaveModel.LoadKanjiQuestionsNumber();
+            WordQuestionsNum = _loadSaveModel.LoadWordQuestionsNumber();
             KanaQuestionsNum = _loadSaveModel.LoadKanaQuestions();
             KeyQuestionsNum = _loadSaveModel.LoadKeyQuestions();
         }
 
         public void UpdateKnownKanji(List<char> kanjiList) => KnownKanjiList = kanjiList;
 
+        public void UpdateKnownWords(List<string> wordsList) => KnownWordsList = wordsList;
+
         public void UpdateKanaQuestions(int kanaQuestions) => KanaQuestionsNum = kanaQuestions;
 
         public void UpdateKeyQuestions(int keyQuestions) => KeyQuestionsNum = keyQuestions;
 
-        public void UpdateOralQuestionsNum(int oralQuestions)
+        public void UpdateKanjiOralQuestionsNum(int oralQuestions)
         {
-            _questionsNum.oralQuestionsNum = oralQuestions;
-            _loadSaveModel.SaveQuestionsNumber(oralQuestions, _questionsNum.writingQuestionsNum);
-            OnOralQuestionsChange?.Invoke(oralQuestions);
+            _kanjiQuestionsNum.oralQuestionsNum = oralQuestions;
+            _loadSaveModel.SaveKanjiQuestionsNumber(oralQuestions, _kanjiQuestionsNum.writingQuestionsNum);
+            OnKanjiOralQuestionsChange?.Invoke(oralQuestions);
         }
 
-        public void UpdateWritingQuestionsNum(int writingQuestions)
+        public void UpdateKanjiWritingQuestionsNum(int writingQuestions)
         {
-            _questionsNum.writingQuestionsNum = writingQuestions;
-            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, writingQuestions);
-            OnWritingQuestionsChange?.Invoke(writingQuestions);
+            _kanjiQuestionsNum.writingQuestionsNum = writingQuestions;
+            _loadSaveModel.SaveKanjiQuestionsNumber(_kanjiQuestionsNum.oralQuestionsNum, writingQuestions);
+            OnKanjiWritingQuestionsChange?.Invoke(writingQuestions);
+        }
+
+        public void UpdateWordOralQuestionsNum(int oralQuestions)
+        {
+            _wordQuestionsNum.oralQuestionsNum = oralQuestions;
+            _loadSaveModel.SaveKanjiQuestionsNumber(oralQuestions, _wordQuestionsNum.writingQuestionsNum);
+            OnWordOralQuestionsChange?.Invoke(oralQuestions);
+        }
+
+        public void UpdateWordWritingQuestionsNum(int writingQuestions)
+        {
+            _wordQuestionsNum.writingQuestionsNum = writingQuestions;
+            _loadSaveModel.SaveKanjiQuestionsNumber(_wordQuestionsNum.oralQuestionsNum, writingQuestions);
+            OnWordWritingQuestionsChange?.Invoke(writingQuestions);
         }
 
         public void Destroy()
         {
             _loadSaveModel.SaveKnownKanji(_knownKanjiList);
-            _loadSaveModel.SaveQuestionsNumber(_questionsNum.oralQuestionsNum, _questionsNum.writingQuestionsNum);
+            _loadSaveModel.SaveKanjiQuestionsNumber(_kanjiQuestionsNum.oralQuestionsNum, _kanjiQuestionsNum.writingQuestionsNum);
+            _loadSaveModel.SaveWordQuestionsNumber(_wordQuestionsNum.oralQuestionsNum, _wordQuestionsNum.writingQuestionsNum);
             _loadSaveModel.SaveKanaQuestions(KanaQuestionsNum);
             _loadSaveModel.SaveKeyQuestions(KeyQuestionsNum);
         }

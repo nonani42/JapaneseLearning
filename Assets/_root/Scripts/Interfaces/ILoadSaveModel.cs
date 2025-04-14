@@ -6,9 +6,13 @@ namespace TestSpace
     {
         void Init(LoginController loginController);
         List<char> LoadKnownKanji();
+        List<string> LoadKnownWords();
         void SaveKnownKanji(List<char> knownKanjiList);
-        (int oralQuestionsNum, int writingQuestionsNum) LoadQuestionsNumber();
-        void SaveQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum);
+        void SaveKnownWords(List<string> knownWordsList);
+        (int oralQuestionsNum, int writingQuestionsNum) LoadKanjiQuestionsNumber();
+        void SaveKanjiQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum);
+        (int oralQuestionsNum, int writingQuestionsNum) LoadWordQuestionsNumber();
+        void SaveWordQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum);
         int LoadKanaQuestions();
         void SaveKanaQuestions(int kanaQuestionsNum);
         int LoadKeyQuestions();

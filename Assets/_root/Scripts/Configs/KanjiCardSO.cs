@@ -2,7 +2,7 @@ using UnityEngine;
 namespace TestSpace
 {
     [CreateAssetMenu(fileName = nameof(KanjiCardSO), menuName = "Configs/" + nameof(KanjiCardSO))]
-    public class KanjiCardSO : ScriptableObject
+    public class KanjiCardSO : ScriptableObject, IStat
     {
         [field: SerializeField] public char Kanji { get; set; }
         [field: SerializeField] public LevelEnum Level { get; set; }

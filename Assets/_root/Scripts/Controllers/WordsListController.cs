@@ -6,17 +6,21 @@ namespace TestSpace
 {
     internal class WordsListController : IController
     {
+        private WordsListPanelView _wordsListPanelView;
         private WordSO[] _allWordsArr;
         private KanaSO[] _allKanaArr;
         private List<string> _knownWordsList = new();
         private List<char> _knownKanjiList = new();
+        private Dictionary<WordSO, bool> _wordsDictionary = new();
+
         private char[] _symbols = new[]
         { '~', '〜', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(', ')', ' ' };
 
         public event Action<List<string>> OnKnownWordsListUpdate;
 
-        public WordsListController(WordSO[] allWordsArr, List<string> knownWordsList, List<char> knownKanjiList, KanaSO[] allKanaArr)
+        public WordsListController(WordsListPanelView wordsListPanelView, WordSO[] allWordsArr, List<string> knownWordsList, List<char> knownKanjiList, KanaSO[] allKanaArr)
         {
+            _wordsListPanelView = wordsListPanelView;
             _allWordsArr = allWordsArr;
             _allKanaArr = allKanaArr;
             _knownWordsList = knownWordsList;
@@ -26,7 +30,24 @@ namespace TestSpace
 
         public void Init()
         {
-            //add logic here to show list in view (as in KanjiListController)
+            FillViewList();
+
+            _wordsListPanelView.Init(_wordsDictionary);
+        }
+
+        private void FillViewList()
+        {
+            _wordsDictionary.Clear();
+
+            for (int i = 0; i < _allWordsArr.Length; i++)
+            {
+                bool isKnown = false;
+
+                if (_knownWordsList.Contains(_allWordsArr[i].JpReading))
+                    isKnown = true;
+
+                _wordsDictionary.Add(_allWordsArr[i], isKnown);
+            }
         }
 
         private void FillList(bool isEmpty)

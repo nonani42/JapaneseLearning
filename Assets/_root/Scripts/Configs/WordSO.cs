@@ -2,7 +2,7 @@
 namespace TestSpace
 {
     [CreateAssetMenu(fileName = nameof(WordSO), menuName = "Configs/" + nameof(WordSO))]
-    public class WordSO : ScriptableObject
+    public class WordSO : ScriptableObject, IStat
     {
         [field: SerializeField] public string JpReading { get; set; }
         [field: SerializeField] public bool SpecialReading { get; set; }

@@ -13,6 +13,7 @@ namespace TestSpace
         [SerializeField] private TextMeshProUGUI _login;
         [SerializeField] private TextMeshProUGUI _headerText;
         [SerializeField] private Button _kanjiListBtn;
+        [SerializeField] private Button _wordsListBtn;
         [SerializeField] private Button _exitBtn;
 
         [SerializeField] private Button _kanjiPanelBtn;
@@ -87,6 +88,9 @@ namespace TestSpace
         public void SubscribeToKanjiListButton(Action callback) => _kanjiListBtn.onClick.AddListener(() => callback());
         public void UnsubscribeToKanjiListButton(Action callback) => _kanjiListBtn.onClick.RemoveListener(() => callback());
 
+        public void SubscribeToWordsListButton(Action callback) => _wordsListBtn.onClick.AddListener(() => callback());
+        public void UnsubscribeToWordsListButton(Action callback) => _wordsListBtn.onClick.RemoveListener(() => callback());
+
         public void SubscribeToKanjiOralTestButton(Action[] callback, string buttonName) => _kanjiOralTypePanelView.SubscribeTestToTestButton(callback, buttonName);
         public void SubscribeToKanjiWritingTestButton(Action[] callback, string buttonName) => _kanjiWritingTypePanelView.SubscribeTestToTestButton(callback, buttonName);
 
@@ -103,6 +107,7 @@ namespace TestSpace
         private void SubscribeLeftPanel()
         {
             _kanjiListBtn.onClick.AddListener(_leftPanel.Hide);
+            _wordsListBtn.onClick.AddListener(_leftPanel.Hide);
             _kanjiOralTypePanelView.OnTestButtonClicked += _leftPanel.Hide;
             _kanjiWritingTypePanelView.OnTestButtonClicked += _leftPanel.Hide;
             _wordOralTypePanelView.OnTestButtonClicked += _leftPanel.Hide;
@@ -115,6 +120,7 @@ namespace TestSpace
         private void SubscribeRightPanel()
         {
             _kanjiListBtn.onClick.AddListener(Hide);
+            _wordsListBtn.onClick.AddListener(Hide);
             _kanjiOralTypePanelView.OnTestButtonClicked += Hide;
             _kanjiWritingTypePanelView.OnTestButtonClicked += Hide;
             _wordOralTypePanelView.OnTestButtonClicked += Hide;
@@ -184,6 +190,7 @@ namespace TestSpace
         private void UnsubscribeLeftPanel()
         {
             _kanjiListBtn.onClick.RemoveListener(_leftPanel.Hide);
+            _wordsListBtn.onClick.RemoveListener(_leftPanel.Hide);
             _kanjiOralTypePanelView.OnTestButtonClicked -= _leftPanel.Hide;
             _kanjiWritingTypePanelView.OnTestButtonClicked -= _leftPanel.Hide;
             _wordOralTypePanelView.OnTestButtonClicked -= _leftPanel.Hide;
@@ -196,6 +203,7 @@ namespace TestSpace
         private void UnsubscribeRightPanel()
         {
             _kanjiListBtn.onClick.RemoveListener(Hide);
+            _wordsListBtn.onClick.RemoveListener(Hide);
             _kanjiOralTypePanelView.OnTestButtonClicked -= Hide;
             _kanjiWritingTypePanelView.OnTestButtonClicked -= Hide;
             _wordOralTypePanelView.OnTestButtonClicked -= Hide;

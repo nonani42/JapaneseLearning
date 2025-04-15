@@ -18,6 +18,7 @@ namespace TestSpace
         [SerializeField] private PanelView _leftPanelView;
         [SerializeField] private ChoosingPanelView _choosingPanelView;
         [SerializeField] private KanjiListPanelView _kanjiPanelView;
+        [SerializeField] private WordsListPanelView _wordsPanelView;
 
         private LoginController _loginController;
         private TestCreationModel _testCreationModel;
@@ -61,7 +62,7 @@ namespace TestSpace
             {
                 if (_wordsListController == null)
                 {
-                    _wordsListController = new WordsListController(_allWordsList.WordList, LoadSaveController.KnownWordsList, LoadSaveController.KnownKanjiList, _allKanaList.KanaList);
+                    _wordsListController = new WordsListController(_wordsPanelView, _allWordsList.WordList, LoadSaveController.KnownWordsList, LoadSaveController.KnownKanjiList, _allKanaList.KanaList);
                     _controllers.Add(_wordsListController);
                 }
                 return _wordsListController;
@@ -120,6 +121,7 @@ namespace TestSpace
             _choosingPanelView.Hide();
             _leftPanelView.Hide();
             _kanjiPanelView.Hide();
+            _wordsPanelView.Hide();
         }
 
         private void OnDestroy()
@@ -133,9 +135,13 @@ namespace TestSpace
         private void Subscribe()
         {
             _kanjiPanelView.OnBack += SetStartingView;
+            _wordsPanelView.OnBack += SetStartingView;
 
             _choosingPanelView.SubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.SubscribeToKanjiListButton(InitKanjiListController);
+
+            _choosingPanelView.SubscribeToWordsListButton(_wordsPanelView.Show);
+            _choosingPanelView.SubscribeToWordsListButton(InitWordsListController);
 
             KanjiListController.OnKnownKanjiListChange += WordsListController.ChangeKnownWords;
 
@@ -165,9 +171,13 @@ namespace TestSpace
             _loginController.OnSuccessfulAuth -= log => LoadStartingPanels(log);
 
             _kanjiPanelView.OnBack -= SetStartingView;
+            _wordsPanelView.OnBack -= SetStartingView;
 
             _choosingPanelView.UnsubscribeToKanjiListButton(_kanjiPanelView.Show);
             _choosingPanelView.UnsubscribeToKanjiListButton(InitKanjiListController);
+
+            _choosingPanelView.UnsubscribeToWordsListButton(_wordsPanelView.Show);
+            _choosingPanelView.UnsubscribeToWordsListButton(InitWordsListController);
 
             KanjiListController.OnKnownKanjiListChange += WordsListController.ChangeKnownWords;
 

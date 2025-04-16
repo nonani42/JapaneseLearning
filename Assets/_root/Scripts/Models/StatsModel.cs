@@ -58,13 +58,15 @@ namespace TestSpace
         private void CreateStat(Dictionary<T, bool> wordsDictionary, string header)
         {
             (float all, float known) calc = CalcStat(wordsDictionary);
-            SetStat(header, calc.all, calc.known, true);
+            if (calc != (0, 0))
+                SetStat(header, calc.all, calc.known, true);
         }
 
         private void CreateStat(Dictionary<T, bool> wordsDictionary, LevelEnum level)
         {
             (float all, float known) calc = CalcStat(wordsDictionary, level);
-            SetStat(level.ToString(), calc.all, calc.known);
+            if (calc != (0, 0))
+                SetStat(level.ToString(), calc.all, calc.known);
         }
 
         private (float all, float known) CalcStat(Dictionary<T, bool> wordsDictionary, LevelEnum level)

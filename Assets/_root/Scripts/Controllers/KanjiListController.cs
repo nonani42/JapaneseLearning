@@ -8,7 +8,7 @@ namespace TestSpace
         private KanjiListPanelView _kanjiListPanelView;
         private KanjiCardSO[] _kanjiArr;
         private List<char> _knownKanjiList = new();
-        private Dictionary<char, bool> _kanjiDictionary = new();
+        private Dictionary<KanjiCardSO, bool> _kanjiDictionary = new();
 
         public event Action<List<char>> OnKnownKanjiListUpdate;
         public event Action<char, bool> OnKnownKanjiListChange;
@@ -40,7 +40,7 @@ namespace TestSpace
                 if(_knownKanjiList.Contains(_kanjiArr[i].Kanji))
                     isKnown = true;
 
-                _kanjiDictionary.Add(_kanjiArr[i].Kanji, isKnown);
+                _kanjiDictionary.Add(_kanjiArr[i], isKnown);
             }
         }
 

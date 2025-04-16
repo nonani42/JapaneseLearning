@@ -12,6 +12,12 @@ namespace TestSpace
         [SerializeField] private Transform _kanjiButtonHolder;
         [SerializeField] private KanjiButtonView _kanjiButtonPrefab;
 
+        [Header("Statistics")]
+        [SerializeField] private Color _allStatColor;
+        [SerializeField] private Transform _statHolder;
+        [SerializeField] private StatTextView _statTextPrefab;
+
+        private StatsModel<KanjiCardSO> _statModel;
         private List<KanjiButtonView> _activeKanjiButtonViews = new List<KanjiButtonView>();
         private List<KanjiButtonView> _inactiveKanjiButtonViews = new List<KanjiButtonView>();
 
@@ -20,9 +26,12 @@ namespace TestSpace
 
         private void Start() => _backButton.onClick.AddListener(() => OnBack?.Invoke());
 
-        public void Init(Dictionary<char, bool> kanjiDictionary)
+        public void Init(Dictionary<KanjiCardSO, bool> kanjiDictionary)
         {
+            _statModel = new(_statHolder, _statTextPrefab, _allStatColor);
+
             ClearScreen();
+            _statModel.ClearStatScreen();
 
             foreach (var kanji in kanjiDictionary)
             {
@@ -32,12 +41,14 @@ namespace TestSpace
                 else
                     view = GetFromPool();
 
-                view.SetButton(kanji.Key, kanji.Value);
+                view.SetButton(kanji.Key.Kanji, kanji.Value);
                 view.OnSelectionChanged += ChangeSelection;
                 view.TurnOn(true);
 
                 _activeKanjiButtonViews.Add(view);
             }
+
+            _statModel.DoStats(kanjiDictionary);
         }
 
         public void ChangeSelection(char kanji, bool isKnown) => OnSelectionChanged?.Invoke(kanji, isKnown);

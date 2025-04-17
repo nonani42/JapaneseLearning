@@ -39,6 +39,12 @@ namespace TestSpace
             IsTestFinished = false;
         }
 
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.RightArrow) && !IsTestFinished)
+                _nextButton.onClick?.Invoke();
+        }
+
         public void GetNext()
         {
             _nextButtonText.text = "Show answer";

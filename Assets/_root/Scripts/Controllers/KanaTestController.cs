@@ -1,9 +1,14 @@
-﻿namespace TestSpace
+﻿using System;
+using System.Diagnostics;
+
+namespace TestSpace
 {
     internal class KanaTestController : ITestController
     {
         private TestQuestionPanelView _testQuestionPanelView;
         private KanaTestModel _testModel;
+
+        public event Action<TestObjectEnum, string, bool> TestObjectRepeat;
 
         public KanaTestController(TestQuestionPanelView kanjiToReadingPanelView, KanaSO[] kanaArr)
         {

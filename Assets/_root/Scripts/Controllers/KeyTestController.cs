@@ -1,9 +1,13 @@
-﻿namespace TestSpace
+﻿using System;
+
+namespace TestSpace
 {
     internal class KeyTestController : ITestController
     {
         private TestQuestionPanelView _testQuestionPanelView;
         private KeyTestModel _testModel;
+
+        public event Action<TestObjectEnum, string, bool> TestObjectRepeat;
 
         public KeyTestController(TestQuestionPanelView kanjiToReadingPanelView, KeySO[] keyArr)
         {

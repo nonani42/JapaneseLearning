@@ -11,5 +11,6 @@ namespace TestSpace
         [field: SerializeField] public string KanaReading { get; set; }
         [field: SerializeField] public string TranslationEng { get; set; }
         [field: SerializeField] public string TranslationRus { get; set; }
+        [field: SerializeField] public bool IsRepeat { get; set; }
     }
 }

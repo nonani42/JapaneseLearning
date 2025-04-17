@@ -123,5 +123,25 @@ namespace TestSpace
         {
             throw new NotImplementedException();
         }
+
+        public List<string> LoadRepeatKanji()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> LoadRepeatWords()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveRepeatKanji(List<string> repeatKanji)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveRepeatWords(List<string> repeatWords)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

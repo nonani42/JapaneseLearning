@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace TestSpace
 {
@@ -9,6 +10,8 @@ namespace TestSpace
 
         private List<char> _knownKanjiList = new();
         private List<string> _knownWordsList = new();
+        private List<string> _repeatKanjiList = new();
+        private List<string> _repeatWordsList = new();
         private (int oralQuestionsNum, int writingQuestionsNum) _kanjiQuestionsNum;
         private (int oralQuestionsNum, int writingQuestionsNum) _wordQuestionsNum;
         private int _kanaQuestionsNum;
@@ -33,6 +36,24 @@ namespace TestSpace
                 _knownWordsList = value;
                 _loadSaveModel.SaveKnownWords(_knownWordsList);
                 OnKnownWordsChange?.Invoke(KnownWordsList);
+            }
+        }
+
+        public List<string> RepeatKanjiList
+        {
+            get => _repeatKanjiList; 
+            private set
+            {
+                _repeatKanjiList = value;
+            }
+        }
+
+        public List<string> RepeatWordsList
+        {
+            get => _repeatWordsList; 
+            private set
+            {
+                _repeatWordsList = value;
             }
         }
 
@@ -78,6 +99,7 @@ namespace TestSpace
                 OnKanaQuestionsChange?.Invoke(value);
             }
         }
+
         public int KeyQuestionsNum
         {
             get => _keyQuestionsNum;
@@ -108,6 +130,8 @@ namespace TestSpace
             _loadSaveModel.Init(loginController);
             KnownKanjiList = _loadSaveModel.LoadKnownKanji();
             KnownWordsList = _loadSaveModel.LoadKnownWords();
+            RepeatKanjiList = _loadSaveModel.LoadRepeatKanji();
+            RepeatWordsList = _loadSaveModel.LoadRepeatWords();
             KanjiQuestionsNum = _loadSaveModel.LoadKanjiQuestionsNumber();
             WordQuestionsNum = _loadSaveModel.LoadWordQuestionsNumber();
             KanaQuestionsNum = _loadSaveModel.LoadKanaQuestions();
@@ -150,6 +174,29 @@ namespace TestSpace
             OnWordWritingQuestionsChange?.Invoke(writingQuestions);
         }
 
+        public void UpdateRepeat(TestObjectEnum testObjectType, string testObject, bool state)
+        {
+            switch (testObjectType)
+            {
+                case TestObjectEnum.Kanji:
+                    if (state && !RepeatKanjiList.Contains(testObject))
+                        RepeatKanjiList.Add(testObject);
+                    else if (!state && RepeatKanjiList.Contains(testObject))
+                        RepeatKanjiList.Remove(testObject);
+                    break;
+                case TestObjectEnum.Word:
+                    if (state && !RepeatWordsList.Contains(testObject))
+                        RepeatWordsList.Add(testObject);
+                    else if (!state && RepeatWordsList.Contains(testObject))
+                        RepeatWordsList.Remove(testObject);
+
+                    break;
+                default:
+                    Debug.Log($"No actions for this type of test object");
+                    break;
+            }
+        }
+
         public void Destroy()
         {
             _loadSaveModel.SaveKnownKanji(_knownKanjiList);
@@ -157,6 +204,8 @@ namespace TestSpace
             _loadSaveModel.SaveWordQuestionsNumber(_wordQuestionsNum.oralQuestionsNum, _wordQuestionsNum.writingQuestionsNum);
             _loadSaveModel.SaveKanaQuestions(KanaQuestionsNum);
             _loadSaveModel.SaveKeyQuestions(KeyQuestionsNum);
+            _loadSaveModel.SaveRepeatKanji(RepeatKanjiList);
+            _loadSaveModel.SaveRepeatWords(RepeatWordsList);
         }
     }
 }

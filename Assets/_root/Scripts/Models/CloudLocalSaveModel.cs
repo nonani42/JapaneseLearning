@@ -11,6 +11,8 @@ namespace TestSpace
         private const char SEPARATOR = '|'; 
         private const string KNOWN_KANJI = "knownKanjiList";
         private const string KNOWN_WORDS = "knownWordsList";
+        private const string REPEAT_KANJI = "repeatKanjiList";
+        private const string REPEAT_WORDS = "repeatWordsList";
         private const string ORAL_kANJI_QUESTIONS = "oralQuestionsNum";
         private const string ORAL_WORD_QUESTIONS = "oralWordQuestionsNum";
         private const string WRITTEN_KANJI_QUESTIONS = "writtenQuestionsNum";
@@ -128,7 +130,7 @@ namespace TestSpace
                 sb.Append(SEPARATOR);
             }
 
-            SaveKanji(sb.ToString());
+            SaveKanji(sb.ToString(), KNOWN_KANJI);
         }
 
         public void SaveKnownWords(List<string> knownWordsList)
@@ -141,7 +143,7 @@ namespace TestSpace
                 sb.Append(SEPARATOR);
             }
 
-            SaveWords(sb.ToString());
+            SaveWords(sb.ToString(), KNOWN_WORDS);
         }
 
         public void SaveKanjiQuestionsNumber(int oralQuestionsNum, int writingQuestionsNum) => SaveKanjiQuestions(oralQuestionsNum.ToString(), writingQuestionsNum.ToString());
@@ -149,26 +151,26 @@ namespace TestSpace
         public void SaveKanaQuestions(int kanaQuestionsNum) => SaveQuestions(kanaQuestionsNum.ToString(), KANA_QUESTIONS);
         public void SaveKeyQuestions(int keyQuestionsNum) => SaveQuestions(keyQuestionsNum.ToString(), KEY_QUESTIONS);
 
-        private void SaveKanji(string knownKanji)
+        private void SaveKanji(string knownKanji, string key)
         {
             var request = new UpdateUserDataRequest
             {
                 Data = new Dictionary<string, string>
                 {
-                    { KNOWN_KANJI, knownKanji },
+                    { key, knownKanji },
                 }
             };
 
             PlayFabClientAPI.UpdateUserData(request, OnUpdateSuccess, OnUpdateFailure);
         }
 
-        private void SaveWords(string knownWords)
+        private void SaveWords(string knownWords, string key)
         {
             var request = new UpdateUserDataRequest
             {
                 Data = new Dictionary<string, string>
                 {
-                    { KNOWN_WORDS, knownWords },
+                    { key, knownWords },
                 }
             };
 
@@ -219,5 +221,71 @@ namespace TestSpace
         private void OnUpdateSuccess(UpdateUserDataResult result) => Debug.Log("UpdateSuccess");
 
         private void OnUpdateFailure(PlayFabError error) => Debug.Log($"{error.GenerateErrorReport()}");
+
+        public List<string> LoadRepeatKanji()
+        {
+            List<string> res = new List<string>();
+
+            if (_result == null)
+                return res;
+
+            if (_result.Data.ContainsKey(REPEAT_KANJI))
+            {
+                string[] arr = _result.Data[REPEAT_KANJI].Value.Split(SEPARATOR);
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == string.Empty)
+                        continue;
+                    res.Add(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        public List<string> LoadRepeatWords()
+        {
+            List<string> res = new List<string>();
+
+            if (_result == null)
+                return res;
+
+            if (_result.Data.ContainsKey(REPEAT_WORDS))
+            {
+                string[] arr = _result.Data[REPEAT_WORDS].Value.Split(SEPARATOR);
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] == string.Empty)
+                        continue;
+                    res.Add(arr[i]);
+                }
+            }
+            return res;
+        }
+
+        public void SaveRepeatKanji(List<string> repeatKanji)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < repeatKanji.Count; i++)
+            {
+                sb.Append(repeatKanji[i]);
+                sb.Append(SEPARATOR);
+            }
+
+            SaveKanji(sb.ToString(), REPEAT_KANJI);
+        }
+
+        public void SaveRepeatWords(List<string> repeatWords)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < repeatWords.Count; i++)
+            {
+                sb.Append(repeatWords[i]);
+                sb.Append(SEPARATOR);
+            }
+
+            SaveWords(sb.ToString(), REPEAT_WORDS);
+        }
     }
 }

@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using Random = System.Random;
 
 namespace TestSpace
 {
@@ -8,27 +9,33 @@ namespace TestSpace
     {
         public WordSO Word;
         public bool IsLast;
+        public bool IsRepeat;
     }
 
     internal class WordTestModel
     {
         private WordSO[] _allWordArr;
         private List<string> _knownWordsList = new();
+        private List<string> _repeatWordsList = new();
+        private List<string> _currentRepeatWordList = new();
         private int _testLength;
         private int _currentTestQuestion;
         private List<int> _testedWordNumbers = new List<int>();
         private Random _random = new Random();
 
-        public WordTestModel(WordSO[] allWordsList, List<string> knownWordsList)
+        public WordTestModel(WordSO[] allWordsArr, List<string> knownWordsList, List<string> repeatWordsList)
         {
-            _allWordArr = allWordsList;
+            _allWordArr = allWordsArr;
             _knownWordsList = knownWordsList;
+            _repeatWordsList = repeatWordsList;
+            _currentRepeatWordList = _repeatWordsList.ToArray().ToList();
         }
 
         public void Init()
         {
             _testedWordNumbers.Clear();
             _currentTestQuestion = 0;
+            _currentRepeatWordList = _repeatWordsList.ToArray().ToList();
         }
 
         public void SetTestLength(int testLength) => _testLength = testLength;
@@ -48,15 +55,48 @@ namespace TestSpace
             return newWordNum;
         }
 
-        public TestWordStruct NextWord() => GetNextWord(_knownWordsList[GetRandomIndex()]);
-
-        private TestWordStruct GetNextWord(string wordName)
+        private TestWordStruct SelectIndex()
         {
-            int index = _allWordArr.Select((word, index) => new { word = word, index }).Where(k => k.word.JpReading == wordName).FirstOrDefault().index;
+            if (_repeatWordsList.Count == 0)
+                return GetNextWord(_knownWordsList[GetRandomIndex()]);
+
+            string word;
+            int newWordNum;
+
+            for (int i = _currentRepeatWordList.Count - 1; i >= 0; i--)
+            {
+                word = _currentRepeatWordList[i];
+                if (_knownWordsList.Contains(word))
+                {
+                    _currentRepeatWordList.Remove(word);
+                    newWordNum = _knownWordsList.IndexOf(word);
+                    _testedWordNumbers.Add(newWordNum);
+                    return GetNextWord(word, true);
+                }
+                else
+                {
+                    _repeatWordsList.Remove(word);
+                }
+            }
+
+            return GetNextWord(_knownWordsList[GetRandomIndex()]);
+        }
+
+        public TestWordStruct NextWord() => SelectIndex();
+
+        private TestWordStruct GetNextWord(string wordName, bool isRepeat = false)
+        {
+            int index = _allWordArr
+                .Select((word, index) => new { word, index })
+                .Where(k => k.word.JpReading == wordName)
+                .FirstOrDefault()
+                .index;
+
             TestWordStruct wordStruct = new TestWordStruct()
             {
                 Word = _allWordArr[index],
-                IsLast = _testLength == _currentTestQuestion
+                IsLast = _testLength == _currentTestQuestion,
+                IsRepeat = isRepeat,
             };
             return wordStruct;
         }

@@ -17,5 +17,9 @@ namespace TestSpace
         void SaveKanaQuestions(int kanaQuestionsNum);
         int LoadKeyQuestions();
         void SaveKeyQuestions(int kanaQuestionsNum);
+        List<string> LoadRepeatKanji();
+        List<string> LoadRepeatWords();
+        void SaveRepeatKanji(List<string> repeatKanji);
+        void SaveRepeatWords(List<string> repeatWords);
     }
 }

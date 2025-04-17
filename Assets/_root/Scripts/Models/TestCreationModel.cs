@@ -48,7 +48,7 @@ namespace TestSpace
             switch (test.TestObjectType)
             {
                 case TestObjectEnum.Kanji:
-                    tempController = new KanjiTestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList);
+                    tempController = new KanjiTestController(tempView, _allKanjiList, _loadSaveController.KnownKanjiList, _loadSaveController.RepeatKanjiList);
                     SubscribeKanji(tempController as KanjiTestController, test.TestType);
                     break;
                 case TestObjectEnum.Kana:
@@ -58,13 +58,15 @@ namespace TestSpace
                     tempController = new KeyTestController(tempView, _allKeyList);
                     break;
                 case TestObjectEnum.Word:
-                    tempController = new WordTestController(tempView, _allWordList, _loadSaveController.KnownWordsList);
+                    tempController = new WordTestController(tempView, _allWordList, _loadSaveController.KnownWordsList, _loadSaveController.RepeatWordsList);
                     break;
                 default:
                     Debug.Log("No sutable test controller!");
                     tempController = new StubTestController();
                     break;
             }
+
+            tempController.TestObjectRepeat += _loadSaveController.UpdateRepeat;
 
             Action[] call = new Action[]
             {
@@ -168,6 +170,7 @@ namespace TestSpace
 
             for (int i = 0; i < _controllersList.Count; i++)
             {
+                _controllersList[i].TestObjectRepeat -= _loadSaveController.UpdateRepeat;
                 UnsubscribeQuestionsNum(_controllersList[i]);
                 if(_controllersList[i] is KanjiTestController)
                     UnsubscribeKanji(_controllersList[i] as KanjiTestController);

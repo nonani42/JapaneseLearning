@@ -13,7 +13,6 @@ namespace TestSpace
 
         protected Color showAnswerColor = Color.white;
         protected Color hideAnswerColor = new(0, 0, 0, 0);
-
         protected Action getNext;
         protected Action showAnswer;
 

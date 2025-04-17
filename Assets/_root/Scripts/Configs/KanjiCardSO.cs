@@ -15,5 +15,6 @@ namespace TestSpace
         [field: SerializeField] public Sprite StrokeOrder { get; set; }
         [field: SerializeField] public KeySO Key { get; set; }
         [field: SerializeField] public WordSO[] Examples { get; set; }
+        [field: SerializeField] public bool IsRepeat { get; set; }
     }
 }

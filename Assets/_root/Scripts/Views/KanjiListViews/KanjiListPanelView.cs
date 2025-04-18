@@ -18,8 +18,9 @@ namespace TestSpace
         [SerializeField] private StatTextView _statTextPrefab;
 
         private StatsModel<KanjiCardSO> _statModel;
-        private List<KanjiButtonView> _activeKanjiButtonViews = new List<KanjiButtonView>();
-        private List<KanjiButtonView> _inactiveKanjiButtonViews = new List<KanjiButtonView>();
+        private List<KanjiButtonView> _activeKanjiButtonViews = new();
+        private List<KanjiButtonView> _inactiveKanjiButtonViews = new();
+        private Dictionary<KanjiCardSO, bool> _kanjiDictionary = new();
 
         public event Action OnBack;
         public event Action<char, bool> OnSelectionChanged;
@@ -28,6 +29,7 @@ namespace TestSpace
 
         public void Init(Dictionary<KanjiCardSO, bool> kanjiDictionary)
         {
+            _kanjiDictionary = kanjiDictionary;
             _statModel = new(_statHolder, _statTextPrefab, _allStatColor);
 
             ClearScreen();
@@ -51,7 +53,18 @@ namespace TestSpace
             _statModel.DoStats(kanjiDictionary);
         }
 
-        public void ChangeSelection(char kanji, bool isKnown) => OnSelectionChanged?.Invoke(kanji, isKnown);
+        public void ChangeSelection(char kanji, bool isKnown)
+        {
+            KanjiCardSO card = _kanjiDictionary.Keys
+                .Where(t => t.Kanji == kanji)
+                .Select(k => k)
+                .First();
+
+            _kanjiDictionary[card] = isKnown;
+
+            _statModel.DoStats(_kanjiDictionary);
+            OnSelectionChanged?.Invoke(kanji, isKnown);
+        }
 
         private void ClearScreen()
         {

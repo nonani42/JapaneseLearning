@@ -33,12 +33,13 @@ namespace TestSpace
             }
         }
 
-        internal void DoStats(Dictionary<T, bool> wordsDictionary)
+        internal void DoStats(Dictionary<T, bool> dictionary)
         {
-            CreateStat(wordsDictionary, "All");
+            ClearStatScreen();
+            CreateStat(dictionary, "All");
 
             for (int i = 0; i < Enum.GetNames(typeof(LevelEnum)).Length; i++)
-                CreateStat(wordsDictionary, (LevelEnum)i);
+                CreateStat(dictionary, (LevelEnum)i);
         }
 
         private StatTextView GetFromStatPool()
@@ -104,17 +105,19 @@ namespace TestSpace
 
             _activeStatViews.Add(view);
 
-            ShowStat(view.StatText, type, allType, knownType, isSum);
+            ShowStat(view, type, allType, knownType, isSum);
         }
 
-        private void ShowStat(TextMeshProUGUI field, string type, float allType, float knownType, bool isSum = false)
+        private void ShowStat(StatTextView view, string type, float allType, float knownType, bool isSum = false)
         {
-            field.text = $"{type} {knownType}/{allType} {(int)(knownType / allType * 100)}%";
+            view.TurnOn(true);
+
+            view.StatText.text = $"{type} {knownType}/{allType} {(int)(knownType / allType * 100)}%";
 
             if (isSum)
             {
-                field.color = _headerColor;
-                field.fontStyle = FontStyles.Bold;
+                view.StatText.color = _headerColor;
+                view.StatText.fontStyle = FontStyles.Bold;
             }
         }
     }
